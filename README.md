@@ -104,4 +104,4 @@ npm install
 3️⃣ Run the project
 npm run dev
 
-Open 👉 http://localhost:5173
+Open 👉 master-prep.vercel.app
