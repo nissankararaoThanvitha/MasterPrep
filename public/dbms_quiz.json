@@ -1,0 +1,652 @@
+[
+  {
+    "id": 1,
+    "subject": "DBMS",
+    "question": "What is the full form of DBMS?",
+    "options": [
+      "Data of Binary Management System",
+      "Database Management System",
+      "Database Management Service",
+      "Data Backup Management System"
+    ],
+    "answer": "b",
+    "explanation": "DBMS stands for Database Management System."
+  },
+  {
+    "id": 2,
+    "subject": "DBMS",
+    "question": "What is a database?",
+    "options": [
+      "Organized collection of information that cannot be accessed, updated, and managed",
+      "Collection of data or information without organizing",
+      "Organized collection of data or information that can be accessed, updated, and managed",
+      "Organized collection of data that cannot be updated"
+    ],
+    "answer": "c",
+    "explanation": "A database is an organized collection of data for easy access and management."
+  },
+  {
+    "id": 3,
+    "subject": "DBMS",
+    "question": "What is DBMS?",
+    "options": [
+      "DBMS is a collection of queries",
+      "DBMS is a high-level language",
+      "DBMS is a programming language",
+      "DBMS stores, modifies and retrieves data"
+    ],
+    "answer": "d",
+    "explanation": "DBMS stores, retrieves and modifies data."
+  },
+  {
+    "id": 4,
+    "subject": "DBMS",
+    "question": "Who created the first DBMS?",
+    "options": [
+      "Edgar Frank Codd",
+      "Charles Bachman",
+      "Charles Babbage",
+      "Sharon B. Codd"
+    ],
+    "answer": "b",
+    "explanation": "Charles Bachman created the first DBMS (IDS)."
+  },
+  {
+    "id": 5,
+    "subject": "DBMS",
+    "question": "Which type of data can be stored in the database?",
+    "options": [
+      "Image oriented data",
+      "Text, files containing data",
+      "Data in the form of audio or video",
+      "All of the above"
+    ],
+    "answer": "d",
+    "explanation": "DBMS can store text, images, video, audio etc."
+  },
+  {
+    "id": 6,
+    "subject": "DBMS",
+    "question": "In which format is data stored in DBMS?",
+    "options": [
+      "Image",
+      "Text",
+      "Table",
+      "Graph"
+    ],
+    "answer": "c",
+    "explanation": "DBMS stores data in table format."
+  },
+  {
+    "id": 7,
+    "subject": "DBMS",
+    "question": "Which of the following is NOT a type of database?",
+    "options": [
+      "Hierarchical",
+      "Network",
+      "Distributed",
+      "Decentralized"
+    ],
+    "answer": "d",
+    "explanation": "Centralized, distributed, hierarchical, network, relational exist — decentralized does not."
+  },
+  {
+    "id": 8,
+    "subject": "DBMS",
+    "question": "Which of the following is NOT an example of DBMS?",
+    "options": [
+      "MySQL",
+      "Microsoft Access",
+      "IBM DB2",
+      "Google"
+    ],
+    "answer": "d",
+    "explanation": "Google is a search engine, not a DBMS."
+  },
+  {
+    "id": 9,
+    "subject": "DBMS",
+    "question": "Which of the following is NOT a feature of DBMS?",
+    "options": [
+      "Minimum Duplication and Redundancy of Data",
+      "High Level of Security",
+      "Single-user Access only",
+      "Support ACID Property"
+    ],
+    "answer": "c",
+    "explanation": "DBMS supports multi-user access."
+  },
+  {
+    "id": 10,
+    "subject": "DBMS",
+    "question": "Which of the following is a feature of a database?",
+    "options": [
+      "No backup for data",
+      "User interface provided",
+      "Lack of authentication",
+      "Stores data in multiple disconnected locations"
+    ],
+    "answer": "b",
+    "explanation": "DBMS provides UI and security."
+  },
+  {
+    "id": 11,
+    "subject": "DBMS",
+    "question": "Which of the following is NOT a function of a database?",
+    "options": [
+      "Managing stored data",
+      "Manipulating data",
+      "Providing security for stored data",
+      "Analysing program code"
+    ],
+    "answer": "d",
+    "explanation": "DBMS does not analyse code — it stores and manages data."
+  },
+  {
+    "id": 12,
+    "subject": "DBMS",
+    "question": "Which of the following is a function of DBMS?",
+    "options": [
+      "Storing data",
+      "Providing multi-user access control",
+      "Ensuring data integrity",
+      "All of the above"
+    ],
+    "answer": "d",
+    "explanation": "DBMS stores, secures and maintains integrity of data."
+  },
+  {
+    "id": 13,
+    "subject": "DBMS",
+    "question": "Which of the following is a component of DBMS?",
+    "options": [
+      "Data",
+      "Data Languages",
+      "Data Manager",
+      "All of the above"
+    ],
+    "answer": "d",
+    "explanation": "DBMS consists of data, language and data manager."
+  },
+  {
+    "id": 14,
+    "subject": "DBMS",
+    "question": "A set of entities of the same type that share the same properties is called:",
+    "options": [
+      "Relation set",
+      "Tuples",
+      "Entity set",
+      "Entity Relation model"
+    ],
+    "answer": "c",
+    "explanation": "Entity set represents same type of entities."
+  },
+  {
+    "id": 15,
+    "subject": "DBMS",
+    "question": "What is information about data called?",
+    "options": [
+      "Hyper data",
+      "Tera data",
+      "Meta data",
+      "Relations"
+    ],
+    "answer": "c",
+    "explanation": "Metadata describes properties of stored data."
+  },
+  {
+    "id": 16,
+    "subject": "DBMS",
+    "question": "RDBMS consists of:",
+    "options": [
+      "Collection of records",
+      "Collection of keys",
+      "Collection of tables",
+      "Collection of fields"
+    ],
+    "answer": "c",
+    "explanation": "RDBMS is table-based storage."
+  },
+  {
+    "id": 17,
+    "subject": "DBMS",
+    "question": "The integrity rule that ensures foreign key values must match primary keys is:",
+    "options": [
+      "Referential integrity",
+      "Primary integrity",
+      "Referencing integrity",
+      "Specific integrity"
+    ],
+    "answer": "a",
+    "explanation": "Referential integrity links foreign keys with primary keys."
+  },
+  {
+    "id": 18,
+    "subject": "DBMS",
+    "question": "Which hardware is most important for DBMS?",
+    "options": [
+      "Microphone",
+      "High-speed, large-capacity disk",
+      "High resolution display",
+      "Printer"
+    ],
+    "answer": "b",
+    "explanation": "Databases require storage speed and capacity."
+  },
+  {
+    "id": 19,
+    "subject": "DBMS",
+    "question": "DBMS acts as an interface between:",
+    "options": [
+      "Data and DBMS",
+      "Application and SQL",
+      "Database application and database",
+      "User and software"
+    ],
+    "answer": "c",
+    "explanation": "DBMS connects application software to database."
+  },
+  {
+    "id": 20,
+    "subject": "DBMS",
+    "question": "Which language allows inserting, deleting and updating data?",
+    "options": [
+      "TCL",
+      "DCL",
+      "DDL",
+      "DML"
+    ],
+    "answer": "d",
+    "explanation": "DML manipulates data values."
+  },
+  {
+    "id": 21,
+    "subject": "DBMS",
+    "question": "A set of one or more attributes that uniquely identifies a record is called:",
+    "options": [
+      "Primary key",
+      "Foreign key",
+      "Super key",
+      "Candidate key"
+    ],
+    "answer": "c",
+    "explanation": "Super key is superset of all possible keys."
+  },
+  {
+    "id": 22,
+    "subject": "DBMS",
+    "question": "Which SQL command removes an entire table?",
+    "options": [
+      "DROP TABLE",
+      "DELETE",
+      "PURGE",
+      "REMOVE"
+    ],
+    "answer": "a",
+    "explanation": "DROP deletes structure + data."
+  },
+  {
+    "id": 23,
+    "subject": "DBMS",
+    "question": "Weak entity must be associated with:",
+    "options": [
+      "Neighbour set",
+      "Strong entity set",
+      "Owner set",
+      "Identifying set"
+    ],
+    "answer": "d",
+    "explanation": "Weak entity depends on identifying entity."
+  },
+  {
+    "id": 24,
+    "subject": "DBMS",
+    "question": "Which command deletes values in table teaches?",
+    "options": [
+      "DELETE FROM teaches;",
+      "DELETE FROM teaches WHERE id = NULL;",
+      "REMOVE TABLE teaches;",
+      "DROP TABLE teaches;"
+    ],
+    "answer": "a",
+    "explanation": "DELETE removes rows only."
+  },
+  {
+    "id": 25,
+    "subject": "DBMS",
+    "question": "Which language is procedural?",
+    "options": [
+      "Domain relational calculus",
+      "Tuple relational calculus",
+      "Relational algebra",
+      "Query language"
+    ],
+    "answer": "c",
+    "explanation": "Relational algebra specifies procedure."
+  },
+  {
+    "id": 26,
+    "subject": "DBMS",
+    "question": "Which join does NOT preserve non-matched tuples?",
+    "options": [
+      "Left outer join",
+      "Inner join",
+      "Natural join",
+      "Right outer join"
+    ],
+    "answer": "b",
+    "explanation": "Inner join keeps only matches."
+  },
+  {
+    "id": 27,
+    "subject": "DBMS",
+    "question": "Which normal form contains information about a single entity?",
+    "options": [
+      "4NF",
+      "2NF",
+      "5NF",
+      "3NF"
+    ],
+    "answer": "d",
+    "explanation": "3NF removes transitive dependencies."
+  },
+  {
+    "id": 28,
+    "subject": "DBMS",
+    "question": "Top level of hierarchy consists of ______ which contain ______.",
+    "options": [
+      "Schemas, Catalogs",
+      "Schemas, Environment",
+      "Environment, Schemas",
+      "Catalogs, Schemas"
+    ],
+    "answer": "d",
+    "explanation": "Catalogs store schemas."
+  },
+  {
+    "id": 29,
+    "subject": "DBMS",
+    "question": "Maximum number of entities in a relationship is called:",
+    "options": [
+      "Greater entity count",
+      "Minimum cardinality",
+      "Maximum cardinality",
+      "ERD"
+    ],
+    "answer": "c",
+    "explanation": "Cardinality defines participation count."
+  },
+  {
+    "id": 30,
+    "subject": "DBMS",
+    "question": "Which role manages adding/removing user IDs?",
+    "options": [
+      "db_sysadmin",
+      "db_accessadmin",
+      "db_securityadmin",
+      "db_setupadmin"
+    ],
+    "answer": "b",
+    "explanation": "db_accessadmin controls user access."
+  },
+  {
+    "id": 31,
+    "subject": "DBMS",
+    "question": "Why is this SQL query incorrect? SELECT dept_name, ID, AVG(salary) FROM instructor GROUP BY dept_name;",
+    "options": [
+      "dept_name should not be grouped",
+      "Group by is invalid here",
+      "ID must appear in GROUP BY or aggregate",
+      "AVG(salary) should not be selected"
+    ],
+    "answer": "c",
+    "explanation": "Columns not aggregated must be grouped."
+  },
+  {
+    "id": 32,
+    "subject": "DBMS",
+    "question": "Traditional paper file storage represents which DBMS model?",
+    "options": [
+      "Object-oriented",
+      "Relational",
+      "Network",
+      "Hierarchical"
+    ],
+    "answer": "d",
+    "explanation": "Filing cabinet is hierarchy based."
+  },
+  {
+    "id": 33,
+    "subject": "DBMS",
+    "question": "AFTER grouping, which clause filters groups?",
+    "options": [
+      "WHERE",
+      "HAVING",
+      "GROUP BY",
+      "WITH"
+    ],
+    "answer": "b",
+    "explanation": "HAVING filters aggregate results."
+  },
+  {
+    "id": 34,
+    "subject": "DBMS",
+    "question": "Which of the following is NOT a DBMS utility?",
+    "options": [
+      "Backup",
+      "Data loading",
+      "Process organization",
+      "File organization"
+    ],
+    "answer": "c",
+    "explanation": "Process organization is OS level."
+  },
+  {
+    "id": 35,
+    "subject": "DBMS",
+    "question": "Foreign key combined with primary key creates:",
+    "options": [
+      "Network model",
+      "Parent-child relationship",
+      "One-to-many relationship",
+      "All of the above"
+    ],
+    "answer": "b",
+    "explanation": "Parent table = primary key, child table = foreign key."
+  },
+  {
+    "id": 36,
+    "subject": "DBMS",
+    "question": "What maintains transactional integrity?",
+    "options": [
+      "Pointers",
+      "Cursors",
+      "Locks",
+      "Triggers"
+    ],
+    "answer": "c",
+    "explanation": "Locks control concurrency."
+  },
+  {
+    "id": 37,
+    "subject": "DBMS",
+    "question": "Spreadsheet file used by DBMS is stored as:",
+    "options": [
+      "Direct DB format",
+      "ASCII text",
+      "Binary",
+      "Encrypted data"
+    ],
+    "answer": "a",
+    "explanation": "Spreadsheet tables map well to DB tables."
+  },
+  {
+    "id": 38,
+    "subject": "DBMS",
+    "question": "DELETE FROM r WHERE P; does what?",
+    "options": [
+      "Clears entire table",
+      "Deletes table",
+      "Deletes specific tuples",
+      "All of the above"
+    ],
+    "answer": "c",
+    "explanation": "Condition deletes particular rows."
+  },
+  {
+    "id": 39,
+    "subject": "DBMS",
+    "question": "Which resembles CREATE VIEW?",
+    "options": [
+      "CREATE TABLE ... AS",
+      "CREATE VIEW AS",
+      "CREATE TABLE ... LIKE",
+      "WITH DATA"
+    ],
+    "answer": "a",
+    "explanation": "Both use queries to define data."
+  },
+  {
+    "id": 40,
+    "subject": "DBMS",
+    "question": "View is updatable only if:",
+    "options": [
+      "SELECT has no expressions",
+      "FROM has one table",
+      "No GROUP BY or HAVING",
+      "All of the above"
+    ],
+    "answer": "d",
+    "explanation": "All rules must be satisfied."
+  },
+  {
+    "id": 41,
+    "subject": "DBMS",
+    "question": "ROLLUP in GROUP BY is used to:",
+    "options": [
+      "Find subtotal groups",
+      "Create grand totals",
+      "Group expressions from right to left",
+      "Create cross-tab report"
+    ],
+    "answer": "c",
+    "explanation": "ROLLUP performs hierarchical aggregation."
+  },
+  {
+    "id": 42,
+    "subject": "DBMS",
+    "question": "Best way to represent attributes in large DB?",
+    "options": [
+      "Dot notation",
+      "Concatenation",
+      "Relational-and",
+      "All of the above"
+    ],
+    "answer": "b",
+    "explanation": "Concatenation improves readability."
+  },
+  {
+    "id": 43,
+    "subject": "DBMS",
+    "question": "Subset of SQL used to define structures?",
+    "options": [
+      "Data Described Language",
+      "Data Retrieval Language",
+      "Data Manipulation Language",
+      "Data Definition Language"
+    ],
+    "answer": "d",
+    "explanation": "DDL defines schema."
+  },
+  {
+    "id": 44,
+    "subject": "DBMS",
+    "question": "Which function constructs histograms?",
+    "options": [
+      "NTILE()",
+      "NEWTILE()",
+      "RANK()",
+      "All of the above"
+    ],
+    "answer": "a",
+    "explanation": "NTILE distributes rows into buckets."
+  },
+  {
+    "id": 45,
+    "subject": "DBMS",
+    "question": "Which command issues multiple SQL statements in one transaction?",
+    "options": [
+      "CREATE CLUSTER",
+      "CREATE PACKAGE",
+      "CREATE SCHEMA",
+      "All of the above"
+    ],
+    "answer": "c",
+    "explanation": "CREATE SCHEMA groups object creation."
+  },
+  {
+    "id": 46,
+    "subject": "DBMS",
+    "question": "Which key protects data when encryption is applied?",
+    "options": [
+      "Primary key",
+      "Authorised key",
+      "Encryption key",
+      "Decryption key"
+    ],
+    "answer": "c",
+    "explanation": "Encryption key secures stored data."
+  },
+  {
+    "id": 47,
+    "subject": "DBMS",
+    "question": "Viewing cross-tab with fixed value is called:",
+    "options": [
+      "Dicing",
+      "Pivoting",
+      "Slicing",
+      "Both Pivoting and Dicing"
+    ],
+    "answer": "c",
+    "explanation": "Slice selects subset of cube."
+  },
+  {
+    "id": 48,
+    "subject": "DBMS",
+    "question": "Which normal form is adequate for most RDBMS?",
+    "options": [
+      "4NF",
+      "3NF",
+      "2NF",
+      "5NF"
+    ],
+    "answer": "b",
+    "explanation": "3NF removes most anomalies."
+  },
+  {
+    "id": 49,
+    "subject": "DBMS",
+    "question": "Which RAID level provides best write performance?",
+    "options": [
+      "RAID 0",
+      "RAID 1",
+      "RAID 2",
+      "RAID 3"
+    ],
+    "answer": "b",
+    "explanation": "RAID 1 mirrors disks and speeds writes."
+  },
+  {
+    "id": 50,
+    "subject": "DBMS",
+    "question": "Tuple relational calculus query format is:",
+    "options": [
+      "{ }{P(t) | t}",
+      "{t | P(t)}",
+      "t | P() | t",
+      "All of the above"
+    ],
+    "answer": "b",
+    "explanation": "Tuple calculus specifies condition not process."
+  }
+]

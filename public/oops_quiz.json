@@ -1,0 +1,534 @@
+[
+  {
+    "id": 1,
+    "subject": "OOPS",
+    "question": "Who invented OOP?",
+    "options": ["Andrea Ferro", "Adele Goldberg", "Alan Kay", "Dennis Ritchie"],
+    "answer": "c",
+    "explanation": "Alan Kay is credited with inventing Object-Oriented Programming while working on Smalltalk."
+  },
+  {
+    "id": 2,
+    "subject": "OOPS",
+    "question": "Which is not a feature of OOP?",
+    "options": ["Efficient Code", "Code reusability", "Modularity", "Duplicate/Redundant data"],
+    "answer": "d",
+    "explanation": "Duplicate or redundant data is not guaranteed to be avoided by OOP — it depends on the programmer."
+  },
+  {
+    "id": 3,
+    "subject": "OOPS",
+    "question": "Which was the first purely object-oriented programming language?",
+    "options": ["Kotlin", "SmallTalk", "Java", "C++"],
+    "answer": "b",
+    "explanation": "SmallTalk is considered the first fully object-oriented language."
+  },
+  {
+    "id": 4,
+    "subject": "OOPS",
+    "question": "When did OOP first come into picture?",
+    "options": ["1980’s", "1995", "1970’s", "1993"],
+    "answer": "c",
+    "explanation": "OOP ideas emerged during the 1970s, largely from Smalltalk research."
+  },
+  {
+    "id": 5,
+    "subject": "OOPS",
+    "question": "Which feature of OOP indicates code reusability?",
+    "options": ["Abstraction", "Polymorphism", "Encapsulation", "Inheritance"],
+    "answer": "d",
+    "explanation": "Inheritance allows reuse of existing code across classes."
+  },
+  {
+    "id": 6,
+    "subject": "OOPS",
+    "question": "Which header file is required in C++ to use OOP?",
+    "options": ["OOP can be used without any specific header file", "stdlib.h", "iostream.h", "stdio.h"],
+    "answer": "a",
+    "explanation": "OOP is a language feature — not dependent on any special header."
+  },
+  {
+    "id": 7,
+    "subject": "OOPS",
+    "question": "Why is Java considered partially OOP?",
+    "options": [
+      "It allows code outside classes",
+      "It supports primitive data types",
+      "It does not support pointers",
+      "It doesn’t support all types of inheritance"
+    ],
+    "answer": "b",
+    "explanation": "Primitive types in Java are not objects, so it is not 100% object-oriented."
+  },
+  {
+    "id": 8,
+    "subject": "OOPS",
+    "question": "Which does NOT come under OOP concept?",
+    "options": ["Data hiding", "Message passing", "Platform independent", "Data binding"],
+    "answer": "c",
+    "explanation": "Platform independence is a language feature, not an OOP concept."
+  },
+  {
+    "id": 9,
+    "subject": "OOPS",
+    "question": "Which is the correct syntax for inheritance in C++?",
+    "options": [
+      "class base : access derived {}",
+      "class derived : access base {}",
+      "class derived : base {}",
+      "class base : derived {}"
+    ],
+    "answer": "b",
+    "explanation": "C++ inheritance syntax is: class Derived : access Base {}"
+  },
+  {
+    "id": 10,
+    "subject": "OOPS",
+    "question": "Which feature is indicated in the given code (class topper : public student)?",
+    "options": [
+      "Encapsulation and Inheritance",
+      "Inheritance and Polymorphism",
+      "Polymorphism",
+      "Inheritance"
+    ],
+    "answer": "a",
+    "explanation": "Classes show encapsulation; deriving topper from student shows inheritance."
+  },
+  {
+    "id": 11,
+    "subject": "OOPS",
+    "question": "The feature by which one object interacts with another object is called:",
+    "options": ["Message reading", "Message passing", "Data transfer", "Data binding"],
+    "answer": "b",
+    "explanation": "Objects interact by sending messages to one another."
+  },
+  {
+    "id": 12,
+    "subject": "OOPS",
+    "question": "For a pure OOP language, which is true?",
+    "options": [
+      "Must follow at least one OOP feature",
+      "Must follow only three OOP features",
+      "Must follow all OOP rules",
+      "Must follow three or more features"
+    ],
+    "answer": "c",
+    "explanation": "All OOP rules must be followed to be considered purely OOP."
+  },
+  {
+    "id": 13,
+    "subject": "OOPS",
+    "question": "How many types of access specifiers are provided in C++?",
+    "options": ["4", "3", "2", "1"],
+    "answer": "b",
+    "explanation": "C++ provides public, private and protected."
+  },
+  {
+    "id": 14,
+    "subject": "OOPS",
+    "question": "In multilevel inheritance, which feature is most significant?",
+    "options": ["Code efficiency", "Code readability", "Flexibility", "Code reusability"],
+    "answer": "d",
+    "explanation": "Multilevel inheritance helps reuse already-written code."
+  },
+  {
+    "id": 15,
+    "subject": "OOPS",
+    "question": "What is encapsulation?",
+    "options": [
+      "Combining data and functions operating on them into one unit",
+      "Combining members into a unit that can operate on any data",
+      "Combining only data into one unit",
+      "Combining only functions into one unit"
+    ],
+    "answer": "a",
+    "explanation": "Encapsulation binds data and related functions together into a class."
+  },
+  {
+    "id": 16,
+    "subject": "OOPS",
+    "question": "Which statement is NOT true about polymorphism?",
+    "options": [
+      "Helps redefine same functionality",
+      "Always increases overhead",
+      "Feature of OOP",
+      "Improves readability"
+    ],
+    "answer": "b",
+    "explanation": "Polymorphism does not always increase overhead — often simplifies design."
+  },
+  {
+    "id": 17,
+    "subject": "OOPS",
+    "question": "Which constructor will be called in the given C++ code?",
+    "options": [
+      "Parameterized constructor",
+      "Default constructor",
+      "Run-time error",
+      "Compile-time error"
+    ],
+    "answer": "d",
+    "explanation": "Ambiguity occurs because both default and default-argument constructors exist."
+  },
+  {
+    "id": 18,
+    "subject": "OOPS",
+    "question": "What is abstraction?",
+    "options": [
+      "Hiding implementation and showing only features",
+      "Hiding important data",
+      "Hiding implementation only",
+      "Showing important data"
+    ],
+    "answer": "a",
+    "explanation": "Abstraction hides complexity and exposes only required details."
+  },
+  {
+    "id": 19,
+    "subject": "OOPS",
+    "question": "Which operator overloading demonstrates polymorphism?",
+    "options": ["&&", "<<", "||", "+="],
+    "answer": "b",
+    "explanation": "The insertion operator (<<) can be overloaded, demonstrating polymorphism."
+  },
+  {
+    "id": 20,
+    "subject": "OOPS",
+    "question": "In which access specifier should a constructor be defined so objects can be created anywhere?",
+    "options": ["Any access specifier", "Private", "Public", "Protected"],
+    "answer": "c",
+    "explanation": "Constructors must be public to allow object creation outside the class."
+  },
+  {
+    "id": 21,
+    "subject": "OOPS",
+    "question": "What is true about the following code?",
+    "code": "student s1(100); student s2(); student s3 = 100;",
+    "options": [
+      "Program gives compile-time error",
+      "Object s3 syntax error",
+      "Only s1 and s2 are created",
+      "Program runs and all objects are created"
+    ],
+    "answer": "d",
+    "explanation": "With a single-argument constructor, implicit conversion is allowed. So all three objects are valid."
+  },
+  {
+    "id": 22,
+    "subject": "OOPS",
+    "question": "Copy constructors can be used to:",
+    "options": [
+      "Copy object into primitive variable",
+      "Copy object for type casting",
+      "Copy an object so that it can be passed to a function",
+      "Copy object so it can be passed to a class"
+    ],
+    "answer": "c",
+    "explanation": "When passing objects to functions, copy constructor copies values into the parameter."
+  },
+  {
+    "id": 23,
+    "subject": "OOPS",
+    "question": "Which constructor is called for obj2?",
+    "options": [
+      "A(int y, int x)",
+      "A(int y; int x)",
+      "A(int y)",
+      "A(int x)"
+    ],
+    "answer": "a",
+    "explanation": "obj2(10,20) matches the constructor with two parameters."
+  },
+  {
+    "id": 24,
+    "subject": "OOPS",
+    "question": "Which is the correct constructor syntax?",
+    "options": [
+      "-classname()",
+      "classname()",
+      "()classname",
+      "~classname()"
+    ],
+    "answer": "b",
+    "explanation": "Constructors have the same name as the class and no return type."
+  },
+  {
+    "id": 25,
+    "subject": "OOPS",
+    "question": "What happens when an object is passed by reference?",
+    "options": [
+      "Destructor called at function end",
+      "Destructor called explicitly",
+      "Destructor is not called",
+      "Destructor called when out of scope"
+    ],
+    "answer": "c",
+    "explanation": "No temporary object is created — so destructor is not called."
+  },
+  {
+    "id": 26,
+    "subject": "OOPS",
+    "question": "Which access specifier is usually used for data members?",
+    "options": ["Protected", "Private", "Public", "Default"],
+    "answer": "b",
+    "explanation": "Private ensures data protection and controlled access via methods."
+  },
+  {
+    "id": 27,
+    "subject": "OOPS",
+    "question": "How are data members accessed?",
+    "options": [
+      "Dot, arrow or direct",
+      "Dot operator only",
+      "Arrow operator only",
+      "Dot or arrow as required"
+    ],
+    "answer": "d",
+    "explanation": "Dot for objects, arrow for pointers."
+  },
+  {
+    "id": 28,
+    "subject": "OOPS",
+    "question": "Which feature reduces the need for nested classes?",
+    "options": ["Inheritance", "Binding", "Abstraction", "Encapsulation"],
+    "answer": "a",
+    "explanation": "Inheritance allows child classes to reuse members instead of nesting."
+  },
+  {
+    "id": 29,
+    "subject": "OOPS",
+    "question": "Which keyword declares array of objects in Java?",
+    "options": ["allocate", "arr", "new", "create"],
+    "answer": "c",
+    "explanation": "The 'new' keyword creates memory space for objects."
+  },
+  {
+    "id": 30,
+    "subject": "OOPS",
+    "question": "Which operator frees memory allocated for an object in C++?",
+    "options": ["Unallocate", "Free()", "Collect", "delete"],
+    "answer": "d",
+    "explanation": "delete releases dynamically allocated memory."
+  },
+  {
+    "id": 31,
+    "subject": "OOPS",
+    "question": "Which is NOT a property of an object?",
+    "options": ["Properties", "Names", "Identity", "Attributes"],
+    "answer": "b",
+    "explanation": "An object has identity, state and behavior — not 'names'."
+  },
+  {
+    "id": 32,
+    "subject": "OOPS",
+    "question": "Which members can't be accessed in derived classes?",
+    "options": ["All", "Protected", "Private", "Public"],
+    "answer": "c",
+    "explanation": "Private members are accessible only within the class itself."
+  },
+  {
+    "id": 33,
+    "subject": "OOPS",
+    "question": "Which best describes inheritance?",
+    "options": [
+      "Using data and functions from base in derived",
+      "Using predefined functions",
+      "Copying already written code",
+      "Reusing code manually"
+    ],
+    "answer": "a",
+    "explanation": "Inheritance allows reuse of base class members in derived classes."
+  },
+  {
+    "id": 34,
+    "subject": "OOPS",
+    "question": "Single level inheritance supports:",
+    "options": ["Language independency", "Multiple inheritance", "Compile time", "Runtime"],
+    "answer": "d",
+    "explanation": "Actual function resolution happens at runtime."
+  },
+  {
+    "id": 35,
+    "subject": "OOPS",
+    "question": "How do we overcome diamond problem?",
+    "options": [
+      "Separate derived class",
+      "Using virtual keyword",
+      "Not possible",
+      "Alias naming"
+    ],
+    "answer": "b",
+    "explanation": "Virtual inheritance avoids ambiguity."
+  },
+  {
+    "id": 36,
+    "subject": "OOPS",
+    "question": "Keyword used to declare virtual functions?",
+    "options": ["virt", "virtually", "virtual", "anonymous"],
+    "answer": "c",
+    "explanation": "'virtual' allows runtime polymorphism."
+  },
+  {
+    "id": 37,
+    "subject": "OOPS",
+    "question": "What if non-static members are used in static function?",
+    "options": ["Executes fine", "Compile-time error", "Executes if unused", "Runtime error"],
+    "answer": "b",
+    "explanation": "Static functions don't have object context — so cannot access non-static members."
+  },
+  {
+    "id": 38,
+    "subject": "OOPS",
+    "question": "What is a friend function?",
+    "options": [
+      "Non-member that can access private members",
+      "Member without private access",
+      "Function that modifies any data",
+      "Member that accesses all members"
+    ],
+    "answer": "a",
+    "explanation": "Friend functions bypass normal access control."
+  },
+  {
+    "id": 39,
+    "subject": "OOPS",
+    "question": "Where is memory allocated for objects?",
+    "options": ["Cache", "ROM", "Hard Disk", "RAM"],
+    "answer": "d",
+    "explanation": "Objects reside in RAM during execution."
+  },
+  {
+    "id": 40,
+    "subject": "OOPS",
+    "question": "Which best describes function overriding?",
+    "options": [
+      "Same name in derived only",
+      "Same name with different signature in main",
+      "Same name in base and derived",
+      "Same name only in base"
+    ],
+    "answer": "c",
+    "explanation": "Overriding occurs when derived class redefines a base class function."
+  },
+  {
+    "id": 41,
+    "subject": "OOPS",
+    "question": "Encapsulation and abstraction differ as ____________",
+    "options": [
+      "Hiding and hiding respectively",
+      "Binding and hiding respectively",
+      "Hiding and binding respectively",
+      "Can be used in any way"
+    ],
+    "answer": "b",
+    "explanation": "Abstraction hides implementation details. Encapsulation binds data and functions together."
+  },
+  {
+    "id": 42,
+    "subject": "OOPS",
+    "question": "Which feature is exhibited by function overriding?",
+    "options": ["Polymorphism", "Encapsulation", "Abstraction", "Inheritance"],
+    "answer": "a",
+    "explanation": "Function overriding is an example of runtime polymorphism."
+  },
+  {
+    "id": 43,
+    "subject": "OOPS",
+    "question": "How can private member functions be accessed?",
+    "options": [
+      "Using class address",
+      "Using object of class",
+      "Using object pointer",
+      "Using address of the member function"
+    ],
+    "answer": "d",
+    "explanation": "Private functions can be called using their address, usually via pointer-to-member."
+  },
+  {
+    "id": 44,
+    "subject": "OOPS",
+    "question": "Which keyword declares static variables?",
+    "options": ["const", "common", "static", "stat"],
+    "answer": "c",
+    "explanation": "The 'static' keyword preserves value and scope rules."
+  },
+  {
+    "id": 45,
+    "subject": "OOPS",
+    "question": "Correct syntax for pointer to object?",
+    "options": [
+      "*className objectName;",
+      "className* objectName;",
+      "className objectName();",
+      "className objectName;"
+    ],
+    "answer": "b",
+    "explanation": "Pointer type comes first, followed by variable name."
+  },
+  {
+    "id": 46,
+    "subject": "OOPS",
+    "question": "Which classes illustrate polymorphism in the given program?",
+    "options": [
+      "student and topper only",
+      "student only",
+      "failed must inherit student",
+      "student, topper and average"
+    ],
+    "answer": "d",
+    "explanation": "Abstract base + overridden functions in derived classes demonstrates polymorphism."
+  },
+  {
+    "id": 47,
+    "subject": "OOPS",
+    "question": "How can private data members be accessed?",
+    "options": [
+      "They can never be accessed",
+      "Using public member functions",
+      "Using private functions only",
+      "Using protected functions"
+    ],
+    "answer": "b",
+    "explanation": "Public getters/setters allow controlled access to private members."
+  },
+  {
+    "id": 48,
+    "subject": "OOPS",
+    "question": "Which is NOT necessary for constructors?",
+    "options": [
+      "Same name as class",
+      "No return type",
+      "Must contain a definition body",
+      "Can contain arguments"
+    ],
+    "answer": "c",
+    "explanation": "Constructors can be declared without explicit body (implicitly generated)."
+  },
+  {
+    "id": 49,
+    "subject": "OOPS",
+    "question": "Object passed to copy constructor must:",
+    "options": [
+      "Not be mentioned in parameter list",
+      "Be passed as integer type",
+      "Be passed by value",
+      "Be passed by reference"
+    ],
+    "answer": "d",
+    "explanation": "Passing by value causes infinite recursion, so copy constructors must take reference."
+  },
+  {
+    "id": 50,
+    "subject": "OOPS",
+    "question": "Order of destructor calls in multiple inheritance where C inherits B and B inherits A?",
+    "options": [
+      "~A() then ~B() then ~C()",
+      "~C() then ~A() then ~B()",
+      "~C() then ~B() then ~A()",
+      "~B() then ~C() then ~A()"
+    ],
+    "answer": "c",
+    "explanation": "Destructors are called in reverse construction order: Derived → Base."
+  }
+]
+

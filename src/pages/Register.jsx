@@ -1,0 +1,110 @@
+import { useState } from "react";
+
+function Register() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirm, setConfirm] = useState("");
+  const [error, setError] = useState("");
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    setError("");
+
+    if (password !== confirm) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    const existingUser = JSON.parse(localStorage.getItem("prepUser"));
+
+    // 🔥 CHECK: account already exists
+    if (existingUser && existingUser.email === email) {
+      setError("Account already exists. Please login.");
+      return;
+    }
+
+    const user = { name, email, password };
+
+    // Save account
+    localStorage.setItem("prepUser", JSON.stringify(user));
+
+    // Auto-login
+    localStorage.setItem("currentUser", JSON.stringify(user));
+    localStorage.setItem("isLoggedIn", "true");
+
+    alert("Account created! Welcome 🎉");
+    window.location.href = "/dashboard";
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-[#f4f6ff]">
+      <div className="bg-white p-[30px] rounded-[14px] shadow-[0_10px_25px_rgba(0,0,0,0.1)] w-[350px]">
+        <h2 className="text-center mb-[15px] text-xl font-semibold">
+          Create Account
+        </h2>
+
+        {error && (
+          <p className="text-red-600 text-sm mb-2">{error}</p>
+        )}
+
+        <form
+          onSubmit={handleRegister}
+          className="flex flex-col gap-[12px]"
+        >
+          <input
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            className="p-[10px] rounded-lg border border-gray-300"
+          />
+
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="p-[10px] rounded-lg border border-gray-300"
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            className="p-[10px] rounded-lg border border-gray-300"
+          />
+
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            value={confirm}
+            onChange={(e) => setConfirm(e.target.value)}
+            required
+            className="p-[10px] rounded-lg border border-gray-300"
+          />
+
+          <button
+            type="submit"
+            className="p-[10px] rounded-lg bg-indigo-600 text-white cursor-pointer font-semibold"
+          >
+            Register
+          </button>
+
+          <p className="text-sm text-center">
+            Already have an account?{" "}
+            <a href="/login" className="text-indigo-600 underline">
+              Login
+            </a>
+          </p>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+export default Register;

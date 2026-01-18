@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "What is normalization in DBMS?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "Normalization organizes data into smaller related tables to reduce redundancy and improve data integrity."
+  },
+  {
+    "id": 2,
+    "title": "What is an array?",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "An array is a collection of elements stored in contiguous memory locations."
+  },
+  {
+    "id": 3,
+    "title": "What is OS scheduling?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Scheduling decides the order in which processes access the CPU."
+  },
+  {
+    "id": 4,
+    "title": "What is a primary key?",
+    "subject": "DBMS",
+    "difficulty": "Easy",
+    "answer": "A primary key uniquely identifies each record in a table."
+  },
+  {
+    "id": 5,
+    "title": "What is recursion?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Recursion is when a function calls itself to solve smaller subproblems."
+  }
+]
