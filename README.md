@@ -104,6 +104,6 @@ npm install
 3️⃣ Run the project
 npm run dev
 
-Open 👉 https://master-prep.vercel.app/
+Open 👉 https://master-prep-4fgh.vercel.app/
 
 
