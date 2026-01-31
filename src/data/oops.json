@@ -1,0 +1,317 @@
+[
+  {
+    "id": 1,
+    "title": "What is an object-oriented paradigm and what are the main concepts of OOP?",
+    "subject": "OOPS",
+    "difficulty": "Easy",
+    "answer": "The object-oriented paradigm organizes programs around objects instead of functions. The main OOP concepts are: Encapsulation, Inheritance, Polymorphism and Abstraction."
+  },
+  {
+    "id": 2,
+    "title": "Difference between object-oriented and object-based languages",
+    "subject": "OOPS",
+    "difficulty": "Medium",
+    "answer": "Object-oriented languages support inheritance, abstraction and polymorphism. Object-based languages only support objects and encapsulation. Examples: Java, C# → OOP. JavaScript, VB → object-based."
+  },
+  {
+    "id": 3,
+    "title": "What is a Class?",
+    "subject": "OOPS",
+    "difficulty": "Easy",
+    "answer": "A class is a blueprint used to create objects. It contains fields, methods, constructors and blocks representing common properties and behavior."
+  },
+  {
+    "id": 4,
+    "title": "What is an Object?",
+    "subject": "OOPS",
+    "difficulty": "Easy",
+    "answer": "An object is an instance of a class. It represents real-world entities and contains state (variables) and behavior (methods)."
+  },
+  {
+    "id": 5,
+    "title": "Ways to create objects in Java",
+    "subject": "OOPS",
+    "difficulty": "Medium",
+    "answer": "Objects can be created using: new keyword, Class.newInstance(), Constructor.newInstance(), clone(), and deserialization."
+  },
+  {
+    "id": 6,
+    "title": "Difference between new and newInstance()",
+    "subject": "OOPS",
+    "difficulty": "Medium",
+    "answer": "new creates objects at compile-time with type known. newInstance() creates objects at runtime using reflection and may throw exceptions."
+  },
+  {
+    "id": 7,
+    "title": "Static vs Instance methods",
+    "subject": "OOPS",
+    "difficulty": "Medium",
+    "answer": "Static methods belong to class, called without object, cannot use this, cannot be overridden. Instance methods belong to objects and can access instance data."
+  },
+  {
+    "id": 8,
+    "title": "What is this keyword?",
+    "subject": "OOPS",
+    "difficulty": "Easy",
+    "answer": "this refers to the current object and is used to access current class members and resolve name conflicts."
+  },
+  {
+    "id": 9,
+    "title": "Advantages and disadvantages of cloning",
+    "subject": "OOPS",
+    "difficulty": "Medium",
+    "answer": "Advantages: real copy, prototype pattern, faster. Disadvantages: requires Cloneable, shallow copy by default, complex for deep copy."
+  },
+  {
+    "id": 10,
+    "title": "Shallow vs Deep cloning",
+    "subject": "OOPS",
+    "difficulty": "Medium",
+    "answer": "Shallow copy only copies top-level object and shares nested references. Deep copy duplicates entire object graph independently."
+  },
+  {
+    "id": 11,
+    "title": "What are access specifiers?",
+    "subject": "OOPS",
+    "difficulty": "Easy",
+    "answer": "Access specifiers control visibility. Types: public, private, protected, default."
+  },
+  {
+    "id": 12,
+    "title": "Default value of object reference instance variable",
+    "subject": "OOPS",
+    "difficulty": "Easy",
+    "answer": "The default value is null."
+  },
+  {
+    "id": 13,
+    "title": "What is a constructor?",
+    "subject": "OOPS",
+    "difficulty": "Easy",
+    "answer": "Constructor initializes objects. Same name as class, no return type, called automatically, may be overloaded."
+  },
+  {
+    "id": 14,
+    "title": "Types of constructors",
+    "subject": "OOPS",
+    "difficulty": "Medium",
+    "answer": "Types: Default, Parameterized, Copy constructor, Private constructor."
+  },
+  {
+    "id": 15,
+    "title": "What if class has no constructor?",
+    "subject": "OOPS",
+    "difficulty": "Easy",
+    "answer": "Compiler provides a default no-argument constructor automatically."
+  },
+  {
+    "id": 16,
+    "title": "Purpose of default constructor",
+    "subject": "OOPS",
+    "difficulty": "Easy",
+    "answer": "Initializes object with default values when no constructor is defined."
+  },
+  {
+    "id": 17,
+    "title": "Where to use private constructor?",
+    "subject": "OOPS",
+    "difficulty": "Medium",
+    "answer": "Used to prevent object creation from outside. Commonly used in Singleton and utility classes."
+  },
+  {
+    "id": 18,
+    "title": "Constructor vs Method",
+    "subject": "OOPS",
+    "difficulty": "Medium",
+    "answer": "Constructor creates object, no return type, called automatically. Method performs operation, has return type, called manually."
+  },
+  {
+    "id": 19,
+    "title": "What is Encapsulation?",
+    "subject": "OOPS",
+    "difficulty": "Easy",
+    "answer": "Encapsulation binds data and methods together inside a class and hides internal implementation using private fields."
+  },
+  {
+    "id": 20,
+    "title": "Advantages of Encapsulation",
+    "subject": "OOPS",
+    "difficulty": "Easy",
+    "answer": "Provides data hiding, flexibility, reusability and easier testing."
+  },
+  {
+    "id": 21,
+    "title": "How to implement Encapsulation?",
+    "subject": "OOPS",
+    "difficulty": "Easy",
+    "answer": "Declare variables private and provide public getter and setter methods."
+  },
+  {
+    "id": 22,
+    "title": "Use of getters and setters",
+    "subject": "OOPS",
+    "difficulty": "Easy",
+    "answer": "Getters read private data safely. Setters modify private data with validation control."
+  },
+  {
+    "id": 23,
+    "title": "What is Inheritance?",
+    "subject": "OOPS",
+    "difficulty": "Easy",
+    "answer": "Inheritance allows one class to acquire properties and behavior of another class, enabling reusability."
+  },
+  {
+    "id": 24,
+    "title": "Types of Inheritance",
+    "subject": "OOPS",
+    "difficulty": "Medium",
+    "answer": "Single, Multilevel, Hierarchical. Java supports multiple inheritance only through interfaces."
+  },
+  {
+    "id": 25,
+    "title": "Multiple inheritance in Java",
+    "subject": "OOPS",
+    "difficulty": "Medium",
+    "answer": "Java does not support multiple inheritance using classes, but supports it via interfaces to avoid ambiguity."
+  },
+  {
+    "id": 26,
+    "title": "Limitations of Inheritance",
+    "subject": "OOPS",
+    "difficulty": "Medium",
+    "answer": "Overuse may cause tight coupling, complexity and error-prone overriding."
+  },
+  {
+    "id": 27,
+    "title": "What is IS-A relationship?",
+    "subject": "OOPS",
+    "difficulty": "Easy",
+    "answer": "IS-A represents inheritance (e.g., Dog IS-A Animal)."
+  },
+  {
+    "id": 28,
+    "title": "What is HAS-A relationship?",
+    "subject": "OOPS",
+    "difficulty": "Medium",
+    "answer": "HAS-A represents aggregation or composition (e.g., Car HAS-A Engine)."
+  },
+  {
+    "id": 29,
+    "title": "What is Aggregation?",
+    "subject": "OOPS",
+    "difficulty": "Medium",
+    "answer": "Aggregation is a weak HAS-A relation where child can exist independently of parent."
+  },
+  {
+    "id": 30,
+    "title": "What is Association?",
+    "subject": "OOPS",
+    "difficulty": "Easy",
+    "answer": "Association represents a relationship between two independent classes using objects."
+  },
+  {
+    "id": 31,
+    "title": "What is Composition?",
+    "subject": "OOPS",
+    "difficulty": "Medium",
+    "answer": "Composition is strong HAS-A relationship where child cannot exist without parent."
+  },
+  {
+    "id": 32,
+    "title": "What is Polymorphism?",
+    "subject": "OOPS",
+    "difficulty": "Easy",
+    "answer": "Polymorphism means one thing with many forms. Same method behaves differently based on object type."
+  },
+  {
+    "id": 33,
+    "title": "Types of Polymorphism",
+    "subject": "OOPS",
+    "difficulty": "Medium",
+    "answer": "Compile-time (method overloading) and Runtime (method overriding)."
+  },
+  {
+    "id": 34,
+    "title": "Compile-time Polymorphism",
+    "subject": "OOPS",
+    "difficulty": "Medium",
+    "answer": "Achieved using method overloading where same method name has different signatures."
+  },
+  {
+    "id": 35,
+    "title": "Runtime Polymorphism",
+    "subject": "OOPS",
+    "difficulty": "Medium",
+    "answer": "Achieved through method overriding. Method call is resolved at runtime based on object."
+  },
+  {
+    "id": 36,
+    "title": "Method overloading vs overriding",
+    "subject": "OOPS",
+    "difficulty": "Medium",
+    "answer": "Overloading: same method name, different parameters, compile-time. Overriding: subclass changes parent method, runtime."
+  },
+  {
+    "id": 37,
+    "title": "Can static methods be overridden?",
+    "subject": "OOPS",
+    "difficulty": "Easy",
+    "answer": "No. Static methods belong to class, not object. They can only be hidden."
+  },
+  {
+    "id": 38,
+    "title": "Changing scope while overriding",
+    "subject": "OOPS",
+    "difficulty": "Medium",
+    "answer": "Scope can be same or wider but not more restrictive."
+  },
+  {
+    "id": 39,
+    "title": "What is Abstraction?",
+    "subject": "OOPS",
+    "difficulty": "Easy",
+    "answer": "Abstraction hides internal implementation and shows only essential features."
+  },
+  {
+    "id": 40,
+    "title": "Ways to achieve Abstraction",
+    "subject": "OOPS",
+    "difficulty": "Easy",
+    "answer": "Using abstract classes and interfaces."
+  },
+  {
+    "id": 41,
+    "title": "What is Abstract class?",
+    "subject": "OOPS",
+    "difficulty": "Medium",
+    "answer": "A class declared abstract cannot be instantiated. It may contain abstract and non-abstract methods."
+  },
+  {
+    "id": 42,
+    "title": "What is an Interface?",
+    "subject": "OOPS",
+    "difficulty": "Medium",
+    "answer": "Interface defines contract containing abstract methods and constants. Classes implementing it must define behavior."
+  },
+  {
+    "id": 43,
+    "title": "Features of Interfaces",
+    "subject": "OOPS",
+    "difficulty": "Medium",
+    "answer": "Support total abstraction, multiple inheritance, loose coupling, and reusable design."
+  },
+  {
+    "id": 44,
+    "title": "What is Marker Interface?",
+    "subject": "OOPS",
+    "difficulty": "Medium",
+    "answer": "Empty interface with no methods, used to provide metadata to JVM. Examples: Serializable, Cloneable."
+  },
+  {
+    "id": 45,
+    "title": "Abstract class vs Interface",
+    "subject": "OOPS",
+    "difficulty": "Hard",
+    "answer": "Abstract class can have state and mixed methods. Interface defines behavior contract, supports multiple inheritance, all members public by default."
+  }
+]
