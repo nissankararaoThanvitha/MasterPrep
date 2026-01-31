@@ -1,109 +1,98 @@
-🚀 PrepMaster
+# 🎯 PrepMaster – Interview Preparation Platform
 
-PrepMaster is a React-based learning and practice platform designed to help students prepare for technical subjects with daily challenges, quizzes, streak tracking, and performance review — all in one place.
+PrepMaster is a full-stack React application designed to help students prepare for technical interviews through quizzes, daily challenges, bookmarks, and streak tracking.  
+It uses **Firebase Authentication** and **Firestore** for secure, real-time, cross-device data storage.
 
-✨ Features
-🔥 Daily Challenge
+🔗 **Live Demo:** https://master-prep-66bo.vercel.app/login  
 
-One daily question per user
+---
 
-Question remains same for that date
+## ✨ Features
 
-Correct answer updates streak automatically
+### 🔐 Authentication
+- User registration & login using **Firebase Authentication**
+- Secure session handling (no localStorage-based auth)
+- Logout functionality
 
-📅 Streak Calendar
+### 📚 Question Bank
+- Subject-wise questions (DSA, DBMS, OS, CN, OOPS)
+- Search, filter by subject & difficulty
+- Track viewed questions
 
-Monthly calendar view with previous month navigation
+### ⭐ Bookmarks
+- Bookmark important questions
+- Categorize bookmarks (Important / Revise Later / Doubt)
+- Data synced across devices using Firestore
 
-Green highlights for solved days
+### 📝 Quiz System
+- Subject-wise quizzes with timer
+- Randomized questions
+- Instant result & answer review
+- Quiz history stored per user
 
-Today is clearly marked
+### 🔥 Daily Challenge & Streak
+- One daily question challenge
+- Calendar-based streak tracking
+- View solved question for any past date
+- Encourages consistency
 
-Future dates are disabled
+### 📊 Dashboard
+- Total quizzes attempted
+- Bookmarked questions count
+- Viewed questions count
+- Best scores per subject
+- Current streak display
 
-Hover to preview attempted questions
+---
 
-🧠 Subject-wise Quizzes
+## 🛠️ Tech Stack
 
-Subjects supported:
+### Frontend
+- **React (Vite)**
+- **React Router**
+- **Tailwind CSS**
 
-CN
+### Backend / Services
+- **Firebase Authentication**
+- **Firebase Firestore**
 
-DBMS
+### Deployment
+- **Vercel**
 
-DSA
+---
 
-OOPS
+## 🗂️ Project Structure
 
-OS
+src/
+├── components/
+│ └── Navbar.jsx
+│ └── StreakCalendar.jsx
+├── pages/
+│ ├── Login.jsx
+│ ├── Register.jsx
+│ ├── Dashboard.jsx
+│ ├── Questions.jsx
+│ ├── Bookmarks.jsx
+│ ├── QuizSetup.jsx
+│ ├── Quiz.jsx
+│ ├── QuizResult.jsx
+│ └── DailyReview.jsx
+├── firebase.js
+├── App.jsx
+└── main.jsx
 
-20 questions per quiz
-
-Timer-based quiz
-
-Navigation between questions (Prev / Next)
-
-📊 Performance Tracking
-
-Best score per subject
-
-Quiz attempt history stored using localStorage
-
-Review full quiz with:
-
-Selected answers
-
-Correct answers
-
-Score summary
-
-🔐 User-specific Data
-
-Separate data per logged-in user
-
-Streaks, questions, and quiz history are account-specific
-
-🛠️ Tech Stack
-
-Frontend: React (Vite)
-
-Styling: Tailwind CSS
-
-Routing: React Router
-
-Storage: Browser LocalStorage
-
-Deployment: Vercel
-
-📂 Project Structure
-prep-master/
-│
-├── public/
-│   └── *.json        # Quiz question files
-│
-├── src/
-│   ├── components/
-│   │   └── StreakCalendar.jsx
-│   │
-│   ├── pages/
-│   │   ├── Dashboard.jsx
-│   │   ├── Quiz.jsx
-│   │   ├── QuizResult.jsx
-│   │
-│   ├── App.jsx
-│   └── main.jsx
-│
-├── package.json
-└── README.md
-🚀 Getting Started (Local Setup)
+🚀 Getting Started Locally
 1️⃣ Clone the repository
-git clone https://github.com/<your-username>/prep-master.git
+git clone https://github.com/your-username/prep-master.git
 cd prep-master
+
 2️⃣ Install dependencies
 npm install
-3️⃣ Run the project
+
+3️⃣ Run the app
 npm run dev
 
-Open 👉 https://master-prep-4fgh.vercel.app/
 
+App runs at:
 
+http://localhost:5173
