@@ -83,7 +83,7 @@ src/
 
 🚀 Getting Started Locally
 1️⃣ Clone the repository
-git clone https://github.com/your-username/prep-master.git
+git clone https://github.com/nissankararaoThanvitha/prep-master.git
 cd prep-master
 
 2️⃣ Install dependencies
