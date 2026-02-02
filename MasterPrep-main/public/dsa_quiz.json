@@ -1,0 +1,783 @@
+[
+  {
+    "id": 1,
+    "subject": "DSA",
+    "question": "What is a data structure?",
+    "options": [
+      "A programming language",
+      "A collection of algorithms",
+      "A way to store and organize data",
+      "A type of computer hardware"
+    ],
+    "answer": "c",
+    "explanation": "A data structure organizes data so it can be accessed and modified efficiently."
+  },
+  {
+    "id": 2,
+    "subject": "DSA",
+    "question": "What are the disadvantages of arrays?",
+    "options": [
+      "Index value can be negative",
+      "Elements are sequentially accessed",
+      "Queue or stack cannot be implemented",
+      "Memory may be wasted if array is not fully used"
+    ],
+    "answer": "d",
+    "explanation": "Arrays have fixed size, so unused positions waste memory."
+  },
+  {
+    "id": 3,
+    "subject": "DSA",
+    "question": "Which data structure is used for implementing recursion?",
+    "options": [
+      "Stack",
+      "Queue",
+      "List",
+      "Array"
+    ],
+    "answer": "a",
+    "explanation": "Recursive calls are stored on the call stack."
+  },
+  {
+    "id": 4,
+    "subject": "DSA",
+    "question": "Which data structure is required to check balanced parentheses?",
+    "options": [
+      "Queue",
+      "Stack",
+      "Tree",
+      "Array"
+    ],
+    "answer": "b",
+    "explanation": "Stack matches opening and closing brackets using LIFO."
+  },
+  {
+    "id": 5,
+    "subject": "DSA",
+    "question": "Which of the following is NOT an application of stack?",
+    "options": [
+      "Data transfer between asynchronous processes",
+      "Compiler syntax analyzer",
+      "Tracking local variables",
+      "Parentheses balancing"
+    ],
+    "answer": "a",
+    "explanation": "Asynchronous process communication uses queues, not stacks."
+  },
+  {
+    "id": 6,
+    "subject": "DSA",
+    "question": "Which data structure is needed to convert infix to postfix?",
+    "options": [
+      "Tree",
+      "Branch",
+      "Stack",
+      "Queue"
+    ],
+    "answer": "c",
+    "explanation": "Stack reverses operator order and manages precedence."
+  },
+  {
+    "id": 7,
+    "subject": "DSA",
+    "question": "What is the value of postfix expression 6 3 2 4 + − * ?",
+    "options": [
+      "74",
+      "-18",
+      "22",
+      "40"
+    ],
+    "answer": "b",
+    "explanation": "Expression = 6 * (3 − (2 + 4)) = 6 * (−3) = −18."
+  },
+  {
+    "id": 8,
+    "subject": "DSA",
+    "question": "Which data structure is used in non-recursive implementation of recursion?",
+    "options": [
+      "Stack",
+      "Linked List",
+      "Tree",
+      "Queue"
+    ],
+    "answer": "a",
+    "explanation": "Manual stack simulates recursive call behavior."
+  },
+  {
+    "id": 9,
+    "subject": "DSA",
+    "question": "Which statement about stacks is NOT correct?",
+    "options": [
+      "Top contains newest node",
+      "Stack is FIFO",
+      "Null link is at bottom",
+      "Linked list can implement stacks"
+    ],
+    "answer": "b",
+    "explanation": "Stacks follow LIFO, not FIFO."
+  },
+  {
+    "id": 10,
+    "subject": "DSA",
+    "question": "Which data structure is required for Breadth First Traversal?",
+    "options": [
+      "Array",
+      "Stack",
+      "Tree",
+      "Queue"
+    ],
+    "answer": "d",
+    "explanation": "BFS processes vertices using FIFO queue."
+  },
+  {
+    "id": 11,
+    "subject": "DSA",
+    "question": "The prefix form of A - B / (C * D ^ E) is:",
+    "options": [
+      "-A/B*C^DE",
+      "-A/BC*^DE",
+      "-ABCD*^DE",
+      "-/*^ACBDE"
+    ],
+    "answer": "a",
+    "explanation": "Expression rearranges to - A / B * C ^ D E."
+  },
+  {
+    "id": 12,
+    "subject": "DSA",
+    "question": "Which statement is NOT true about linked lists vs arrays?",
+    "options": [
+      "Random access not allowed",
+      "Linked list access is faster than arrays",
+      "Arrays have better cache locality",
+      "Insert/delete is easier in linked lists"
+    ],
+    "answer": "b",
+    "explanation": "Linked lists require traversal; arrays support O(1) access."
+  },
+  {
+    "id": 13,
+    "subject": "DSA",
+    "question": "Which structure uses LIFO?",
+    "options": [
+      "Tree",
+      "Linked List",
+      "Stack",
+      "Queue"
+    ],
+    "answer": "c",
+    "explanation": "Stack removes the most recently inserted element first."
+  },
+  {
+    "id": 14,
+    "subject": "DSA",
+    "question": "Which application uses a circular linked list?",
+    "options": [
+      "Recursive calls",
+      "Undo operation",
+      "Hash tables",
+      "CPU scheduling (Round Robin)"
+    ],
+    "answer": "d",
+    "explanation": "Round-robin cycling is implemented using circular lists."
+  },
+  {
+    "id": 15,
+    "subject": "DSA",
+    "question": "What is a bit array?",
+    "options": [
+      "Compact storage of bits",
+      "Array of records",
+      "Non-contiguous array",
+      "Array with same repeated values"
+    ],
+    "answer": "a",
+    "explanation": "Bit arrays compress storage using individual bits."
+  },
+  {
+    "id": 16,
+    "subject": "DSA",
+    "question": "Which tree is NOT a balanced binary tree?",
+    "options": [
+      "Splay tree",
+      "B-tree",
+      "AVL tree",
+      "Red-black tree"
+    ],
+    "answer": "b",
+    "explanation": "B-trees are multi-way, not binary."
+  },
+  {
+    "id": 17,
+    "subject": "DSA",
+    "question": "Which is NOT a type of queue?",
+    "options": [
+      "Priority queue",
+      "Circular queue",
+      "Single ended queue",
+      "Ordinary queue"
+    ],
+    "answer": "c",
+    "explanation": "Queues always have two ends."
+  },
+  {
+    "id": 18,
+    "subject": "DSA",
+    "question": "Which structure is used for parentheses matching?",
+    "options": [
+      "n-ary tree",
+      "Queue",
+      "Priority queue",
+      "Stack"
+    ],
+    "answer": "d",
+    "explanation": "Stack pairs opening/closing symbols."
+  },
+  {
+    "id": 19,
+    "subject": "DSA",
+    "question": "Which algorithm is used in top tree data structure?",
+    "options": [
+      "Backtracking",
+      "Divide and Conquer",
+      "Branch",
+      "Greedy"
+    ],
+    "answer": "b",
+    "explanation": "Top trees repeatedly divide paths into smaller subproblems."
+  },
+  {
+    "id": 20,
+    "subject": "DSA",
+    "question": "Why do we need a circular queue?",
+    "options": [
+      "Easier computations",
+      "Implement LIFO",
+      "Better memory usage",
+      "Delete based on priority"
+    ],
+    "answer": "c",
+    "explanation": "Circular queues reuse freed positions, preventing wastage."
+  },
+  {
+    "id": 21,
+    "subject": "DSA",
+    "question": "Which is the most widely used external memory data structure?",
+    "options": [
+      "B-tree",
+      "Red-black tree",
+      "AVL tree",
+      "Both AVL and Red-black tree"
+    ],
+    "answer": "a",
+    "explanation": "B-trees efficiently store large data blocks on disk and are optimized for I/O."
+  },
+  {
+    "id": 22,
+    "subject": "DSA",
+    "question": "Which of the following is also known as Rope data structure?",
+    "options": [
+      "Linked List",
+      "Array",
+      "String",
+      "Cord"
+    ],
+    "answer": "d",
+    "explanation": "Cord (rope) stores long strings as pieces for fast editing."
+  },
+  {
+    "id": 23,
+    "subject": "DSA",
+    "question": "What will be the output of the program printing characters pushed in a stack from the string 'san foundry' and then popped?",
+    "options": [
+      "yrdnuof nas",
+      "foundry nas",
+      "sanfoundry",
+      "san foundry"
+    ],
+    "answer": "a",
+    "explanation": "Stack reverses the order of characters (LIFO)."
+  },
+  {
+    "id": 24,
+    "subject": "DSA",
+    "question": "Which data structure provides efficient searching of elements in worst case?",
+    "options": [
+      "Binary search tree",
+      "Unordered list",
+      "2-3 tree",
+      "Treap"
+    ],
+    "answer": "c",
+    "explanation": "2-3 trees remain balanced ensuring O(log n) lookup in worst case."
+  },
+  {
+    "id": 25,
+    "subject": "DSA",
+    "question": "What is an AVL tree?",
+    "options": [
+      "Unbalanced height-balanced tree",
+      "Balanced height-balanced tree",
+      "Tree with at most 3 children",
+      "Tree with exactly 3 children"
+    ],
+    "answer": "b",
+    "explanation": "AVL trees maintain height difference ≤ 1 for every node."
+  },
+  {
+    "id": 26,
+    "subject": "DSA",
+    "question": "Time complexity of searching in Van Emde Boas tree is:",
+    "options": [
+      "O(M!)",
+      "O(log M!)",
+      "O(log log M)",
+      "O(M^2)"
+    ],
+    "answer": "c",
+    "explanation": "Van Emde Boas trees support very fast lookups in O(log log M)."
+  },
+  {
+    "id": 27,
+    "subject": "DSA",
+    "question": "Optimal data structure for solving Tower of Hanoi is:",
+    "options": [
+      "Tree",
+      "Heap",
+      "Priority queue",
+      "Stack"
+    ],
+    "answer": "d",
+    "explanation": "Recursive movement of disks maps naturally to stack operations."
+  },
+  {
+    "id": 28,
+    "subject": "DSA",
+    "question": "What is the use of Bin data structure?",
+    "options": [
+      "Efficient traversal",
+      "Efficient region queries",
+      "Efficient deletion",
+      "Efficient insertion"
+    ],
+    "answer": "b",
+    "explanation": "Bins group ranges allowing efficient region-based queries."
+  },
+  {
+    "id": 29,
+    "subject": "DSA",
+    "question": "Most appropriate data structure for reversing a word:",
+    "options": [
+      "Stack",
+      "Queue",
+      "Graph",
+      "Tree"
+    ],
+    "answer": "a",
+    "explanation": "Stack reverses order by LIFO behavior."
+  },
+  {
+    "id": 30,
+    "subject": "DSA",
+    "question": "What does the given method (traversing nodes and printing) do?",
+    "options": [
+      "Displays the list",
+      "Reverses the list",
+      "Reverses list excluding top element",
+      "Displays list excluding top element"
+    ],
+    "answer": "a",
+    "explanation": "It iterates node by node and prints values — simple display."
+  },
+  {
+    "id": 31,
+    "subject": "DSA",
+    "question": "Simplest structure supporting range searching:",
+    "options": [
+      "AA-trees",
+      "k-d trees",
+      "Heaps",
+      "Binary search trees"
+    ],
+    "answer": "b",
+    "explanation": "k-d trees partition space efficiently for range queries."
+  },
+  {
+    "id": 32,
+    "subject": "DSA",
+    "question": "Main advantage of hash tables:",
+    "options": [
+      "Easy to implement",
+      "Faster access of data",
+      "Good cache locality",
+      "Efficient for very small datasets"
+    ],
+    "answer": "b",
+    "explanation": "Hash tables give average O(1) lookup and insertion."
+  },
+  {
+    "id": 33,
+    "subject": "DSA",
+    "question": "Ternary heap is a type of:",
+    "options": [
+      "Hash",
+      "Array",
+      "Priority stack",
+      "Priority queue"
+    ],
+    "answer": "d",
+    "explanation": "Heaps are implementations of priority queues."
+  },
+  {
+    "id": 34,
+    "subject": "DSA",
+    "question": "What is a deque?",
+    "options": [
+      "Queue using singly and doubly lists",
+      "Queue with front insertion only",
+      "Queue with insertion/deletion at both ends",
+      "Queue using only doubly linked list"
+    ],
+    "answer": "c",
+    "explanation": "Deque = Double-ended queue."
+  },
+  {
+    "id": 35,
+    "subject": "DSA",
+    "question": "A structure where elements can be added/removed at both ends but not middle is:",
+    "options": [
+      "Priority queue",
+      "Deque",
+      "Circular queue",
+      "Queue"
+    ],
+    "answer": "b",
+    "explanation": "Deque supports operations at both ends."
+  },
+  {
+    "id": 36,
+    "subject": "DSA",
+    "question": "Output of the program printing arr[2] and arr[4] in {1,2,3,4,5}:",
+    "options": [
+      "4 and 2",
+      "2 and 4",
+      "5 and 3",
+      "3 and 5"
+    ],
+    "answer": "d",
+    "explanation": "Array indexing starts at 0, so arr[2]=3 and arr[4]=5."
+  },
+  {
+    "id": 37,
+    "subject": "DSA",
+    "question": "In simple chaining, which structure is appropriate?",
+    "options": [
+      "Doubly linked list",
+      "Circular linked list",
+      "Singly linked list",
+      "Binary trees"
+    ],
+    "answer": "a",
+    "explanation": "Deletion is easier with doubly linked lists in chaining."
+  },
+  {
+    "id": 38,
+    "subject": "DSA",
+    "question": "Which structure supports efficient parentheses matching?",
+    "options": [
+      "Queue",
+      "Stack",
+      "Tree",
+      "Heap"
+    ],
+    "answer": "b",
+    "explanation": "Stacks match open and close symbols using LIFO."
+  },
+  {
+    "id": 39,
+    "subject": "DSA",
+    "question": "Which structure is best for priority scheduling?",
+    "options": [
+      "Stack",
+      "Binary heap",
+      "Array",
+      "Linked list"
+    ],
+    "answer": "b",
+    "explanation": "Binary heaps efficiently extract minimum/maximum priorities."
+  },
+  {
+    "id": 40,
+    "subject": "DSA",
+    "question": "Which of the following best describes a circular queue?",
+    "options": [
+      "Queue with two fronts",
+      "Queue where last node points to first",
+      "Queue stored as linked list",
+      "Queue that follows LIFO"
+    ],
+    "answer": "b",
+    "explanation": "Circular queues link rear to front to reuse empty spaces."
+  },
+  {
+    "id": 41,
+    "subject": "DSA",
+    "question": "Which traversal of a binary search tree gives sorted order of elements?",
+    "options": [
+      "Preorder",
+      "Postorder",
+      "Inorder",
+      "Level order"
+    ],
+    "answer": "c",
+    "explanation": "Inorder traversal (Left, Root, Right) prints BST elements in sorted order."
+  },
+  {
+    "id": 42,
+    "subject": "DSA",
+    "question": "What is the worst-case time complexity of linear search?",
+    "options": [
+      "O(1)",
+      "O(n)",
+      "O(log n)",
+      "O(n log n)"
+    ],
+    "answer": "b",
+    "explanation": "Linear search may require scanning every element in the list."
+  },
+  {
+    "id": 43,
+    "subject": "DSA",
+    "question": "Which operation is fastest in a singly linked list?",
+    "options": [
+      "Random access",
+      "Insertion at beginning",
+      "Searching",
+      "Deletion at end"
+    ],
+    "answer": "b",
+    "explanation": "Linked lists allow O(1) insertion at the beginning."
+  },
+  {
+    "id": 44,
+    "subject": "DSA",
+    "question": "Which of the following data structures is non-linear?",
+    "options": [
+      "Array",
+      "Stack",
+      "Queue",
+      "Tree"
+    ],
+    "answer": "d",
+    "explanation": "Trees do not store elements sequentially — they are hierarchical."
+  },
+  {
+    "id": 45,
+    "subject": "DSA",
+    "question": "Which sorting algorithm is best when the list is almost sorted?",
+    "options": [
+      "Bubble sort",
+      "Selection sort",
+      "Insertion sort",
+      "Quick sort"
+    ],
+    "answer": "c",
+    "explanation": "Insertion sort performs nearly O(n) when input is almost sorted."
+  },
+  {
+    "id": 46,
+    "subject": "DSA",
+    "question": "Which structure is used in function call management (activation records)?",
+    "options": [
+      "Queue",
+      "Stack",
+      "Heap",
+      "Array"
+    ],
+    "answer": "b",
+    "explanation": "Function calls use call stack to store return address and local variables."
+  },
+  {
+    "id": 47,
+    "subject": "DSA",
+    "question": "Which tree guarantees O(log n) search even in worst case?",
+    "options": [
+      "Binary search tree",
+      "AVL tree",
+      "Unbalanced tree",
+      "Heap"
+    ],
+    "answer": "b",
+    "explanation": "AVL trees remain height-balanced at all times."
+  },
+  {
+    "id": 48,
+    "subject": "DSA",
+    "question": "Which of the following is true about heaps?",
+    "options": [
+      "They are always sorted",
+      "Root contains smallest or largest element",
+      "They store elements in ascending order",
+      "Insertion is O(n)"
+    ],
+    "answer": "b",
+    "explanation": "Heaps maintain only heap property: root is min or max."
+  },
+  {
+    "id": 49,
+    "subject": "DSA",
+    "question": "What is the main advantage of adjacency list over adjacency matrix?",
+    "options": [
+      "Uses more memory",
+      "Faster to implement",
+      "Better for sparse graphs",
+      "Simpler to traverse"
+    ],
+    "answer": "c",
+    "explanation": "Adjacency lists store only existing edges — efficient for sparse graphs."
+  },
+  {
+    "id": 50,
+    "subject": "DSA",
+    "question": "Which traversal is used in breadth-first search?",
+    "options": [
+      "Stack",
+      "Queue",
+      "Priority queue",
+      "Deque"
+    ],
+    "answer": "b",
+    "explanation": "BFS explores neighbors level-wise using a queue."
+  },
+  {
+    "id": 51,
+    "subject": "DSA",
+    "question": "What is the time complexity of binary search?",
+    "options": [
+      "O(n)",
+      "O(log n)",
+      "O(n log n)",
+      "O(1)"
+    ],
+    "answer": "b",
+    "explanation": "Binary search repeatedly divides the search space in half."
+  },
+  {
+    "id": 52,
+    "subject": "DSA",
+    "question": "Which data structure supports both LIFO and FIFO?",
+    "options": [
+      "Queue",
+      "Deque",
+      "Stack",
+      "Priority queue"
+    ],
+    "answer": "b",
+    "explanation": "Deque can behave like both queue and stack."
+  },
+  {
+    "id": 53,
+    "subject": "DSA",
+    "question": "Which algorithm uses divide and conquer?",
+    "options": [
+      "Merge sort",
+      "Bubble sort",
+      "Insertion sort",
+      "Selection sort"
+    ],
+    "answer": "a",
+    "explanation": "Merge sort divides the array then merges sorted parts."
+  },
+  {
+    "id": 54,
+    "subject": "DSA",
+    "question": "In a max heap, where is the largest element located?",
+    "options": [
+      "Left child",
+      "Leaf node",
+      "Root node",
+      "Random position"
+    ],
+    "answer": "c",
+    "explanation": "Max heap property ensures largest element stays at the root."
+  },
+  {
+    "id": 55,
+    "subject": "DSA",
+    "question": "Which structure is most suitable for undo operations?",
+    "options": [
+      "Queue",
+      "Stack",
+      "Tree",
+      "Graph"
+    ],
+    "answer": "b",
+    "explanation": "Undo operations reverse actions — implemented using stack."
+  },
+  {
+    "id": 56,
+    "subject": "DSA",
+    "question": "What is the degree of a node in a tree?",
+    "options": [
+      "Number of ancestors",
+      "Number of siblings",
+      "Number of children",
+      "Height of tree"
+    ],
+    "answer": "c",
+    "explanation": "Degree = number of immediate children."
+  },
+  {
+    "id": 57,
+    "subject": "DSA",
+    "question": "Which of the following can detect cycles in a graph?",
+    "options": [
+      "DFS",
+      "BFS",
+      "Heap",
+      "Stack"
+    ],
+    "answer": "a",
+    "explanation": "Depth-first search tracks visited nodes and detects back-edges."
+  },
+  {
+    "id": 58,
+    "subject": "DSA",
+    "question": "Which representation is best when graph is dense?",
+    "options": [
+      "Adjacency list",
+      "Adjacency matrix",
+      "Linked list",
+      "Incidence matrix"
+    ],
+    "answer": "b",
+    "explanation": "Dense graphs have many edges — adjacency matrix is efficient."
+  },
+  {
+    "id": 59,
+    "subject": "DSA",
+    "question": "Which algorithm is used for shortest path in weighted graphs (no negative weights)?",
+    "options": [
+      "DFS",
+      "Prim’s",
+      "Dijkstra’s",
+      "Kruskal’s"
+    ],
+    "answer": "c",
+    "explanation": "Dijkstra finds shortest path when weights are non-negative."
+  },
+  {
+    "id": 60,
+    "subject": "DSA",
+    "question": "Which structure is used to evaluate postfix expressions?",
+    "options": [
+      "Queue",
+      "Stack",
+      "Deque",
+      "Array"
+    ],
+    "answer": "b",
+    "explanation": "Values are pushed and popped from stack to evaluate postfix."
+  }
+]
+

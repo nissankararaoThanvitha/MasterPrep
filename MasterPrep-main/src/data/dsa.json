@@ -1,0 +1,599 @@
+[
+  {
+    "id": 1,
+    "title": "What are Data Structures?",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "A data structure is a way of organizing and storing data so operations like searching, inserting, and deleting can be done efficiently."
+  },
+  {
+    "id": 2,
+    "title": "Why do we need Data Structures?",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "They help write efficient programs, reduce memory usage, improve performance, and make problem solving easier."
+  },
+  {
+    "id": 3,
+    "title": "What are real-life applications of Data Structures?",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "They are used in compilers, databases, blockchain, routing, operating systems, image processing, genetics and many more."
+  },
+  {
+    "id": 4,
+    "title": "How is a variable stored in memory?",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "Memory is allocated based on type and size. Data is stored depending on the structure used and dynamic allocation helps manage memory efficiently."
+  },
+  {
+    "id": 5,
+    "title": "File structure vs storage structure",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "Storage structure stores data in main memory (RAM) temporarily. File structure stores data in secondary memory like disk permanently."
+  },
+  {
+    "id": 6,
+    "title": "Types of Data Structures",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "Linear: elements arranged sequentially (arrays, linked lists, stack, queue). Non-linear: data stored hierarchically (trees, graphs)."
+  },
+  {
+    "id": 7,
+    "title": "What is a Stack?",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "Stack follows LIFO. Last inserted element is removed first. Used in recursion, undo/redo, expression evaluation, function calls."
+  },
+  {
+    "id": 8,
+    "title": "Stack operations",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "push(), pop(), top(), isEmpty(), size()."
+  },
+  {
+    "id": 9,
+    "title": "What is a Queue?",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "Queue follows FIFO. First inserted element is removed first. Used in scheduling, BFS, call centers."
+  },
+  {
+    "id": 10,
+    "title": "Queue operations",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "enqueue(), dequeue(), front(), rear(), isEmpty(), size()."
+  },
+  {
+    "id": 11,
+    "title": "Difference between Stack and Queue",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "Stack uses LIFO and removes from same end. Queue uses FIFO and removes from front while inserting at rear."
+  },
+  {
+    "id": 12,
+    "title": "Implementing Queue using two Stacks",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Use two stacks. Either make enqueue costly or dequeue costly by transferring elements between stacks."
+  },
+  {
+    "id": 13,
+    "title": "Implementing Stack using two Queues",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Use two queues. Either make push costly or pop costly by transferring elements to always keep latest at front."
+  },
+  {
+    "id": 14,
+    "title": "What is an Array?",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "Array stores elements in continuous memory and provides fast index access."
+  },
+  {
+    "id": 15,
+    "title": "Types of Arrays",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "1D arrays, 2D matrices, and 3D arrays for multi-dimensional data storage."
+  },
+  {
+    "id": 16,
+    "title": "What is a Linked List?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "A series of nodes where each node stores data and a pointer to the next node. Memory is allocated dynamically."
+  },
+  {
+    "id": 17,
+    "title": "Types of Linked Lists",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Singly, Doubly, Circular, Doubly Circular and Header Linked Lists."
+  },
+  {
+    "id": 18,
+    "title": "Array vs Linked List",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "Arrays are contiguous and fast to index but fixed size. Linked lists are dynamic but slower to access."
+  },
+  {
+    "id": 19,
+    "title": "What is Asymptotic Analysis?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "It measures algorithm performance using Big-O, Theta and Omega notations."
+  },
+  {
+    "id": 20,
+    "title": "What is a Hashmap?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Stores key-value pairs and retrieves data in O(1) average time using hashing."
+  },
+  {
+    "id": 21,
+    "title": "What is a Binary Tree?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "A hierarchical structure where each node has at most two children — left and right."
+  },
+  {
+    "id": 22,
+    "title": "What is a Binary Search Tree?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "A binary tree where left subtree values are smaller and right subtree values are greater than root."
+  },
+  {
+    "id": 23,
+    "title": "Tree Traversals",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Inorder: L-R-Root, Preorder: Root-L-R, Postorder: L-R-Root."
+  },
+  {
+    "id": 24,
+    "title": "What is a Graph?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Non-linear structure of vertices connected by edges. Represented using adjacency list or matrix."
+  },
+  {
+    "id": 25,
+    "title": "Difference between BFS and DFS",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "BFS uses queue, explores level-wise. DFS uses stack/recursion, explores deep path first."
+  },
+  {
+    "id": 26,
+    "title": "What is a Balanced Binary Tree?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "A tree is balanced if the height difference between the left and right subtrees of every node is at most 1."
+  },
+  {
+    "id": 27,
+    "title": "What is an AVL Tree?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "AVL is a self-balancing BST where for every node, the balance factor (left height − right height) is −1, 0 or 1."
+  },
+  {
+    "id": 28,
+    "title": "What is a Heap?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Heap is a complete binary tree where every node follows ordering: Max-Heap (parent ≥ children) or Min-Heap (parent ≤ children)."
+  },
+  {
+    "id": 29,
+    "title": "Applications of Heap",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "Used in priority queues, scheduling, Dijkstra, Prim’s algorithm, Top-K elements and Heap Sort."
+  },
+  {
+    "id": 30,
+    "title": "What is Heap Sort?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Heap sort builds a heap and repeatedly extracts the max/min to produce a sorted array. Time complexity O(n log n)."
+  },
+  {
+    "id": 31,
+    "title": "What is a Graph Cycle?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "A cycle occurs when there is a path that starts and ends at the same vertex with at least one edge."
+  },
+  {
+    "id": 32,
+    "title": "What is Topological Sorting?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "A linear ordering of vertices such that for every directed edge (u → v), u appears before v. Works only on DAG."
+  },
+  {
+    "id": 33,
+    "title": "What is Dynamic Programming?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "DP solves problems by breaking them into overlapping subproblems and storing results to avoid recomputation."
+  },
+  {
+    "id": 34,
+    "title": "Difference between DP and Recursion",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Recursion recomputes states, DP stores results using memoization or tabulation to optimize time."
+  },
+  {
+    "id": 35,
+    "title": "What is Memoization?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Memoization stores results of recursive calls so repeated calls can return instantly."
+  },
+  {
+    "id": 36,
+    "title": "What is Tabulation?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Bottom-up DP approach where we fill a table iteratively instead of using recursion."
+  },
+  {
+    "id": 37,
+    "title": "What is a Trie?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Trie or Prefix Tree stores strings character by character and supports fast prefix searching."
+  },
+  {
+    "id": 38,
+    "title": "Applications of Trie",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "Used in autocomplete, spell checker, dictionary storage, prefix search."
+  },
+  {
+    "id": 39,
+    "title": "What is a Red-Black Tree?",
+    "subject": "DSA",
+    "difficulty": "Hard",
+    "answer": "A self-balancing BST where every node has color red or black ensuring no path is more than twice another."
+  },
+  {
+    "id": 40,
+    "title": "What is Backtracking?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Backtracking builds a solution step-by-step and undoes choices when they lead to an invalid solution."
+  },
+  {
+    "id": 41,
+    "title": "What is Sliding Window Technique?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Used to process subarrays of fixed or variable size efficiently instead of checking all subarrays."
+  },
+  {
+    "id": 42,
+    "title": "What is Two Pointer Technique?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Two pointers move over the array from ends or same direction to solve searching and pairing problems efficiently."
+  },
+  {
+    "id": 43,
+    "title": "What is Binary Search?",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "Search algorithm that repeatedly divides sorted array into halves. Time complexity O(log n)."
+  },
+  {
+    "id": 44,
+    "title": "When does Binary Search NOT work?",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "Binary search requires data to be sorted. It does not work on unsorted data."
+  },
+  {
+    "id": 45,
+    "title": "What is Time Complexity?",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "Measures how algorithm running time grows with input size using Big-O notation."
+  },
+  {
+    "id": 46,
+    "title": "What is Bubble Sort?",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "Bubble sort repeatedly compares adjacent elements and swaps them if out of order. Time O(n^2)."
+  },
+  {
+    "id": 47,
+    "title": "What is Selection Sort?",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "Selection sort repeatedly finds the minimum element from the unsorted part and places it at the beginning."
+  },
+  {
+    "id": 48,
+    "title": "What is Insertion Sort?",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "Insertion sort inserts each element into its correct position in a sorted part of the array."
+  },
+  {
+    "id": 49,
+    "title": "What is Merge Sort?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Merge sort divides array into halves, sorts recursively and merges. Time O(n log n)."
+  },
+  {
+    "id": 50,
+    "title": "What is Quick Sort?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Quick sort partitions array using a pivot and recursively sorts left and right partitions. Avg O(n log n)."
+  },
+  {
+    "id": 51,
+    "title": "What is Recursion?",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "A function calling itself until a base condition is reached."
+  },
+  {
+    "id": 52,
+    "title": "Base Case vs Recursive Case",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "Base case stops recursion. Recursive case breaks the problem into smaller subproblems."
+  },
+  {
+    "id": 53,
+    "title": "What is Tail Recursion?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Tail recursion is when the recursive call is the last statement in the function."
+  },
+  {
+    "id": 54,
+    "title": "Difference between Recursion and Iteration",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "Recursion uses function calls and stack. Iteration uses loops. Recursion easier to write but may use more memory."
+  },
+  {
+    "id": 55,
+    "title": "What is a Greedy Algorithm?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Greedy algorithm makes the locally optimal choice at each step hoping for global optimum."
+  },
+  {
+    "id": 56,
+    "title": "Examples of Greedy Algorithms",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "Activity selection, Huffman coding, Kruskal, Prim, fractional knapsack."
+  },
+  {
+    "id": 57,
+    "title": "What is Hashing?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Hashing maps keys to indexes using a hash function for fast lookup O(1) average."
+  },
+  {
+    "id": 58,
+    "title": "What is Hash Collision?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "When two different keys produce the same hash index."
+  },
+  {
+    "id": 59,
+    "title": "Collision Handling Techniques",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Separate chaining and open addressing (linear probing, quadratic probing, double hashing)."
+  },
+  {
+    "id": 60,
+    "title": "What is a Sliding Window Problem?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Technique to efficiently process subarrays/strings while maintaining a moving window."
+  },
+  {
+    "id": 61,
+    "title": "What is a Palindrome String?",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "A string that reads the same forward and backward."
+  },
+  {
+    "id": 62,
+    "title": "What is Anagram?",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "Two strings are anagrams if they have same characters with same frequency but in different order."
+  },
+  {
+    "id": 63,
+    "title": "What is Kadane's Algorithm?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Algorithm to find maximum subarray sum in O(n)."
+  },
+  {
+    "id": 64,
+    "title": "What is Floyd’s Cycle Detection Algorithm?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Uses slow and fast pointers to detect cycles in linked lists."
+  },
+  {
+    "id": 65,
+    "title": "What is Bit Manipulation?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Techniques using bitwise operators to solve problems efficiently."
+  },
+  {
+    "id": 66,
+    "title": "What is a Graph?",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "A graph consists of vertices (nodes) and edges connecting them. Used to represent networks, maps, social connections etc."
+  },
+  {
+    "id": 67,
+    "title": "Directed vs Undirected Graph",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "Directed graph has edges with direction. Undirected graph edges have no direction and can be traversed both ways."
+  },
+  {
+    "id": 68,
+    "title": "Weighted vs Unweighted Graph",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "Weighted graphs assign cost/weight to edges. Unweighted graphs assume equal cost among edges."
+  },
+  {
+    "id": 69,
+    "title": "What is BFS?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Breadth First Search visits nodes level-by-level using a queue. Good for shortest path in unweighted graphs."
+  },
+  {
+    "id": 70,
+    "title": "What is DFS?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Depth First Search explores deep into a branch before backtracking. Uses recursion or stack."
+  },
+  {
+    "id": 71,
+    "title": "Detect Cycle in Directed Graph",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Use DFS + recursion stack or Kahn’s topological sort. A back-edge indicates cycle."
+  },
+  {
+    "id": 72,
+    "title": "Detect Cycle in Undirected Graph",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Use DFS. If we visit a node that is not parent but already visited, cycle exists."
+  },
+  {
+    "id": 73,
+    "title": "What is Topological Sorting?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Linear ordering of nodes such that every directed edge u→v has u before v. Works only on DAG."
+  },
+  {
+    "id": 74,
+    "title": "What is Dynamic Programming?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "DP solves problems by breaking them into overlapping subproblems and storing results to avoid recomputation."
+  },
+  {
+    "id": 75,
+    "title": "Tabulation vs Memoization",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Memoization is top-down recursion + cache. Tabulation is bottom-up iterative approach."
+  },
+  {
+    "id": 76,
+    "title": "0/1 Knapsack Problem",
+    "subject": "DSA",
+    "difficulty": "Hard",
+    "answer": "Choose items to maximize value without exceeding capacity. Each item can be taken at most once. Solved using DP."
+  },
+  {
+    "id": 77,
+    "title": "Longest Common Subsequence (LCS)",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Find longest sequence present in both strings (not necessarily contiguous). Uses DP."
+  },
+  {
+    "id": 78,
+    "title": "Longest Increasing Subsequence (LIS)",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Find longest strictly increasing subsequence. O(n log n) optimized solution exists."
+  },
+  {
+    "id": 79,
+    "title": "Coin Change Problem",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Find number of ways or minimum coins to make a sum. Classic DP problem."
+  },
+  {
+    "id": 80,
+    "title": "What is Backtracking?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Tries all possibilities. If one path fails, undo (backtrack) and try next. Used in N-Queens, Sudoku, permutations."
+  },
+  {
+    "id": 81,
+    "title": "N-Queens Problem",
+    "subject": "DSA",
+    "difficulty": "Hard",
+    "answer": "Place N queens on N×N chessboard so no queens attack each other. Solved using backtracking."
+  },
+  {
+    "id": 82,
+    "title": "What is a Trie?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Tree-like structure to store words efficiently. Great for prefix search, autocomplete."
+  },
+  {
+    "id": 83,
+    "title": "What is a Heap?",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Complete binary tree where parent follows heap property. Supports priority queues efficiently."
+  },
+  {
+    "id": 84,
+    "title": "Min Heap vs Max Heap",
+    "subject": "DSA",
+    "difficulty": "Easy",
+    "answer": "Min heap: root is smallest. Max heap: root is largest."
+  },
+  {
+    "id": 85,
+    "title": "Dijkstra Algorithm",
+    "subject": "DSA",
+    "difficulty": "Medium",
+    "answer": "Finds shortest path from source to all nodes in weighted graph with non-negative edges."
+  }
+]
+
+

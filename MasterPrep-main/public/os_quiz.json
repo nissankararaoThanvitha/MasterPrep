@@ -1,0 +1,627 @@
+[
+  {
+    "id": 1,
+    "subject": "OS",
+    "question": "What is an operating system?",
+    "options": [
+      "Interface between hardware and application programs",
+      "Collection of programs that manages hardware resources",
+      "System service provider to application programs",
+      "All of the mentioned"
+    ],
+    "answer": "d",
+    "explanation": "An OS manages hardware, runs programs, and acts as an interface between users, apps, and hardware."
+  },
+  {
+    "id": 2,
+    "subject": "OS",
+    "question": "What is the main function of the command interpreter?",
+    "options": [
+      "Interface between API and applications",
+      "Handle files",
+      "Get and execute user commands",
+      "None of the mentioned"
+    ],
+    "answer": "c",
+    "explanation": "The shell reads commands, validates them, and executes them."
+  },
+  {
+    "id": 3,
+    "subject": "OS",
+    "question": "Which of the following are CPU scheduling algorithms?",
+    "options": [
+      "Priority",
+      "Round Robin",
+      "Shortest Job First",
+      "All of the mentioned"
+    ],
+    "answer": "d",
+    "explanation": "All listed algorithms are CPU scheduling strategies."
+  },
+  {
+    "id": 4,
+    "subject": "OS",
+    "question": "To access services of the operating system, interface is provided by:",
+    "options": ["Library", "System calls", "Assembly instructions", "API"],
+    "answer": "b",
+    "explanation": "System calls expose OS services to programs."
+  },
+  {
+    "id": 5,
+    "subject": "OS",
+    "question": "CPU scheduling is the basis of:",
+    "options": [
+      "Multiprogramming operating systems",
+      "Larger memory systems",
+      "Multiprocessor systems",
+      "None of the mentioned"
+    ],
+    "answer": "a",
+    "explanation": "Multiprogramming relies on CPU scheduling to switch processes."
+  },
+  {
+    "id": 6,
+    "subject": "OS",
+    "question": "Which statement about kernel is NOT true?",
+    "options": [
+      "Kernel stays in memory",
+      "Kernel modules cannot be loaded at runtime",
+      "Kernel loads first during boot",
+      "Kernel is the core of OS"
+    ],
+    "answer": "b",
+    "explanation": "Modern systems allow loading/unloading kernel modules dynamically."
+  },
+  {
+    "id": 7,
+    "subject": "OS",
+    "question": "Which error is handled by the operating system?",
+    "options": [
+      "Lack of paper in printer",
+      "Network failure",
+      "Power failure",
+      "All of the mentioned"
+    ],
+    "answer": "d",
+    "explanation": "OS detects and responds to hardware and resource failures."
+  },
+  {
+    "id": 8,
+    "subject": "OS",
+    "question": "Where is the operating system placed in memory?",
+    "options": [
+      "Either low or high memory",
+      "Low memory",
+      "High memory",
+      "None of the mentioned"
+    ],
+    "answer": "a",
+    "explanation": "Placement depends on hardware design and interrupt vector location."
+  },
+  {
+    "id": 9,
+    "subject": "OS",
+    "question": "If a process fails, most OS write error info to a:",
+    "options": ["New file", "Another process", "Log file", "None"],
+    "answer": "c",
+    "explanation": "Logs help debugging and auditing failures."
+  },
+  {
+    "id": 10,
+    "subject": "OS",
+    "question": "Which of the following is NOT a real-time operating system?",
+    "options": ["RTLinux", "Palm OS", "QNX", "VxWorks"],
+    "answer": "b",
+    "explanation": "Palm OS is a mobile OS, not RTOS."
+  },
+  {
+    "id": 11,
+    "subject": "OS",
+    "question": "OS X kernel type is:",
+    "options": [
+      "Monolithic with modules",
+      "Microkernel",
+      "Monolithic",
+      "Hybrid kernel"
+    ],
+    "answer": "d",
+    "explanation": "macOS uses XNU, a hybrid kernel."
+  },
+  {
+    "id": 12,
+    "subject": "OS",
+    "question": "Each process has its own:",
+    "options": [
+      "Open files",
+      "Pending signals",
+      "Address space",
+      "All of the mentioned"
+    ],
+    "answer": "d",
+    "explanation": "Processes are isolated for protection and stability."
+  },
+  {
+    "id": 13,
+    "subject": "OS",
+    "question": "In time-sharing OS, when time slice completes, process moves to:",
+    "options": ["Suspended", "Terminated", "Ready", "Blocked"],
+    "answer": "c",
+    "explanation": "The process returns to ready queue waiting for CPU again."
+  },
+  {
+    "id": 14,
+    "subject": "OS",
+    "question": "Cascading termination ends:",
+    "options": [
+      "Only abnormal child processes",
+      "Only normal processes",
+      "All child processes",
+      "None"
+    ],
+    "answer": "a",
+    "explanation": "If parent terminates, its children may also terminate automatically."
+  },
+  {
+    "id": 15,
+    "subject": "OS",
+    "question": "When blocked process I/O completes, it goes to:",
+    "options": ["Terminated", "Suspended", "Running", "Ready"],
+    "answer": "d",
+    "explanation": "Only ready processes may later run."
+  },
+  {
+    "id": 16,
+    "subject": "OS",
+    "question": "Transient OS code:",
+    "options": [
+      "Always stays in memory",
+      "Never enters memory",
+      "Comes and goes as needed",
+      "Is inaccessible"
+    ],
+    "answer": "c",
+    "explanation": "Transient parts load only when required."
+  },
+  {
+    "id": 17,
+    "subject": "OS",
+    "question": "Dispatcher assigns:",
+    "options": [
+      "Ready → waiting queue",
+      "Running → blocked",
+      "Ready processes to CPU",
+      "All of the mentioned"
+    ],
+    "answer": "c",
+    "explanation": "Dispatcher selects next process to run."
+  },
+  {
+    "id": 18,
+    "subject": "OS",
+    "question": "FCFS is troublesome for:",
+    "options": [
+      "Operating systems",
+      "Multiprocessors",
+      "Time-sharing systems",
+      "Multiprogramming systems"
+    ],
+    "answer": "c",
+    "explanation": "Long jobs block CPU unfairly in FCFS."
+  },
+  {
+    "id": 19,
+    "subject": "OS",
+    "question": "When should deadlock be checked?",
+    "options": [
+      "Each request at fixed intervals",
+      "Only fixed intervals",
+      "Every request",
+      "Never"
+    ],
+    "answer": "a",
+    "explanation": "Efficient OS checks periodically AND at requests."
+  },
+  {
+    "id": 20,
+    "subject": "OS",
+    "question": "Deadlock avoidance examines:",
+    "options": [
+      "Operating system",
+      "Resources",
+      "System storage",
+      "Resource allocation state"
+    ],
+    "answer": "d",
+    "explanation": "The system checks whether granting a request could cause circular wait."
+  },
+  {
+    "id": 21,
+    "subject": "OS",
+    "question": "Swapping ______ be done when a process has pending I/O.",
+    "options": [
+      "Must never",
+      "Maybe",
+      "Can",
+      "Must"
+    ],
+    "answer": "a",
+    "explanation": "Pending I/O operations would cause inconsistencies if swapped out."
+  },
+  {
+    "id": 22,
+    "subject": "OS",
+    "question": "The main memory accommodates:",
+    "options": [
+      "CPU",
+      "User processes",
+      "Operating system",
+      "All of the mentioned"
+    ],
+    "answer": "c",
+    "explanation": "Main memory holds the OS and user processes, but not CPU itself."
+  },
+  {
+    "id": 23,
+    "subject": "OS",
+    "question": "The operating system is responsible for:",
+    "options": [
+      "Bad-block recovery",
+      "Booting from disk",
+      "Disk initialization",
+      "All of the mentioned"
+    ],
+    "answer": "d",
+    "explanation": "OS manages booting, disk recovery, initialization and more."
+  },
+  {
+    "id": 24,
+    "subject": "OS",
+    "question": "OS protects itself and other processes because:",
+    "options": [
+      "Every address is checked with relocation and limit registers",
+      "It uses protection algorithm",
+      "Different logical addresses",
+      "Different memory spaces"
+    ],
+    "answer": "a",
+    "explanation": "Hardware limits prevent unauthorized memory access."
+  },
+  {
+    "id": 25,
+    "subject": "OS",
+    "question": "Using transient code ______ the size of OS during execution.",
+    "options": [
+      "Maintains",
+      "Changes",
+      "Increases",
+      "Decreases"
+    ],
+    "answer": "b",
+    "explanation": "Transient portions are loaded/unloaded dynamically."
+  },
+  {
+    "id": 26,
+    "subject": "OS",
+    "question": "OS maintains a ______ table for tracking frames.",
+    "options": [
+      "Memory table",
+      "Mapping table",
+      "Page table",
+      "Frame table"
+    ],
+    "answer": "d",
+    "explanation": "Frame table manages physical memory allocation."
+  },
+  {
+    "id": 27,
+    "subject": "OS",
+    "question": "Dynamic loading requires:",
+    "options": [
+      "Special OS support",
+      "Special hardware",
+      "No special support",
+      "Hardware and OS support"
+    ],
+    "answer": "c",
+    "explanation": "It can be implemented by user programs."
+  },
+  {
+    "id": 28,
+    "subject": "OS",
+    "question": "________ presents uniform device access to I/O subsystem.",
+    "options": [
+      "Device drivers",
+      "I/O system",
+      "Devices",
+      "Buses"
+    ],
+    "answer": "a",
+    "explanation": "Drivers abstract hardware details."
+  },
+  {
+    "id": 29,
+    "subject": "OS",
+    "question": "In real-time OS:",
+    "options": [
+      "Scheduling occurs once",
+      "Processes have same priority",
+      "Kernel not required",
+      "Tasks must meet deadlines"
+    ],
+    "answer": "d",
+    "explanation": "Real-time constraints ensure strict execution timing."
+  },
+  {
+    "id": 30,
+    "subject": "OS",
+    "question": "Hard real-time OS has ______ jitter than soft real-time OS.",
+    "options": [
+      "Equal",
+      "More",
+      "Less",
+      "None"
+    ],
+    "answer": "c",
+    "explanation": "Hard RTOS has tighter timing constraints."
+  },
+  {
+    "id": 31,
+    "subject": "OS",
+    "question": "For real-time OS, interrupt latency should be:",
+    "options": [
+      "Zero",
+      "Minimal",
+      "Maximum",
+      "Depends on scheduling"
+    ],
+    "answer": "b",
+    "explanation": "Lower latency ensures quicker response."
+  },
+  {
+    "id": 32,
+    "subject": "OS",
+    "question": "Which is a real-time operating system?",
+    "options": [
+      "Windows CE",
+      "RTLinux",
+      "VxWorks",
+      "All of the mentioned"
+    ],
+    "answer": "d",
+    "explanation": "All listed OS support real-time requirements."
+  },
+  {
+    "id": 33,
+    "subject": "OS",
+    "question": "Static priorities for processes:",
+    "options": [
+      "Depend on OS",
+      "Change",
+      "Remain unchanged",
+      "None"
+    ],
+    "answer": "c",
+    "explanation": "Static priorities are fixed once assigned."
+  },
+  {
+    "id": 34,
+    "subject": "OS",
+    "question": "Host based IDS characteristics:",
+    "options": [
+      "Log analysis",
+      "OS logs info",
+      "Includes logins/file opens",
+      "All of the mentioned"
+    ],
+    "answer": "d",
+    "explanation": "Host IDS analyzes local audit logs."
+  },
+  {
+    "id": 35,
+    "subject": "OS",
+    "question": "Stack based IDS:",
+    "options": [
+      "Interprets packet series",
+      "Models noise",
+      "Monitors TCP/IP stack packets",
+      "Uses OS logs"
+    ],
+    "answer": "c",
+    "explanation": "It integrates with network stack."
+  },
+  {
+    "id": 36,
+    "subject": "OS",
+    "question": "If working-set sum exceeds frames:",
+    "options": [
+      "OS suspends a process",
+      "System crashes",
+      "Process crashes",
+      "Memory overflows"
+    ],
+    "answer": "a",
+    "explanation": "Suspension avoids thrashing."
+  },
+  {
+    "id": 37,
+    "subject": "OS",
+    "question": "File info is stored in:",
+    "options": [
+      "OS",
+      "Directory structure",
+      "Swap space",
+      "None"
+    ],
+    "answer": "b",
+    "explanation": "Directories manage metadata."
+  },
+  {
+    "id": 38,
+    "subject": "OS",
+    "question": "OS keeps info about open files in:",
+    "options": [
+      "File table",
+      "Directory table",
+      "Open-file table",
+      "System table"
+    ],
+    "answer": "c",
+    "explanation": "Tracks currently opened files."
+  },
+  {
+    "id": 39,
+    "subject": "OS",
+    "question": "In single-level directory:",
+    "options": [
+      "All files in same directory",
+      "Files in separate same-level dirs",
+      "Depends on OS",
+      "None"
+    ],
+    "answer": "a",
+    "explanation": "Everything stored together — causes name conflicts."
+  },
+  {
+    "id": 40,
+    "subject": "OS",
+    "question": "OS ______ links to maintain acyclic directories.",
+    "options": [
+      "Deletes",
+      "Considers",
+      "Ignores",
+      "Tracks"
+    ],
+    "answer": "c",
+    "explanation": "Avoids loops in directory traversal."
+  },
+  {
+    "id": 41,
+    "subject": "OS",
+    "question": "Network failure recovery may maintain:",
+    "options": [
+      "OS info",
+      "IP info",
+      "Stateless info",
+      "State info"
+    ],
+    "answer": "d",
+    "explanation": "State allows restoring sessions."
+  },
+  {
+    "id": 42,
+    "subject": "OS",
+    "question": "On systems with multiple OS, choice is done by:",
+    "options": [
+      "PCB",
+      "FCB",
+      "Boot loader",
+      "Bootstrap"
+    ],
+    "answer": "c",
+    "explanation": "Bootloader selects OS."
+  },
+  {
+    "id": 43,
+    "subject": "OS",
+    "question": "For disk I/O, a process issues:",
+    "options": [
+      "System call to OS",
+      "Special procedure",
+      "System call to CPU",
+      "All"
+    ],
+    "answer": "a",
+    "explanation": "Requests go through OS I/O subsystem."
+  },
+  {
+    "id": 44,
+    "subject": "OS",
+    "question": "Two steps to use disk:",
+    "options": [
+      "Caching & logical formatting",
+      "Logical formatting & swap creation",
+      "Swap creation & caching",
+      "Partitioning & logical formatting"
+    ],
+    "answer": "d",
+    "explanation": "Partition first, then file system formatting."
+  },
+  {
+    "id": 45,
+    "subject": "OS",
+    "question": "Program initializing entire system is:",
+    "options": [
+      "Bootstrap",
+      "Main",
+      "Bootloader",
+      "ROM"
+    ],
+    "answer": "a",
+    "explanation": "Bootstrap loads bootloader → OS."
+  },
+  {
+    "id": 46,
+    "subject": "OS",
+    "question": "In SCSI, bad blocks tracked during:",
+    "options": [
+      "Partitioning",
+      "Low-level formatting",
+      "High-level formatting",
+      "Repartitioning"
+    ],
+    "answer": "b",
+    "explanation": "Low-level formatting maps spare sectors."
+  },
+  {
+    "id": 47,
+    "subject": "OS",
+    "question": "Principle of least privilege means:",
+    "options": [
+      "Users get minimum permissions",
+      "All processes same privilege",
+      "Kernel holds all privileges",
+      "None"
+    ],
+    "answer": "a",
+    "explanation": "Limits damage risk and improves security."
+  },
+  {
+    "id": 48,
+    "subject": "OS",
+    "question": "Network operating system runs on:",
+    "options": [
+      "Every system",
+      "Server",
+      "Both server and client",
+      "None"
+    ],
+    "answer": "b",
+    "explanation": "Central server coordinates services."
+  },
+  {
+    "id": 49,
+    "subject": "OS",
+    "question": "Type of distributed OS:",
+    "options": [
+      "Zone-based",
+      "Level-based",
+      "Network OS",
+      "All"
+    ],
+    "answer": "c",
+    "explanation": "Network OS connects distributed systems."
+  },
+  {
+    "id": 50,
+    "subject": "OS",
+    "question": "In Unix, which call creates a new process?",
+    "options": [
+      "create",
+      "fork",
+      "new",
+      "spawn"
+    ],
+    "answer": "b",
+    "explanation": "fork() duplicates the current process."
+  }
+]
