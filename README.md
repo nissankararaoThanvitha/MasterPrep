@@ -76,18 +76,6 @@ Users can:
 - Get AI-based explanations  
 - Continue conversation like a chatbot  
 
-Backend API used:
-
-
-Example request:
-
-```json
-{
-  "question": "Explain deadlock in OS"
-}
-{
-  "answer": "Deadlock occurs when processes wait for each other indefinitely..."
-}
 🛠️ 7) Tech Stack
 Frontend
 
@@ -124,6 +112,9 @@ MasterPrep/
     ├── main.py
     ├── requirements.txt
     └── .env
+
+
+
 
 
 
