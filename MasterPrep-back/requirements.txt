@@ -5,3 +5,4 @@ pillow
 pytesseract
 pymupdf
 google-genai
+python-multipart
