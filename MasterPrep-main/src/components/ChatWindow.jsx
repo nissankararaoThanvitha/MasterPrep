@@ -21,7 +21,7 @@ export default function ChatWindow({
     formData.append("file", file);
 
     try {
-      await fetch("http://127.0.0.1:8000/upload", {
+      await fetch("https://masterprep-3.onrender.com/upload", {
         method: "POST",
         body: formData,
       });
