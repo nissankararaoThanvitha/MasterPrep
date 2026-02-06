@@ -16,6 +16,8 @@ import { auth } from "../firebase";
 import { signInAnonymously } from "firebase/auth";
 import { db } from "../firebase";
 
+const BACKEND = "https://masterprep-3.onrender.com";  // <-- YOUR LIVE BACKEND
+
 export default function AIDoubtChat() {
   const [chats, setChats] = useState([]);
   const [activeChatId, setActiveChatId] = useState(null);
@@ -108,12 +110,12 @@ export default function AIDoubtChat() {
     setInput("");
     setLoading(true);
 
-    // Save user message
+    // Save user message in Firestore
     await updateDoc(chatRef, {
       messages: arrayUnion(userMsg),
     });
 
-    // Update UI
+    // Update UI instantly
     setChats((prev) =>
       prev.map((chat) =>
         chat.id === activeChatId
@@ -122,7 +124,7 @@ export default function AIDoubtChat() {
       )
     );
 
-    // 🔥 AUTO RENAME CHAT (ONLY FIRST MESSAGE)
+    // Rename chat if first message
     const currentChat = chats.find((c) => c.id === activeChatId);
     if (currentChat && currentChat.title === "New Chat") {
       const newTitle = generateTitle(userMsg.text);
@@ -138,17 +140,21 @@ export default function AIDoubtChat() {
       );
     }
 
-    // Call backend
+    // ----------- CALL DEPLOYED BACKEND -----------
     let aiText = "⚠️ Error contacting AI";
+
     try {
-      const res = await fetch("http://127.0.0.1:8000/ask", {
+      const res = await fetch(`${BACKEND}/ask`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: userMsg.text }),
       });
+
       const data = await res.json();
-      aiText = data.answer;
-    } catch {}
+      aiText = data.answer || JSON.stringify(data);
+    } catch (err) {
+      console.error("Ask error:", err);
+    }
 
     const aiMsg = {
       role: "ai",
@@ -173,11 +179,9 @@ export default function AIDoubtChat() {
     setLoading(false);
   };
 
-  // ---------------- ACTIVE CHAT ----------------
   const activeChat =
     chats.find((c) => c.id === activeChatId) || null;
 
-  // ---------------- UI ----------------
   return (
     <div className="flex h-[calc(100vh-64px)] overflow-hidden bg-[#2f3142]">
       <Sidebar
