@@ -1,6 +1,6 @@
 # MasterPrep — AI Interview Preparation Platform  
 
-**Live Website:** https://master-prep-82ts.vercel.app  
+**Live Website:** https://master-prep-vmkv.vercel.app/
 
 MasterPrep is an AI-powered interview preparation platform designed for computer science students preparing for technical interviews. It combines structured learning, smart bookmarking, timed quizzes, performance tracking, and AI-based doubt solving in a single platform.
 
