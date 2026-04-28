@@ -18,9 +18,12 @@ model = genai.GenerativeModel("gemini-3-flash-preview")
 # ---------------- FASTAPI ----------------
 app = FastAPI()
 
+# ✅ FIXED CORS (IMPORTANT)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "https://master-prep-vmkv.vercel.app"
+    ],  # your frontend URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -32,6 +35,11 @@ if os.name == "nt":
 
 # ---------------- CONTEXT ----------------
 stored_context = ""
+
+# ---------------- HEALTH CHECK (VERY USEFUL) ----------------
+@app.get("/")
+def home():
+    return {"message": "Backend is running"}
 
 # ---------------- UPLOAD ----------------
 @app.post("/upload")
@@ -71,6 +79,9 @@ async def ask_question(data: dict):
 
     prompt = f"""
 Answer in exam notes format.
+
+Context:
+{stored_context}
 
 Question:
 {question}
