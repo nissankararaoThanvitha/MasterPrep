@@ -22,7 +22,7 @@ export default function ChatWindow({
     formData.append("file", file);
 
     try {
-      await fetch("https://masterpreparation.onrender.com/upload", {
+      await fetch("https://masterprep-5.onrender.com/upload", {
         method: "POST",
         body: formData,
       });
