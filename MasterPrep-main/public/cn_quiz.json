@@ -1,0 +1,374 @@
+[
+  {
+    "id": 1,
+    "subject": "CN",
+    "question": "What is a computer network?",
+    "options": [
+      "A device used to display information on a computer screen",
+      "A collection of interconnected computers and devices that can communicate and share resources",
+      "A type of software used to create documents and presentations",
+      "The physical casing that protects a computer’s internal components"
+    ],
+    "answer": "b",
+    "explanation": "A network connects devices so they can communicate and share data and resources."
+  },
+  {
+    "id": 2,
+    "subject": "CN",
+    "question": "What is the Internet?",
+    "options": [
+      "A network of interconnected local area networks",
+      "A collection of unrelated computers",
+      "Interconnection of wide area networks",
+      "A single network"
+    ],
+    "answer": "c",
+    "explanation": "The Internet is a global system formed by interconnecting many WANs."
+  },
+  {
+    "id": 3,
+    "subject": "CN",
+    "question": "Which of the following is an example of Bluetooth?",
+    "options": [
+      "Wide area network",
+      "Virtual private network",
+      "Local area network",
+      "Personal area network"
+    ],
+    "answer": "d",
+    "explanation": "Bluetooth creates a short-range personal area network (PAN)."
+  },
+  {
+    "id": 4,
+    "subject": "CN",
+    "question": "Which computer network is built on top of another network?",
+    "options": [
+      "Overlay network",
+      "Prime network",
+      "Prior network",
+      "Chief network"
+    ],
+    "answer": "a",
+    "explanation": "Overlay networks (like VPNs and P2P) operate using another network below them."
+  },
+  {
+    "id": 5,
+    "subject": "CN",
+    "question": "What is the full form of OSI?",
+    "options": [
+      "Optical Service Implementation",
+      "Open Service Internet",
+      "Open System Interconnection",
+      "Operating System Interface"
+    ],
+    "answer": "c",
+    "explanation": "OSI stands for Open System Interconnection and describes layered communication."
+  },
+  {
+    "id": 6,
+    "subject": "CN",
+    "question": "When various computers appear as one coherent system to users, it is called:",
+    "options": [
+      "Mail system",
+      "Networking system",
+      "Computer network",
+      "Distributed system"
+    ],
+    "answer": "d",
+    "explanation": "Distributed systems hide multiple computers and act as one logical system."
+  },
+  {
+    "id": 7,
+    "subject": "CN",
+    "question": "How many layers exist in the OSI model?",
+    "options": ["7", "5", "4", "6"],
+    "answer": "a",
+    "explanation": "The OSI model contains seven layers."
+  },
+  {
+    "id": 8,
+    "subject": "CN",
+    "question": "What are nodes in a computer network?",
+    "options": [
+      "Computers that route data",
+      "Computers that terminate data",
+      "Computers that originate data",
+      "All of the mentioned"
+    ],
+    "answer": "d",
+    "explanation": "Any device that sends, receives, or routes data is a network node."
+  },
+  {
+    "id": 9,
+    "subject": "CN",
+    "question": "Which of the following is NOT a function of the network layer?",
+    "options": [
+      "Congestion control",
+      "Error control",
+      "Routing",
+      "Internetworking"
+    ],
+    "answer": "b",
+    "explanation": "Error control belongs to the Data Link and Transport layers."
+  },
+  {
+    "id": 10,
+    "subject": "CN",
+    "question": "How is a single channel shared by multiple signals?",
+    "options": [
+      "Multiplexing",
+      "Phase modulation",
+      "Analog modulation",
+      "Digital modulation"
+    ],
+    "answer": "a",
+    "explanation": "Multiplexing combines multiple signals over one communication channel."
+  },
+  {
+    "id": 11,
+    "subject": "CN",
+    "question": "Which device forwards packets using routing information?",
+    "options": ["Firewall", "Bridge", "Hub", "Router"],
+    "answer": "d",
+    "explanation": "Routers direct packets between networks based on routing tables."
+  },
+  {
+    "id": 12,
+    "subject": "CN",
+    "question": "What is the endpoint of communication across a network?",
+    "options": ["Port", "Machine", "Socket", "Pipe"],
+    "answer": "c",
+    "explanation": "Sockets identify communication endpoints in TCP/IP."
+  },
+  {
+    "id": 13,
+    "subject": "CN",
+    "question": "Two devices are considered part of a network when:",
+    "options": [
+      "Their process IDs match",
+      "A process exchanges information with a process on another device",
+      "One process is active and another inactive",
+      "Same process is running on both devices"
+    ],
+    "answer": "b",
+    "explanation": "Networking exists when devices exchange data via protocols."
+  },
+  {
+    "id": 14,
+    "subject": "CN",
+    "question": "Which layer provides packets to the data link layer for framing?",
+    "options": [
+      "Transport layer",
+      "Application layer",
+      "Network layer",
+      "Physical layer"
+    ],
+    "answer": "c",
+    "explanation": "Network layer delivers packets which are converted into frames by Data Link layer."
+  },
+  {
+    "id": 15,
+    "subject": "CN",
+    "question": "Which of the following is NOT a network edge device?",
+    "options": ["Switch", "PC", "Smartphone", "Server"],
+    "answer": "a",
+    "explanation": "Switches are network infrastructure, not edge hosts."
+  },
+  {
+    "id": 16,
+    "subject": "CN",
+    "question": "Which type of network shares the channel among all machines?",
+    "options": ["Anycast", "Multicast", "Unicast", "Broadcast"],
+    "answer": "d",
+    "explanation": "Broadcast sends data to all devices on the network."
+  },
+  {
+    "id": 17,
+    "subject": "CN",
+    "question": "Which topology requires a multipoint connection?",
+    "options": ["Ring", "Bus", "Star", "Mesh"],
+    "answer": "b",
+    "explanation": "Bus topology connects multiple nodes to one shared cable."
+  },
+  {
+    "id": 18,
+    "subject": "CN",
+    "question": "Who maintains the Domain Name System?",
+    "options": [
+      "Single server",
+      "Single computer",
+      "Distributed database system",
+      "None of the mentioned"
+    ],
+    "answer": "c",
+    "explanation": "DNS is distributed across many servers worldwide."
+  },
+  {
+    "id": 19,
+    "subject": "CN",
+    "question": "In IDS/IPS, what is a signature?",
+    "options": [
+      "Baseline network behavior",
+      "Authorization token",
+      "Electronic authentication signature",
+      "Attack-definition file"
+    ],
+    "answer": "d",
+    "explanation": "Signatures define known malicious attack patterns."
+  },
+  {
+    "id": 20,
+    "subject": "CN",
+    "question": "Which of the following are Gigabit Ethernets?",
+    "options": [
+      "1000 BASE-LX",
+      "1000 BASE-CX",
+      "1000 BASE-SX",
+      "All of the mentioned"
+    ],
+    "answer": "d",
+    "explanation": "All listed technologies operate at 1 Gbps."
+  },
+  {
+    "id": 21,
+    "subject": "CN",
+    "question": "Which network extends a private network across public networks?",
+    "options": [
+      "Virtual private network",
+      "Local area network",
+      "Storage area network",
+      "Enterprise private network"
+    ],
+    "answer": "a",
+    "explanation": "VPN securely tunnels traffic across public internet."
+  },
+  {
+    "id": 22,
+    "subject": "CN",
+    "question": "Which layer is responsible for process-to-process delivery?",
+    "options": [
+      "Session layer",
+      "Data link layer",
+      "Transport layer",
+      "Network layer"
+    ],
+    "answer": "c",
+    "explanation": "Transport layer uses ports for end-to-end delivery."
+  },
+  {
+    "id": 23,
+    "subject": "CN",
+    "question": "Each packet in a virtual circuit network contains:",
+    "options": [
+      "Only source address",
+      "Only destination address",
+      "Full source and destination address",
+      "A short VC number"
+    ],
+    "answer": "d",
+    "explanation": "VC numbers identify the connection path."
+  },
+  {
+    "id": 24,
+    "subject": "CN",
+    "question": "What is the term for data communication system within a building or campus?",
+    "options": ["MAN", "LAN", "PAN", "WAN"],
+    "answer": "b",
+    "explanation": "LAN covers small geographical areas."
+  },
+  {
+    "id": 25,
+    "subject": "CN",
+    "question": "What was the first computer network?",
+    "options": ["ASAPNET", "ARPANET", "CNNET", "NSFNET"],
+    "answer": "b",
+    "explanation": "ARPANET introduced packet switching and TCP/IP."
+  },
+  {
+    "id": 26,
+    "subject": "CN",
+    "question": "Which protocol is used at the network layer of the Internet?",
+    "options": ["HTTP", "FTP", "Ethernet", "IP"],
+    "answer": "d",
+    "explanation": "IP performs addressing and packet delivery."
+  },
+  {
+    "id": 27,
+    "subject": "CN",
+    "question": "Which network topology requires a central controller or hub?",
+    "options": ["Ring", "Bus", "Star", "Mesh"],
+    "answer": "c",
+    "explanation": "In star topology, all nodes communicate through the hub."
+  },
+  {
+    "id": 28,
+    "subject": "CN",
+    "question": "A link transmits 4000 frames per second, each with 8 bits. What is the TDM rate?",
+    "options": ["500 kbps", "32 kbps", "32 bps", "500 bps"],
+    "answer": "b",
+    "explanation": "4000 × 8 = 32000 bps = 32 kbps."
+  },
+  {
+    "id": 29,
+    "subject": "CN",
+    "question": "Which device allows LAN users to share programs and data?",
+    "options": ["File server", "Network", "Communication server", "Print server"],
+    "answer": "a",
+    "explanation": "File servers store shared applications and files."
+  },
+  {
+    "id": 30,
+    "subject": "CN",
+    "question": "Communication between computer and keyboard uses:",
+    "options": ["Half-duplex", "Full-duplex", "Simplex", "Automatic"],
+    "answer": "c",
+    "explanation": "Simplex communication flows in one direction only."
+  },
+  {
+    "id": 31,
+    "subject": "CN",
+    "question": "Which layer provides services to the user?",
+    "options": [
+      "Physical layer",
+      "Presentation layer",
+      "Session layer",
+      "Application layer"
+    ],
+    "answer": "d",
+    "explanation": "Users interact directly with the application layer."
+  },
+  {
+    "id": 32,
+    "subject": "CN",
+    "question": "Which connection is needed to join the internet?",
+    "options": [
+      "Internet society",
+      "Internet service provider",
+      "Another computer",
+      "Internet architecture board"
+    ],
+    "answer": "b",
+    "explanation": "ISPs assign IP addresses and connect users to internet backbone."
+  },
+  {
+    "id": 33,
+    "subject": "CN",
+    "question": "Which protocol allows login to remote computers?",
+    "options": ["SMTP", "HTTP", "FTP", "Telnet"],
+    "answer": "d",
+    "explanation": "Telnet provides remote terminal access."
+  },
+  {
+    "id": 34,
+    "subject": "CN",
+    "question": "Which attack attempts to make a network resource unavailable?",
+    "options": [
+      "Botnet process",
+      "Worm attack",
+      "Virus attack",
+      "Denial-of-service attack"
+    ],
+    "answer": "d",
+    "explanation": "DoS floods or blocks legitimate access to services."
+  }
+]

@@ -1,0 +1,669 @@
+[
+  {
+    "id": 1,
+    "title": "What is a network?",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "A network is an interconnected system of devices such as computers and peripherals that can communicate and share data over communication channels like cables or wireless media."
+  },
+  {
+    "id": 2,
+    "title": "Why are computer networks important?",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "Computer networks enable communication, resource sharing, remote access, data transfer and form the foundation of the Internet, allowing global connectivity and information exchange."
+  },
+  {
+    "id": 3,
+    "title": "What is IPv4 and what are its classes?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "IPv4 is a 32-bit address system divided into four octets. It supports five classes: Class A (0.0.0.0–127.255.255.255), Class B (128.0.0.0–191.255.255.255), Class C (192.0.0.0–223.255.255.255), Class D for multicast and Class E for research."
+  },
+  {
+    "id": 4,
+    "title": "Explain different network types (PAN, LAN, MAN, WAN, GAN)",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "PAN connects devices around one person, LAN covers a building or office, MAN spans a city, WAN spans countries and GAN connects global networks using satellites such as the Internet."
+  },
+  {
+    "id": 5,
+    "title": "What is LAN?",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "A Local Area Network connects computers within a limited area such as a home or office, allowing resource sharing. It can be wired using cables or wireless using Wi-Fi."
+  },
+  {
+    "id": 6,
+    "title": "What is VPN?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "A Virtual Private Network creates a secure encrypted tunnel over the internet, allowing remote users or offices to connect safely to a private network."
+  },
+  {
+    "id": 7,
+    "title": "Advantages of VPN",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "VPN enables secure remote access, reduces cost compared to dedicated WANs, protects data via encryption, hides IP identity and supports secure communication between branches."
+  },
+  {
+    "id": 8,
+    "title": "Types of VPN",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "Access VPN provides remote connectivity for individual users. Site-to-Site VPN connects entire office networks, including intranet VPN for internal access and extranet VPN for partner access."
+  },
+  {
+    "id": 9,
+    "title": "What are nodes and links?",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "Nodes are devices such as computers, printers or servers that communicate over a network. Links are communication paths (wired or wireless) connecting nodes."
+  },
+  {
+    "id": 10,
+    "title": "What is network topology?",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "Network topology is the physical or logical arrangement of devices and links in a network, defining how nodes are connected and communicate."
+  },
+  {
+    "id": 11,
+    "title": "Explain different network topologies",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "Bus uses a single backbone cable, Star connects all nodes to a central hub, Ring connects nodes circularly, Mesh provides multiple connections, Tree combines star + bus, and Hybrid mixes multiple topologies."
+  },
+  {
+    "id": 12,
+    "title": "How are network types classified?",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "Networks are classified based on coverage area such as PAN, LAN, MAN, WAN and GAN depending on geographic reach."
+  },
+  {
+    "id": 13,
+    "title": "What are private and special IP addresses?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "Private IPs are reserved for internal networks (Class A: 10.0.0.0/8, Class B: 172.16.0.0/12, Class C: 192.168.0.0/16). Special addresses in 127.x.x.x are used for loopback and testing."
+  },
+  {
+    "id": 14,
+    "title": "What is DNS?",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "DNS translates human-readable domain names into IP addresses, acting like the Internet's phonebook. It typically uses port 53."
+  },
+  {
+    "id": 15,
+    "title": "What is a router and how is it different from a gateway?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "A router connects multiple networks and forwards packets using IP addresses. A gateway can connect dissimilar networks and performs protocol translation in addition to routing."
+  },
+  {
+    "id": 16,
+    "title": "What is SMTP?",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "SMTP stands for Simple Mail Transfer Protocol. It defines how emails are sent between servers and supports end-to-end and store-and-forward communication. It listens on port 25."
+  },
+  {
+    "id": 17,
+    "title": "What is the OSI reference model?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "The OSI (Open Systems Interconnection) model is a conceptual networking framework with seven layers that standardizes communication between systems and devices."
+  },
+  {
+    "id": 18,
+    "title": "Name the seven layers of the OSI model",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "Physical, Data Link, Network, Transport, Session, Presentation, Application."
+  },
+  {
+    "id": 19,
+    "title": "Explain the Physical Layer",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "The Physical Layer transmits raw bits over communication media. It defines cables, connectors, voltages, bit rate and transmission modes such as simplex, half-duplex and full-duplex."
+  },
+  {
+    "id": 20,
+    "title": "Explain the Data Link Layer",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "The Data Link Layer converts raw communication into a reliable link. It performs framing, error detection using CRC and manages access to shared media using protocols like CSMA/CD, CSMA/CA and Token Passing."
+  },
+  {
+    "id": 21,
+    "title": "Explain the Network Layer",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "The Network Layer controls routing of packets between networks, assigns logical addressing, manages congestion and uses protocols like IP and ICMP."
+  },
+  {
+    "id": 22,
+    "title": "Explain the Transport Layer",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "The Transport Layer segments data, ensures ordered delivery and reliability, and reassembles packets at the receiver. It uses protocols like TCP and UDP."
+  },
+  {
+    "id": 23,
+    "title": "Explain the Session Layer",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "The Session Layer manages communication sessions between devices, establishes connections, synchronizes data and handles dialogue control."
+  },
+  {
+    "id": 24,
+    "title": "Explain the Presentation Layer",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "The Presentation Layer ensures proper data translation, encryption, compression and formatting between sender and receiver."
+  },
+  {
+    "id": 25,
+    "title": "Explain the Application Layer",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "The Application Layer provides services directly to users such as email, web browsing, file transfer and network management."
+  },
+  {
+    "id": 26,
+    "title": "What is the TCP/IP model?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "The TCP/IP model is a four-layer model designed by the U.S. Department of Defense. It consists of Link, Internet, Transport and Application layers."
+  },
+  {
+    "id": 27,
+    "title": "Name the four layers of TCP/IP",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "Link Layer, Internet Layer, Transport Layer, Application Layer."
+  },
+  {
+    "id": 28,
+    "title": "Difference between OSI model and TCP/IP model",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "OSI has seven layers while TCP/IP has four. OSI is theoretical and protocol-independent, while TCP/IP is practical and protocol-oriented. TCP/IP is more flexible and widely used."
+  },
+  {
+    "id": 29,
+    "title": "What is HTTP?",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "HTTP is HyperText Transfer Protocol. It defines communication between web browsers and servers over the Web. It is stateless and uses port 80 by default."
+  },
+  {
+    "id": 30,
+    "title": "What is HTTPS?",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "HTTPS is HTTP Secure. It combines HTTP with SSL/TLS encryption to secure communication, ensure confidentiality and server authentication. It uses port 443."
+  },
+  {
+    "id": 31,
+    "title": "What is FTP?",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "FTP stands for File Transfer Protocol. It transfers files between systems reliably and efficiently and supports uploading and downloading."
+  },
+  {
+    "id": 32,
+    "title": "What is TCP?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "TCP (Transmission Control Protocol) is a reliable, connection-oriented protocol. It ensures ordered delivery, retransmits lost packets and uses three-way handshake to establish connections."
+  },
+  {
+    "id": 33,
+    "title": "What is UDP?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "UDP (User Datagram Protocol) is a connectionless protocol that sends packets without acknowledgment, making it faster but less reliable. It is used in streaming and real-time communication."
+  },
+  {
+    "id": 34,
+    "title": "Difference between TCP and UDP",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "TCP is connection-oriented, reliable and slower. UDP is connectionless, unreliable but faster. TCP ensures packet order and uses acknowledgments, while UDP does not."
+  },
+  {
+    "id": 35,
+    "title": "What is ICMP?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "ICMP (Internet Control Message Protocol) is used for error handling and diagnostics in networks. It helps detect unreachable hosts, delays and connectivity issues."
+  },
+  {
+    "id": 36,
+    "title": "What is DHCP?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "DHCP (Dynamic Host Configuration Protocol) automatically assigns IP addresses, subnet masks, gateways and DNS information to devices joining a network. It helps avoid manual configuration errors."
+  },
+  {
+    "id": 37,
+    "title": "What is ARP?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "ARP (Address Resolution Protocol) maps a logical IP address to a physical MAC address so that devices in a local network can communicate."
+  },
+  {
+    "id": 38,
+    "title": "What is a MAC address?",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "A MAC address is a unique 48-bit or 64-bit hardware address assigned to a network interface card (NIC). It identifies a device physically on the network."
+  },
+  {
+    "id": 39,
+    "title": "Difference between IP address and MAC address",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "MAC address is a physical hardware address fixed to a NIC, while IP address is a logical address assigned by the network. MAC works at Data Link Layer while IP works at Network Layer."
+  },
+  {
+    "id": 40,
+    "title": "What is a subnet?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "A subnet is a logically divided part of a network. Subnetting improves routing efficiency, security and reduces broadcast traffic."
+  },
+  {
+    "id": 41,
+    "title": "What is a hub?",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "A hub is a simple networking device working at the physical layer. It broadcasts incoming data to all ports and does not reduce collisions."
+  },
+  {
+    "id": 42,
+    "title": "What is a switch?",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "A switch operates at the data link layer. It forwards frames only to the destination MAC address, reducing collisions and improving efficiency."
+  },
+  {
+    "id": 43,
+    "title": "Difference between hub and switch",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "A hub broadcasts data to all devices and works at the physical layer. A switch forwards data intelligently based on MAC addresses and works at the data link layer."
+  },
+  {
+    "id": 44,
+    "title": "What is a firewall?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "A firewall filters incoming and outgoing network traffic based on rules. It protects private networks from unauthorized access and attacks."
+  },
+  {
+    "id": 45,
+    "title": "What is unicasting?",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "Unicasting is communication where data is sent from one sender to one specific receiver."
+  },
+  {
+    "id": 46,
+    "title": "What is multicasting?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "Multicasting sends data from one sender to a selected group of receivers, commonly used in online streaming and conferencing."
+  },
+  {
+    "id": 47,
+    "title": "What is broadcasting?",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "Broadcasting sends data from one sender to all devices on a network. Protocols like ARP and DHCP use broadcasting."
+  },
+  {
+    "id": 48,
+    "title": "What is anycasting?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "Anycasting allows data to be sent from one sender to the nearest or best-performing device from a group of servers, commonly used in CDNs."
+  },
+  {
+    "id": 49,
+    "title": "What is DNS?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "DNS (Domain Name System) translates human-readable domain names like google.com into IP addresses. It works using port 53."
+  },
+  {
+    "id": 50,
+    "title": "What happens when you type google.com in a browser?",
+    "subject": "CN",
+    "difficulty": "Hard",
+    "answer": "1) Browser checks cache. 2) DNS resolves domain to IP. 3) TCP connection established using three-way handshake. 4) HTTP/HTTPS request sent. 5) Server processes request and responds. 6) Browser renders content and may reuse the connection."
+  },
+  {
+    "id": 51,
+    "title": "What is FTP used for?",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "FTP is used for transferring files between computers over a network. It supports uploading and downloading."
+  },
+  {
+    "id": 52,
+    "title": "What is a router?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "A router connects multiple networks and forwards packets based on IP addresses. It operates at the network layer."
+  },
+  {
+    "id": 53,
+    "title": "What is a gateway?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "A gateway connects different types of networks and can translate protocols, while routers connect similar networks."
+  },
+  {
+    "id": 54,
+    "title": "What is ICMP used for?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "ICMP is used by routers and hosts to report errors, unreachable destinations and network diagnostics such as ping."
+  },
+  {
+    "id": 55,
+    "title": "What is NAT?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "NAT (Network Address Translation) converts private IP addresses to public IPs so multiple devices can access the internet using a single public IP."
+  },
+  {
+    "id": 56,
+    "title": "What is latency?",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "Latency is the total time taken for a data packet to travel from source to destination. It includes propagation delay, transmission delay, processing delay and queuing delay."
+  },
+  {
+    "id": 57,
+    "title": "What is bandwidth?",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "Bandwidth is the maximum rate at which data can be transferred over a network connection, usually measured in Mbps or Gbps."
+  },
+  {
+    "id": 58,
+    "title": "What is throughput?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "Throughput is the actual amount of data successfully delivered over a network in a given time. It is usually lower than bandwidth due to overhead and network congestion."
+  },
+  {
+    "id": 59,
+    "title": "What is jitter?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "Jitter is the variation in packet arrival times. High jitter affects real-time applications like VoIP, gaming and video calls."
+  },
+  {
+    "id": 60,
+    "title": "What is congestion in networks?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "Network congestion happens when too many packets are present in the network causing delay, packet drops, timeouts and retransmissions."
+  },
+  {
+    "id": 61,
+    "title": "What is QoS?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "QoS (Quality of Service) prioritizes network traffic to guarantee performance for important services such as VoIP, video streaming and critical applications."
+  },
+  {
+    "id": 62,
+    "title": "What is subnet mask?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "A subnet mask separates the network portion and host portion of an IP address. Example: 255.255.255.0 indicates first 24 bits are network."
+  },
+  {
+    "id": 63,
+    "title": "What is default gateway?",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "A default gateway is a router that forwards traffic from a local network to external networks when no other route is available."
+  },
+  {
+    "id": 64,
+    "title": "What is traceroute?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "Traceroute is a diagnostic tool that shows the path packets take to reach a destination and measures delays across each hop."
+  },
+  {
+    "id": 65,
+    "title": "What is ping?",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "Ping uses ICMP echo request and reply messages to test connectivity and measure round-trip time between two devices."
+  },
+  {
+    "id": 66,
+    "title": "What is proxy server?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "A proxy server acts as an intermediary between client and server, providing security, caching and anonymity."
+  },
+  {
+    "id": 67,
+    "title": "What is load balancing?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "Load balancing distributes incoming network traffic across multiple servers to improve performance, reliability and availability."
+  },
+  {
+    "id": 68,
+    "title": "What is packet sniffing?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "Packet sniffing is monitoring and capturing network packets using tools like Wireshark. It is used for troubleshooting and security analysis."
+  },
+  {
+    "id": 69,
+    "title": "What is spoofing?",
+    "subject": "CN",
+    "difficulty": "Hard",
+    "answer": "Spoofing is disguising communication by falsifying sender identity—such as IP spoofing, email spoofing or ARP spoofing—to mislead receivers."
+  },
+  {
+    "id": 70,
+    "title": "What is VPN tunneling?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "VPN tunneling encapsulates data packets inside encrypted packets so they can securely travel across public networks."
+  },
+  {
+    "id": 71,
+    "title": "What is port forwarding?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "Port forwarding maps external network traffic to internal private IP addresses and ports, enabling remote access to internal services."
+  },
+  {
+    "id": 72,
+    "title": "What is symmetric and asymmetric encryption?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "Symmetric encryption uses one key for encryption and decryption, while asymmetric uses public and private keys. HTTPS uses both."
+  },
+  {
+    "id": 73,
+    "title": "What is packet fragmentation?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "Fragmentation occurs when large packets are split into smaller units to match the network's Maximum Transmission Unit (MTU)."
+  },
+  {
+    "id": 74,
+    "title": "What is MTU?",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "MTU (Maximum Transmission Unit) is the largest size of a packet that can be transmitted over a network without fragmentation."
+  },
+  {
+    "id": 75,
+    "title": "What is a collision domain?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "A collision domain is a network segment where data packets may collide when transmitted simultaneously. Switches reduce collision domains while hubs do not."
+  },
+  {
+    "id": 76,
+    "title": "What is a broadcast domain?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "A broadcast domain is a logical network segment where a broadcast packet is received by all devices. Routers separate broadcast domains; switches do not by default."
+  },
+  {
+    "id": 77,
+    "title": "What is VLAN?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "A VLAN (Virtual LAN) logically divides a physical network into multiple isolated networks, improving security and reducing broadcast traffic."
+  },
+  {
+    "id": 78,
+    "title": "What is NAT?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "NAT (Network Address Translation) translates private IP addresses to public IP addresses, allowing multiple devices to share one public IP."
+  },
+  {
+    "id": 79,
+    "title": "Difference between static and dynamic IP?",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "A static IP does not change and is manually assigned. A dynamic IP is automatically assigned by DHCP and may change over time."
+  },
+  {
+    "id": 80,
+    "title": "What is IPv6 and why do we need it?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "IPv6 is a 128-bit addressing scheme designed to replace IPv4 due to address exhaustion. It supports more devices, security and improved routing."
+  },
+  {
+    "id": 81,
+    "title": "What is tunneling in IPv6?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "IPv6 tunneling encapsulates IPv6 packets inside IPv4 packets so IPv6 networks can communicate over IPv4 infrastructure."
+  },
+  {
+    "id": 82,
+    "title": "What is HTTP persistent connection?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "In persistent HTTP, a single TCP connection is reused for multiple requests and responses, reducing latency and overhead."
+  },
+  {
+    "id": 83,
+    "title": "What is SSL/TLS?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "SSL/TLS encrypts communication between client and server, providing confidentiality, authentication and integrity in HTTPS."
+  },
+  {
+    "id": 84,
+    "title": "What is DNS caching?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "DNS caching stores previously resolved domain names locally to speed up future lookups and reduce DNS traffic."
+  },
+  {
+    "id": 85,
+    "title": "What is DHCP lease?",
+    "subject": "CN",
+    "difficulty": "Easy",
+    "answer": "A DHCP lease is the time period for which a device is allowed to use an assigned IP address before renewal is required."
+  },
+  {
+    "id": 86,
+    "title": "What is network redundancy?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "Network redundancy means adding alternate paths, devices or links to ensure connectivity continues if one path fails."
+  },
+  {
+    "id": 87,
+    "title": "What is a DMZ in networking?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "A DMZ (Demilitarized Zone) is a separate network segment exposed to external users while keeping the internal network protected."
+  },
+  {
+    "id": 88,
+    "title": "What is intrusion detection system (IDS)?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "IDS monitors network traffic for suspicious activity and alerts administrators when potential attacks are detected."
+  },
+  {
+    "id": 89,
+    "title": "What is intrusion prevention system (IPS)?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "IPS detects malicious activity like IDS but also automatically blocks or mitigates threats in real time."
+  },
+  {
+    "id": 90,
+    "title": "What is port scanning?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "Port scanning is probing network ports to discover open or vulnerable services. Tools include Nmap. It is used in security testing and attacks."
+  },
+  {
+    "id": 91,
+    "title": "What is DNS spoofing?",
+    "subject": "CN",
+    "difficulty": "Hard",
+    "answer": "DNS spoofing is an attack where fake DNS responses redirect users to malicious websites instead of legitimate ones."
+  },
+  {
+    "id": 92,
+    "title": "What is packet filtering firewall?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "A packet filtering firewall allows or blocks packets based on IP address, port number and protocol without inspecting content."
+  },
+  {
+    "id": 93,
+    "title": "What is stateful firewall?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "A stateful firewall tracks active connections and makes filtering decisions based on connection state, improving security over simple packet filters."
+  },
+  {
+    "id": 94,
+    "title": "What is network virtualization?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "Network virtualization creates logical network environments on top of physical infrastructure, enabling isolation, automation and scalability."
+  },
+  {
+    "id": 95,
+    "title": "What is cloud networking?",
+    "subject": "CN",
+    "difficulty": "Medium",
+    "answer": "Cloud networking uses cloud-based infrastructure to host, manage and deliver network services such as routing, firewalls, load balancing and VPN."
+  }
+]
+
+

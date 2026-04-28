@@ -1,0 +1,717 @@
+[
+  {
+    "id": 1,
+    "title": "What is a process and process table?",
+    "subject": "OS",
+    "difficulty": "Easy",
+    "answer": "A process is a program in execution. The OS tracks processes in a process table, which stores state, registers, memory info, open files and scheduling details."
+  },
+  {
+    "id": 2,
+    "title": "What are the different states of a process?",
+    "subject": "OS",
+    "difficulty": "Easy",
+    "answer": "A process may be in states: New, Ready, Running, Waiting/Blocked and Terminated. Real systems maintain ready and waiting queues."
+  },
+  {
+    "id": 3,
+    "title": "What is a thread?",
+    "subject": "OS",
+    "difficulty": "Easy",
+    "answer": "A thread is the smallest execution unit inside a process. Threads share code, data and heap but have their own stack and registers. They enable parallelism."
+  },
+  {
+    "id": 4,
+    "title": "Difference between process and thread",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Processes have separate memory and require IPC. Threads share memory in the same process and communicate faster. Process switching is heavier than thread switching."
+  },
+  {
+    "id": 5,
+    "title": "Benefits of multithreaded programming",
+    "subject": "OS",
+    "difficulty": "Easy",
+    "answer": "Improves responsiveness, resource sharing, throughput, economy, scalability and better CPU utilization."
+  },
+  {
+    "id": 6,
+    "title": "What is thrashing?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Thrashing occurs when the system spends more time handling page faults than executing processes due to insufficient memory."
+  },
+  {
+    "id": 7,
+    "title": "What is a buffer?",
+    "subject": "OS",
+    "difficulty": "Easy",
+    "answer": "A buffer is a temporary memory area used to store data during transfer between devices or applications."
+  },
+  {
+    "id": 8,
+    "title": "What is virtual memory?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Virtual memory allows a program to use more logical memory than physically available by storing inactive pages on disk and loading them when needed."
+  },
+  {
+    "id": 9,
+    "title": "Main purpose of an Operating System",
+    "subject": "OS",
+    "difficulty": "Easy",
+    "answer": "Acts as an interface between users and hardware, manages resources, ensures safe execution, and improves convenience and efficiency."
+  },
+  {
+    "id": 10,
+    "title": "What is demand paging?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Only the required pages of a process are loaded into RAM when they are accessed. Missing pages cause a page fault and are loaded from disk."
+  },
+  {
+    "id": 11,
+    "title": "What is a kernel?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "The kernel is the core of the OS. It manages CPU, memory, devices, processes and system calls, acting as bridge between apps and hardware."
+  },
+  {
+    "id": 12,
+    "title": "Different scheduling algorithms",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "FCFS, SJF, Priority Scheduling, Shortest Remaining Time, Round Robin, Multilevel Queue, Multilevel Feedback Queue."
+  },
+  {
+    "id": 13,
+    "title": "Objective of multiprogramming",
+    "subject": "OS",
+    "difficulty": "Easy",
+    "answer": "Increase CPU utilization by keeping multiple jobs in memory so CPU always has something to execute."
+  },
+  {
+    "id": 14,
+    "title": "What is time-sharing?",
+    "subject": "OS",
+    "difficulty": "Easy",
+    "answer": "Logical extension of multiprogramming where CPU switches frequently, giving each user interactive access."
+  },
+  {
+    "id": 15,
+    "title": "Problems without an OS",
+    "subject": "OS",
+    "difficulty": "Easy",
+    "answer": "No resource management, no UI, no filesystem, no multitasking, poor security, no networking, unreliable execution."
+  },
+  {
+    "id": 16,
+    "title": "Explain FCFS scheduling",
+    "subject": "OS",
+    "difficulty": "Easy",
+    "answer": "Jobs are executed in order of arrival. Non-preemptive. Long jobs cause long waiting time (convoy effect)."
+  },
+  {
+    "id": 17,
+    "title": "What is Round Robin scheduling?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Each process gets a fixed time slice. After quantum expires, process is preempted. Prevents starvation and is fair."
+  },
+  {
+    "id": 18,
+    "title": "Different RAID levels",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "RAID 0,1,2,3,4,5,6. Provide redundancy, reliability and performance improvements."
+  },
+  {
+    "id": 19,
+    "title": "What is Banker’s algorithm?",
+    "subject": "OS",
+    "difficulty": "Hard",
+    "answer": "Deadlock avoidance algorithm that checks whether granting a request keeps the system in a safe state."
+  },
+  {
+    "id": 20,
+    "title": "Logical vs Physical address",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Logical address is generated by CPU. Physical address is actual RAM location computed by MMU. Users see only logical addresses."
+  },
+
+  {
+    "id": 21,
+    "title": "How does dynamic loading help?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Routines are loaded only when needed, saving memory and improving space utilization."
+  },
+  {
+    "id": 22,
+    "title": "What are overlays?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Technique where only required parts of program are loaded, replacing others to save memory."
+  },
+  {
+    "id": 23,
+    "title": "What is fragmentation?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Small unusable memory gaps are formed when processes are allocated and removed from memory."
+  },
+  {
+    "id": 24,
+    "title": "What is paging?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Memory is divided into fixed-size pages and frames. Pages of a process are loaded into any free frame, allowing non-contiguous allocation."
+  },
+  {
+    "id": 25,
+    "title": "What is swapping?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Temporarily moving processes to disk and back to memory to increase degree of multiprogramming."
+  },
+  {
+    "id": 26,
+    "title": "Classic synchronization problems",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Bounded Buffer, Readers-Writers, Dining Philosophers, Sleeping Barber."
+  },
+  {
+    "id": 27,
+    "title": "What is Direct Access Method?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Allows arbitrary blocks to be read or written like an array of records. Often associated with disk addressing."
+  },
+  {
+    "id": 28,
+    "title": "When does thrashing occur?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "When processes frequently access pages not in memory causing excessive paging."
+  },
+  {
+    "id": 29,
+    "title": "What is multitasking?",
+    "subject": "OS",
+    "difficulty": "Easy",
+    "answer": "Multiple processes execute concurrently sharing CPU and other system resources."
+  },
+  {
+    "id": 30,
+    "title": "What is caching?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Using a small fast memory to store frequently accessed data to reduce average access time."
+  },
+
+  {
+    "id": 31,
+    "title": "What is spooling?",
+    "subject": "OS",
+    "difficulty": "Easy",
+    "answer": "Data is queued in buffer and sent to slower devices asynchronously, allowing CPU to continue work."
+  },
+  {
+    "id": 32,
+    "title": "Function of assembler",
+    "subject": "OS",
+    "difficulty": "Easy",
+    "answer": "Converts assembly language into machine code."
+  },
+  {
+    "id": 33,
+    "title": "What are interrupts?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Signals from hardware or software requiring CPU to stop current execution and handle event."
+  },
+  {
+    "id": 34,
+    "title": "What is GUI?",
+    "subject": "OS",
+    "difficulty": "Easy",
+    "answer": "Graphical user interface using icons, windows and graphical controls instead of text commands."
+  },
+  {
+    "id": 35,
+    "title": "What is preemptive multitasking?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "OS forcibly interrupts running processes to give CPU to others based on scheduling policy."
+  },
+  {
+    "id": 36,
+    "title": "What is a pipe?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "IPC mechanism allowing output of one process to be input of another. One-way communication."
+  },
+  {
+    "id": 37,
+    "title": "Advantages of semaphores",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Simple, independent of hardware, avoid busy waiting, good for mutual exclusion and synchronization."
+  },
+  {
+    "id": 38,
+    "title": "What is a bootstrap program?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Initial program loaded at startup that initializes hardware and loads OS into memory."
+  },
+  {
+    "id": 39,
+    "title": "What is IPC?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Inter-process communication allows processes to share data and synchronize execution."
+  },
+  {
+    "id": 40,
+    "title": "IPC mechanisms",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Pipes, Named Pipes, Message Queues, Semaphores, Shared Memory, Sockets."
+  },
+
+  {
+    "id": 41,
+    "title": "Preemptive vs Non-preemptive scheduling",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Preemptive allows interruption of running process; non-preemptive runs until termination or blocking."
+  },
+  {
+    "id": 42,
+    "title": "What is a zombie process?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Finished execution but still has entry in process table waiting for parent to read exit status."
+  },
+  {
+    "id": 43,
+    "title": "What is an orphan process?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Child process whose parent terminated without waiting for it."
+  },
+  {
+    "id": 44,
+    "title": "Starvation and aging",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Starvation occurs when process never gets CPU. Aging increases priority over time to avoid starvation."
+  },
+  {
+    "id": 45,
+    "title": "Monolithic kernel",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Kernel where all services run in same address space, fast but large and harder to maintain."
+  },
+  {
+    "id": 46,
+    "title": "What is context switching?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Saving state of current process and loading state of next process so CPU can switch execution."
+  },
+  {
+    "id": 47,
+    "title": "Difference between OS and Kernel",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "OS is full system software including UI and tools. Kernel is core part managing resources and hardware interaction."
+  },
+  {
+    "id": 48,
+    "title": "What is PCB?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Process Control Block stores process state, registers, PC, memory info, scheduling info and resources."
+  },
+  {
+    "id": 49,
+    "title": "When is a system in safe state?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "If there exists some order in which all processes can complete without deadlock."
+  },
+  {
+    "id": 50,
+    "title": "What is cycle stealing?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "DMA temporarily borrows bus cycles from CPU to transfer data without CPU intervention."
+  },
+
+  {
+    "id": 51,
+    "title": "What is a trap?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Software-generated interrupt, often due to error or system call."
+  },
+  {
+    "id": 52,
+    "title": "Program vs Process",
+    "subject": "OS",
+    "difficulty": "Easy",
+    "answer": "Program is passive stored code. Process is active execution with resources and state."
+  },
+  {
+    "id": 53,
+    "title": "What is a dispatcher?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Gives CPU control to process selected by scheduler and performs context switch."
+  },
+  {
+    "id": 54,
+    "title": "Dispatch latency",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Time taken to stop one process and start another."
+  },
+  {
+    "id": 55,
+    "title": "Goals of CPU scheduling",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Max CPU utilization, throughput and fairness; minimize waiting, turnaround and response time."
+  },
+  {
+    "id": 56,
+    "title": "What is critical section?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Part of program accessing shared resources that must not be executed by more than one process simultaneously."
+  },
+  {
+    "id": 57,
+    "title": "Synchronization techniques",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Mutexes, Semaphores, Condition variables, File locks."
+  },
+  {
+    "id": 58,
+    "title": "User vs Kernel threads",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "User threads managed by user libraries; kernel threads managed by OS. Kernel threads can be scheduled individually."
+  },
+  {
+    "id": 59,
+    "title": "Advantages of multithreading",
+    "subject": "OS",
+    "difficulty": "Easy",
+    "answer": "Better responsiveness, throughput, resource utilization and parallelism."
+  },
+  {
+    "id": 60,
+    "title": "Multithreading vs Multitasking",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Multithreading: multiple threads inside one process. Multitasking: multiple processes share CPU."
+  },
+
+  {
+    "id": 61,
+    "title": "Drawbacks of semaphores",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Priority inversion, risk of deadlocks, difficult debugging, programmer responsibility."
+  },
+  {
+    "id": 62,
+    "title": "What is Peterson’s solution?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Software algorithm ensuring mutual exclusion between two processes using flags and turn variable."
+  },
+  {
+    "id": 63,
+    "title": "What is bounded waiting?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "There is a limit on number of times other processes can enter critical section before requesting process is granted access."
+  },
+  {
+    "id": 64,
+    "title": "Solutions to critical section problem",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Software algorithms, hardware instructions, semaphores and monitors."
+  },
+  {
+    "id": 65,
+    "title": "What is concurrency?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Multiple processes exist and progress simultaneously, overlapping in time."
+  },
+  {
+    "id": 66,
+    "title": "Drawbacks of concurrency",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Race conditions, starvation, deadlocks, overhead of synchronization and context switching."
+  },
+  {
+    "id": 67,
+    "title": "Deadlock necessary conditions",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Mutual exclusion, hold-and-wait, no preemption and circular wait."
+  },
+  {
+    "id": 68,
+    "title": "What is precedence graph?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Directed acyclic graph showing execution ordering constraints between statements or processes."
+  },
+  {
+    "id": 69,
+    "title": "Resource allocation graph",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Graph showing resource ownership and requests. Helps detect possible deadlock."
+  },
+  {
+    "id": 70,
+    "title": "What is deadlock?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Set of processes waiting indefinitely for resources held by each other."
+  },
+
+  {
+    "id": 71,
+    "title": "Goals of memory management",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Relocation, protection, sharing, logical organization and physical organization."
+  },
+  {
+    "id": 72,
+    "title": "Address binding",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Mapping logical addresses to physical addresses during compile, load or execution time."
+  },
+  {
+    "id": 73,
+    "title": "Types of address binding",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Compile-time, Load-time and Execution-time binding."
+  },
+  {
+    "id": 74,
+    "title": "Advantages of dynamic allocation",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Better memory utilization, flexible structures, easier insertion/deletion, supports unknown sizes at runtime."
+  },
+  {
+    "id": 75,
+    "title": "Internal vs External fragmentation",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Internal: unused space inside allocated block. External: small free blocks scattered making allocation difficult."
+  },
+  {
+    "id": 76,
+    "title": "What is compaction?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Combining scattered free memory spaces into one contiguous block by relocating processes."
+  },
+  {
+    "id": 77,
+    "title": "Paging vs Segmentation",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Paging uses fixed size blocks. Segmentation uses variable logical units like functions or arrays."
+  },
+  {
+    "id": 78,
+    "title": "Associative vs Cache memory",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Associative is content-addressable memory. Cache is fast memory storing frequently used data."
+  },
+  {
+    "id": 79,
+    "title": "Locality of reference",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Programs tend to access same or nearby memory locations repeatedly."
+  },
+  {
+    "id": 80,
+    "title": "Advantages of virtual memory",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Supports large programs, allows multiprogramming, less fragmentation, more efficient memory use."
+  },
+
+  {
+    "id": 81,
+    "title": "Effective access time formula",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "EAT = (1 − p) × Memory access time + p × Page fault time"
+  },
+  {
+    "id": 82,
+    "title": "What is a file?",
+    "subject": "OS",
+    "difficulty": "Easy",
+    "answer": "Logical collection of related information stored on secondary storage."
+  },
+  {
+    "id": 83,
+    "title": "File operations",
+    "subject": "OS",
+    "difficulty": "Easy",
+    "answer": "Create, Open, Read, Write, Append, Rename, Delete, Truncate, Close."
+  },
+  {
+    "id": 84,
+    "title": "What is bit-vector?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Array of bits indicating free and allocated disk blocks."
+  },
+  {
+    "id": 85,
+    "title": "File Allocation Table (FAT)",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Table that maps each file to its disk blocks. Used for indexing and locating clusters."
+  },
+  {
+    "id": 86,
+    "title": "Rotational latency",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Time for desired disk sector to rotate under read/write head."
+  },
+  {
+    "id": 87,
+    "title": "Seek time",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Time taken for disk arm to move to correct track."
+  },
+  {
+    "id": 88,
+    "title": "Belady’s anomaly",
+    "subject": "OS",
+    "difficulty": "Hard",
+    "answer": "In FIFO page replacement, increasing number of frames may increase page faults."
+  },
+  {
+    "id": 89,
+    "title": "Recursive mutex re-lock behavior",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Locking non-recursive mutex twice may cause deadlock since same thread blocks on its own lock."
+  },
+  {
+    "id": 90,
+    "title": "Advantages of multiprocessor systems",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Improved performance, parallel execution, reliability, higher throughput, resource sharing."
+  },
+
+  {
+    "id": 91,
+    "title": "What are real-time systems?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Systems where correctness depends on both logical results and timing deadlines."
+  },
+  {
+    "id": 92,
+    "title": "Recovering from deadlock",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Abort processes, preempt resources, select victim, rollback to safe states."
+  },
+  {
+    "id": 93,
+    "title": "Deadlock detection usage factors",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Based on likelihood of deadlock and number of processes affected when it occurs."
+  },
+  {
+    "id": 94,
+    "title": "What is topological sorting used for?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Orders tasks with dependencies such that each prerequisite appears before dependent task."
+  },
+  {
+    "id": 95,
+    "title": "Resource Allocation Graph role",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Shows relationships between processes and resources, helps visualize and detect possible deadlocks."
+  },
+  {
+    "id": 96,
+    "title": "What is paging replacement?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Selecting which page to remove when memory is full using FIFO, LRU, Optimal etc."
+  },
+  {
+    "id": 97,
+    "title": "Explain DMA",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Direct Memory Access allows devices to transfer data directly to memory without CPU involvement."
+  },
+  {
+    "id": 98,
+    "title": "What is scheduler?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Component deciding which process gets CPU next, using scheduling algorithms."
+  },
+  {
+    "id": 99,
+    "title": "Difference between long, short and medium term scheduler",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Long term admits jobs, short term selects among ready processes, medium term swaps processes in/out of memory."
+  },
+  {
+    "id": 100,
+    "title": "What is starvation?",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "Process waits indefinitely because resources are continuously allocated to others."
+  },
+  {
+    "id": 101,
+    "title": "Final: Resource Allocation Graph explanation",
+    "subject": "OS",
+    "difficulty": "Medium",
+    "answer": "RAG models processes and resources as nodes and edges showing assignment and request. Helps detect and reason about deadlocks."
+  }
+]

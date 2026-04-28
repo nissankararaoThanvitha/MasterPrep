@@ -1,0 +1,422 @@
+[
+  {
+    "id": 1,
+    "title": "What is DBMS?",
+    "subject": "DBMS",
+    "difficulty": "Easy",
+    "answer": "DBMS is software used to store, organize, retrieve and manage data. It provides security, concurrency, backup and data integrity. Examples: MySQL, Oracle, PostgreSQL."
+  },
+  {
+    "id": 2,
+    "title": "What are the advantages of DBMS?",
+    "subject": "DBMS",
+    "difficulty": "Easy",
+    "answer": "DBMS provides data security, reduces redundancy, improves data consistency, supports backup and recovery, allows concurrent access, and offers fast data retrieval using indexes."
+  },
+  {
+    "id": 3,
+    "title": "Difference between DBMS and RDBMS",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "DBMS stores data as files and does not support relationships. RDBMS stores data in tables and supports relationships using primary and foreign keys, ensuring integrity."
+  },
+  {
+    "id": 4,
+    "title": "Types of DBMS",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "Major DBMS types: Hierarchical, Network, Relational (RDBMS), Object-Oriented DBMS."
+  },
+  {
+    "id": 5,
+    "title": "What is a relation?",
+    "subject": "DBMS",
+    "difficulty": "Easy",
+    "answer": "A relation is a table consisting of rows and columns. Each row is a record and each column is an attribute."
+  },
+  {
+    "id": 6,
+    "title": "What is a table?",
+    "subject": "DBMS",
+    "difficulty": "Easy",
+    "answer": "A table is a structured collection of rows and columns used to store data in a relational database."
+  },
+  {
+    "id": 7,
+    "title": "What are rows and columns?",
+    "subject": "DBMS",
+    "difficulty": "Easy",
+    "answer": "Rows (tuples) represent records. Columns (attributes) represent properties of the data and have specific data types."
+  },
+  {
+    "id": 8,
+    "title": "Primary components of DBMS",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "Main components: Database engine, schema, query processor, transaction manager and storage manager."
+  },
+  {
+    "id": 9,
+    "title": "What is a primary key?",
+    "subject": "DBMS",
+    "difficulty": "Easy",
+    "answer": "A primary key uniquely identifies each row in a table. It cannot be NULL and must be unique."
+  },
+  {
+    "id": 10,
+    "title": "What is a foreign key?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "A foreign key is a column that refers to the primary key of another table, creating a relationship between tables."
+  },
+  {
+    "id": 11,
+    "title": "What is normalization?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "Normalization organizes data to reduce redundancy and avoid anomalies while improving consistency."
+  },
+  {
+    "id": 12,
+    "title": "What is denormalization?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "Denormalization intentionally adds redundancy to improve query performance in read-heavy systems."
+  },
+  {
+    "id": 13,
+    "title": "What is a candidate key?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "A candidate key is any attribute or set of attributes that can uniquely identify a row. One candidate becomes the primary key."
+  },
+  {
+    "id": 14,
+    "title": "What is the SELECT statement used for?",
+    "subject": "DBMS",
+    "difficulty": "Easy",
+    "answer": "SELECT retrieves data from tables. Example: SELECT name FROM student WHERE age > 18;"
+  },
+  {
+    "id": 15,
+    "title": "What is a view?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "A view is a virtual table created from a query. It does not store data physically but displays data from base tables."
+  }  ,
+  {
+    "id": 16,
+    "title": "What are the types of relationships in DBMS?",
+    "subject": "DBMS",
+    "difficulty": "Easy",
+    "answer": "Main relationships are: One-to-One, One-to-Many and Many-to-Many."
+  },
+  {
+    "id": 17,
+    "title": "What is a schema in DBMS?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "A schema defines the structure of the database, including tables, columns, relationships and constraints."
+  },
+  {
+    "id": 18,
+    "title": "What are constraints in DBMS?",
+    "subject": "DBMS",
+    "difficulty": "Easy",
+    "answer": "Constraints are rules applied to table columns to maintain data integrity. Examples: NOT NULL, PRIMARY KEY, FOREIGN KEY, UNIQUE, CHECK, DEFAULT."
+  },
+  {
+    "id": 19,
+    "title": "Difference between DELETE and TRUNCATE",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "DELETE removes selected rows and can be rolled back. TRUNCATE removes all rows quickly, does not log each row and usually cannot be rolled back."
+  },
+  {
+    "id": 20,
+    "title": "What is an index in DBMS?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "An index is a data structure that speeds up search and retrieval by storing references to rows based on column values."
+  },
+  {
+    "id": 21,
+    "title": "Who is a Database Administrator (DBA)?",
+    "subject": "DBMS",
+    "difficulty": "Easy",
+    "answer": "A DBA manages database design, backups, security, performance tuning, upgrades and troubleshooting."
+  },
+  {
+    "id": 22,
+    "title": "What is an ER diagram?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "An ER diagram visually shows entities, attributes and relationships used to design a database."
+  },
+  {
+    "id": 23,
+    "title": "What is a JOIN in SQL?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "A JOIN combines rows from multiple tables using related columns. Types: INNER, LEFT, RIGHT, FULL, CROSS and SELF JOIN."
+  },
+  {
+    "id": 24,
+    "title": "What is a subquery?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "A subquery is a query written inside another query, often used to filter results. Example: SELECT name FROM student WHERE age > (SELECT AVG(age) FROM student);"
+  },
+  {
+    "id": 25,
+    "title": "What are aggregate functions?",
+    "subject": "DBMS",
+    "difficulty": "Easy",
+    "answer": "Aggregate functions operate on groups of rows and return one value. Examples: COUNT, SUM, AVG, MAX, MIN."
+  },
+  {
+    "id": 26,
+    "title": "What is a transaction in DBMS?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "A transaction is a sequence of operations executed as a single logical unit that ensures the database remains consistent."
+  },
+  {
+    "id": 27,
+    "title": "What is ACID in DBMS?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "ACID stands for Atomicity, Consistency, Isolation and Durability — properties that guarantee reliable transactions."
+  },
+  {
+    "id": 28,
+    "title": "What is a stored procedure?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "A stored procedure is a pre-compiled set of SQL statements stored in the database that can be executed repeatedly."
+  },
+  {
+    "id": 29,
+    "title": "What is a trigger?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "A trigger automatically executes when an INSERT, UPDATE or DELETE occurs on a table, often used to enforce rules or logging."
+  },
+  {
+    "id": 30,
+    "title": "Difference between UNION and UNION ALL",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "UNION removes duplicates from combined results. UNION ALL keeps duplicates and is faster."
+  }  ,
+  {
+    "id": 31,
+    "title": "What is indexing in DBMS?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "Indexing speeds up data retrieval by creating a separate structure that stores key values with pointers to actual rows."
+  },
+  {
+    "id": 32,
+    "title": "What are normal forms in DBMS?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "Normal forms are rules to reduce redundancy: 1NF removes repeating groups, 2NF removes partial dependency, 3NF removes transitive dependency and BCNF is stricter."
+  },
+  {
+    "id": 33,
+    "title": "Difference between INNER JOIN and OUTER JOIN",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "INNER JOIN returns only matching records. OUTER JOIN returns matching records plus non-matching rows with NULL values."
+  },
+  {
+    "id": 34,
+    "title": "What is data redundancy?",
+    "subject": "DBMS",
+    "difficulty": "Easy",
+    "answer": "Data redundancy is unnecessary duplication of data, which can be reduced using normalization and constraints."
+  },
+  {
+    "id": 35,
+    "title": "What is a deadlock?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "Deadlock occurs when two transactions wait on each other for resources, preventing both from proceeding."
+  },
+  {
+    "id": 36,
+    "title": "What is a database cursor?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "A cursor allows row-by-row processing of a result set when operations cannot be done in a single query."
+  },
+  {
+    "id": 37,
+    "title": "Types of database locks",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "Common locks: Shared (read), Exclusive (write), Intent locks and Update locks to manage concurrent access."
+  },
+  {
+    "id": 38,
+    "title": "Difference between clustered and non-clustered index",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "Clustered index rearranges table data physically and there can be one per table. Non-clustered index stores separate pointers and multiple can exist."
+  },
+  {
+    "id": 39,
+    "title": "Importance of COMMIT and ROLLBACK",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "COMMIT saves transaction changes permanently. ROLLBACK undoes uncommitted changes, restoring the database state."
+  },
+  {
+    "id": 40,
+    "title": "Difference between super key and candidate key",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "Super key uniquely identifies records but may contain extra attributes. Candidate key is minimal — no unnecessary attributes."
+  },
+  {
+    "id": 41,
+    "title": "Types of constraints in DBMS",
+    "subject": "DBMS",
+    "difficulty": "Easy",
+    "answer": "Common constraints: NOT NULL, PRIMARY KEY, FOREIGN KEY, UNIQUE, CHECK and DEFAULT."
+  },
+  {
+    "id": 42,
+    "title": "Difference between primary key and unique key",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "Primary key is unique and NOT NULL, one per table. Unique key allows NULL values and a table can have multiple unique keys."
+  },
+  {
+    "id": 43,
+    "title": "What is referential integrity?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "Referential integrity ensures foreign key values always reference valid records, preventing orphan rows."
+  },
+  {
+    "id": 44,
+    "title": "How does DBMS handle concurrency control?",
+    "subject": "DBMS",
+    "difficulty": "Hard",
+    "answer": "DBMS uses locking, timestamp ordering, optimistic control and two-phase locking to avoid conflicts and maintain consistency."
+  },
+  {
+    "id": 45,
+    "title": "Advantages of foreign keys",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "Foreign keys maintain relationships, enforce integrity, support cascading updates/deletes and improve meaningful queries."
+  }  ,
+  {
+    "id": 46,
+    "title": "What is a transaction log?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "A transaction log records all database operations, allowing recovery in case of failure and helping maintain consistency."
+  },
+  {
+    "id": 47,
+    "title": "What is a materialized view?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "A materialized view stores the result of a query physically, improving performance for repeated read operations."
+  },
+  {
+    "id": 48,
+    "title": "Difference between ER diagram and relational schema",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "ER diagram models data conceptually using entities and relationships. Relational schema defines physical tables, columns and constraints."
+  },
+  {
+    "id": 49,
+    "title": "What is GROUP BY in SQL?",
+    "subject": "DBMS",
+    "difficulty": "Easy",
+    "answer": "GROUP BY groups rows based on column values and is often used with aggregate functions like COUNT, SUM and AVG."
+  },
+  {
+    "id": 50,
+    "title": "What is a stored function?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "A stored function is similar to a procedure but must return a value and can be used inside SQL expressions."
+  },
+  {
+    "id": 51,
+    "title": "What are different normalization techniques?",
+    "subject": "DBMS",
+    "difficulty": "Hard",
+    "answer": "Normalization forms: 1NF removes repeating groups, 2NF removes partial dependency, 3NF removes transitive dependency and BCNF ensures every determinant is a candidate key."
+  },
+  {
+    "id": 52,
+    "title": "What are the phases of query processing?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "Query processing includes parsing, translation, optimization and execution."
+  },
+  {
+    "id": 53,
+    "title": "What are the types of database backups?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "Types include full backup, incremental backup, differential backup and transaction log backups."
+  },
+  {
+    "id": 54,
+    "title": "What is WITH CHECK OPTION in views?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "WITH CHECK OPTION ensures that inserted or updated rows through a view must satisfy the view's condition."
+  },
+  {
+    "id": 55,
+    "title": "Explain B-Tree and B+ Tree",
+    "subject": "DBMS",
+    "difficulty": "Hard",
+    "answer": "B-Tree stores keys and data in internal nodes. B+ Tree stores data only in leaf nodes with linked leaves for faster range queries."
+  },
+  {
+    "id": 56,
+    "title": "What is hashing in DBMS?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "Hashing maps data to buckets using a hash function, enabling very fast searching."
+  },
+  {
+    "id": 57,
+    "title": "Difference between trigger and stored procedure",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "Triggers execute automatically on events like insert/update. Stored procedures are executed manually and can take parameters."
+  },
+  {
+    "id": 58,
+    "title": "What is data partitioning?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "Partitioning splits large tables into smaller parts to improve performance, manageability and availability."
+  },
+  {
+    "id": 59,
+    "title": "How does DBMS ensure security and integrity?",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "DBMS enforces security through authentication, authorization, encryption and constraints to maintain integrity."
+  },
+  {
+    "id": 60,
+    "title": "Difference between DBMS and file-based system",
+    "subject": "DBMS",
+    "difficulty": "Medium",
+    "answer": "DBMS stores structured data with relationships, supports transactions, security and backup. File systems lack relationships, integrity control and concurrency management."
+  }
+]
