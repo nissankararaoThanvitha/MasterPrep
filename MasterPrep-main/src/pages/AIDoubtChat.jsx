@@ -16,7 +16,7 @@ import { auth } from "../firebase";
 import { signInAnonymously } from "firebase/auth";
 import { db } from "../firebase";
 
-const BACKEND = "http://127.0.0.1:8000";  // <-- YOUR LIVE BACKEND
+const BACKEND = "https://masterprep-5.onrender.com";  // <-- YOUR LIVE BACKEND
 
 export default function AIDoubtChat() {
   const [chats, setChats] = useState([]);
