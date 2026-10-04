@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
-import { auth, db } from "../firebase"; // adjust path if needed
+import { Link } from "react-router-dom";
+import { useAuth } from "../useAuth";
 
 function Register() {
   const [name, setName] = useState("");
@@ -9,6 +8,7 @@ function Register() {
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
   const [error, setError] = useState("");
+  const { register } = useAuth();
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -20,39 +20,22 @@ function Register() {
       return;
     }
 
+    if (password.length < 6) {
+      setError("Password should be at least 6 characters.");
+      return;
+    }
+
     try {
-      // 1️⃣ Create user in Firebase Authentication
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-
-      const user = userCredential.user;
-
-      // 2️⃣ Store extra user info in Firestore
-      await setDoc(doc(db, "users", user.uid), {
-        name,
-        email,
-        createdAt: new Date()
-      });
-
-      alert("Account created! Welcome 🎉");
-      window.location.href = "/dashboard";
+      // On success App.jsx sees the logged-in user and redirects to /dashboard
+      await register(name, email, password);
     } catch (err) {
-      if (err.code === "auth/email-already-in-use") {
-        setError("Account already exists. Please login.");
-      } else if (err.code === "auth/weak-password") {
-        setError("Password should be at least 6 characters.");
-      } else {
-        setError(err.message);
-      }
+      setError(err.message || "Registration failed. Please try again.");
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#f4f6ff]">
-      <div className="bg-white p-[30px] rounded-[14px] shadow-[0_10px_25px_rgba(0,0,0,0.1)] w-[350px]">
+    <div className="min-h-screen flex items-center justify-center bg-[#f4f6ff] px-4">
+      <div className="bg-white p-[30px] rounded-[14px] shadow-[0_10px_25px_rgba(0,0,0,0.1)] w-full max-w-[350px]">
         <h2 className="text-center mb-[15px] text-xl font-semibold">
           Create Account
         </h2>
@@ -107,9 +90,9 @@ function Register() {
 
           <p className="text-sm text-center">
             Already have an account?{" "}
-            <a href="/login" className="text-indigo-600 underline">
+            <Link to="/login" className="text-indigo-600 underline">
               Login
-            </a>
+            </Link>
           </p>
         </form>
       </div>

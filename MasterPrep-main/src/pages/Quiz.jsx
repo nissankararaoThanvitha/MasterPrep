@@ -1,47 +1,85 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { onAuthStateChanged } from "firebase/auth";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { auth, db } from "../firebase";
+import { apiFetch } from "../api";
 
 function Quiz() {
   const navigate = useNavigate();
   const { subject } = useParams();
 
-  const [user, setUser] = useState(null);
-
-  const [questions, setQuestions] = useState([]);
+  const [sessionId, setSessionId] = useState(null);
+  const [questions, setQuestions] = useState([]); // served WITHOUT answers
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [selected, setSelected] = useState("");
-  const [review, setReview] = useState([]);
+  const [selected, setSelected] = useState(null); // option index on screen
+  const [answers, setAnswers] = useState({}); // question_id -> option index
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   const [timeLeft, setTimeLeft] = useState(600);
+  const submitted = useRef(false);
+  const started = useRef(false);
 
-  const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
-
-  /* 🔐 Get logged-in user */
+  /* ---------------- START QUIZ (the server picks the questions) ---------------- */
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, (currentUser) => {
-      if (!currentUser) {
-        navigate("/login");
-      } else {
-        setUser(currentUser);
-      }
-    });
-    return () => unsub();
+    if (started.current) return; // StrictMode runs effects twice in dev
+    started.current = true;
+
+    apiFetch("/quizzes/start", {
+      method: "POST",
+      body: JSON.stringify({ subject: subject.toUpperCase() }),
+    })
+      .then((s) => {
+        setSessionId(s.session_id);
+        setQuestions(s.questions);
+        setTimeLeft(s.time_limit_seconds);
+      })
+      .catch((e) => setError(e.message))
+      .finally(() => setLoading(false));
+  }, [subject]);
+
+  /* ---------------- PREVENT BACK ---------------- */
+  useEffect(() => {
+    window.history.pushState(null, "", window.location.href);
+    window.onpopstate = () => {
+      navigate("/dashboard", { replace: true });
+    };
   }, [navigate]);
 
-  /* ---------------- LOAD QUIZ ---------------- */
-  useEffect(() => {
-    const loadQuiz = async () => {
-      const res = await fetch(`/${subject.toLowerCase()}_quiz.json`);
-      const data = await res.json();
-      setQuestions(shuffle(data).slice(0, 20));
-      setLoading(false);
-    };
-    loadQuiz();
-  }, [subject]);
+  /* Move to a question, restoring any option already chosen there */
+  const goTo = (index, answerMap = answers) => {
+    setCurrentIndex(index);
+    setSelected(answerMap[questions[index].question_id] ?? null);
+  };
+
+  const formatTime = () => {
+    const m = Math.floor(timeLeft / 60);
+    const s = timeLeft % 60;
+    return `${m}:${s < 10 ? "0" : ""}${s}`;
+  };
+
+  /* ---------------- SUBMIT QUIZ (graded on the server) ---------------- */
+  // `latestAnswers` lets handleNext pass in the answer it just recorded:
+  // the `answers` state won't have updated yet at that point.
+  const handleSubmit = useCallback(async (latestAnswers = answers) => {
+    if (submitted.current || !sessionId) return; // timer and button can both fire
+    submitted.current = true;
+
+    try {
+      const attempt = await apiFetch("/quizzes", {
+        method: "POST",
+        body: JSON.stringify({
+          session_id: sessionId,
+          answers: Object.entries(latestAnswers).map(([id, sel]) => ({
+            question_id: Number(id),
+            selected: sel,
+          })),
+        }),
+      });
+      navigate("/quiz-result", { state: attempt });
+    } catch (err) {
+      submitted.current = false;
+      alert(`Could not save your quiz: ${err.message}`);
+    }
+  }, [answers, sessionId, navigate]);
 
   /* ---------------- TIMER ---------------- */
   useEffect(() => {
@@ -54,121 +92,30 @@ function Quiz() {
 
     const t = setTimeout(() => setTimeLeft((t) => t - 1), 1000);
     return () => clearTimeout(t);
-  }, [timeLeft, questions]);
-
-  /* ---------------- PREVENT BACK ---------------- */
-  useEffect(() => {
-    window.history.pushState(null, "", window.location.href);
-    window.onpopstate = () => {
-      navigate("/dashboard", { replace: true });
-    };
-  }, [navigate]);
-
-  /* ---------------- RESTORE SELECTED OPTION ---------------- */
-  useEffect(() => {
-    if (review[currentIndex]) {
-      setSelected(review[currentIndex].selected);
-    } else {
-      setSelected("");
-    }
-  }, [currentIndex, review]);
-
-  const formatTime = () => {
-    const m = Math.floor(timeLeft / 60);
-    const s = timeLeft % 60;
-    return `${m}:${s < 10 ? "0" : ""}${s}`;
-  };
-
-  /* ---------------- SUBMIT QUIZ ---------------- */
-  const handleSubmit = async () => {
-    if (!user) return;
-
-    let updatedReview = [...review];
-    let finalScore = 0;
-
-    questions.forEach((q, index) => {
-      const answerIndex = ["a", "b", "c", "d"].indexOf(q.answer);
-      const correctText = q.options[answerIndex];
-
-      if (!updatedReview[index]) {
-        updatedReview[index] = {
-          question: q.question,
-          options: q.options,
-          selected: "Not answered",
-          correct: correctText,
-          isCorrect: false,
-        };
-      }
-
-      if (updatedReview[index].isCorrect) finalScore++;
-    });
-
-    const ref = doc(db, "users", user.uid);
-    const snap = await getDoc(ref);
-
-    const previousHistory = snap.exists()
-      ? snap.data().quizHistory || []
-      : [];
-
-    const updatedHistory = [
-      {
-        date: new Date().toLocaleString(),
-        subject,
-        score: finalScore,
-        total: 20,
-        review: updatedReview,
-      },
-      ...previousHistory,
-    ];
-
-    await updateDoc(ref, {
-      quizHistory: updatedHistory,
-    });
-
-    navigate("/quiz-result", {
-      state: {
-        score: finalScore,
-        total: 20,
-        subject,
-        review: updatedReview,
-      },
-    });
-  };
+  }, [timeLeft, questions, handleSubmit]);
 
   /* ---------------- NEXT ---------------- */
   const handleNext = () => {
-    if (!selected) return alert("Please choose an option!");
+    if (selected === null) return alert("Please choose an option!");
 
-    const q = questions[currentIndex];
-    const answerIndex = ["a", "b", "c", "d"].indexOf(q.answer);
-    const correctText = q.options[answerIndex];
+    const updated = { ...answers, [questions[currentIndex].question_id]: selected };
+    setAnswers(updated);
 
-    const reviewItem = {
-      question: q.question,
-      options: q.options,
-      selected,
-      correct: correctText,
-      isCorrect: selected === correctText,
-    };
-
-    const updated = [...review];
-    updated[currentIndex] = reviewItem;
-    setReview(updated);
-
-    if (currentIndex === 19) {
-      handleSubmit();
+    if (currentIndex === questions.length - 1) {
+      handleSubmit(updated);
     } else {
-      setCurrentIndex((p) => p + 1);
+      goTo(currentIndex + 1, updated);
     }
   };
 
   /* ---------------- PREVIOUS ---------------- */
   const handlePrev = () => {
     if (currentIndex === 0) return;
-    setCurrentIndex((p) => p - 1);
+    goTo(currentIndex - 1);
   };
 
   if (loading) return <p className="p-6">Loading quiz...</p>;
+  if (error) return <p className="p-6 text-red-600">{error}</p>;
 
   const q = questions[currentIndex];
 
@@ -188,16 +135,22 @@ function Quiz() {
       {/* QUIZ CARD */}
       <div className="bg-white w-full max-w-[780px] rounded-xl shadow px-6 py-5">
         <h3 className="text-sm font-semibold text-gray-600 mb-1">
-          {subject.toUpperCase()} · Question {currentIndex + 1} / 20
+          {subject.toUpperCase()} · Question {currentIndex + 1} / {questions.length}
         </h3>
 
         <p className="text-[16px] font-medium mb-4">
           {q.question}
         </p>
 
+        {q.code && (
+          <pre className="bg-gray-900 text-gray-100 text-sm rounded-lg px-4 py-3 mb-4 overflow-x-auto">
+            <code>{q.code}</code>
+          </pre>
+        )}
+
         {/* OPTIONS */}
         {q.options.map((opt, i) => {
-          const isSelected = selected === opt;
+          const isSelected = selected === i;
 
           return (
             <label
@@ -212,7 +165,7 @@ function Quiz() {
               <input
                 type="radio"
                 checked={isSelected}
-                onChange={() => setSelected(opt)}
+                onChange={() => setSelected(i)}
               />
               <span className="text-sm">{opt}</span>
             </label>
@@ -233,7 +186,7 @@ function Quiz() {
             onClick={handleNext}
             className="px-5 py-2 rounded-md text-sm bg-indigo-600 hover:bg-indigo-700 text-white font-medium"
           >
-            {currentIndex === 19 ? "Submit Quiz" : "Next"}
+            {currentIndex === questions.length - 1 ? "Submit Quiz" : "Next"}
           </button>
         </div>
       </div>

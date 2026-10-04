@@ -1,41 +1,28 @@
 import { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase"; // adjust path if needed
+import { Link } from "react-router-dom";
+import { useAuth } from "../useAuth";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const { login } = useAuth();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
 
     try {
-      // 1️⃣ Firebase Authentication login
-      await signInWithEmailAndPassword(auth, email, password);
-
-      // 2️⃣ On success, redirect
-      window.location.href = "/dashboard";
+      // On success App.jsx sees the logged-in user and redirects to /dashboard
+      await login(email, password);
     } catch (err) {
-  if (
-    err.code === "auth/user-not-found" ||
-    err.code === "auth/invalid-credential"
-  ) {
-    setError("No account found. Please register first.");
-  } else if (err.code === "auth/wrong-password") {
-    setError("Incorrect password.");
-  } else if (err.code === "auth/invalid-email") {
-    setError("Invalid email address.");
-  } else {
-    setError("Login failed. Please try again.");
-  }
-}
+      setError(err.message || "Login failed. Please try again.");
+    }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#f4f6ff]">
-      <div className="bg-white p-[30px] rounded-[14px] shadow-[0_10px_25px_rgba(0,0,0,0.1)] w-[350px]">
+    <div className="min-h-screen flex items-center justify-center bg-[#f4f6ff] px-4">
+      <div className="bg-white p-[30px] rounded-[14px] shadow-[0_10px_25px_rgba(0,0,0,0.1)] w-full max-w-[350px]">
         <h2 className="text-center mb-[15px] text-xl font-semibold">
           PrepMaster Login
         </h2>
@@ -72,9 +59,9 @@ function Login() {
 
           <p className="text-sm text-center">
             Don&apos;t have an account?{" "}
-            <a href="/register" className="text-indigo-600 underline">
+            <Link to="/register" className="text-indigo-600 underline">
               Register
-            </a>
+            </Link>
           </p>
         </form>
       </div>

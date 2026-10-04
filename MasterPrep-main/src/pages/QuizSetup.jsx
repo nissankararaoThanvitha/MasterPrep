@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { onAuthStateChanged } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
-import { auth, db } from "../firebase";
+import { apiFetch } from "../api";
 
 function QuizSetup() {
   const navigate = useNavigate();
@@ -13,24 +11,10 @@ function QuizSetup() {
   const [page, setPage] = useState(1);
   const perPage = 5;
 
-  /* 🔐 Get user + quiz history */
+  /* 📥 Quiz history */
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, async (currentUser) => {
-      if (!currentUser) {
-        navigate("/login");
-        return;
-      }
-
-      const ref = doc(db, "users", currentUser.uid);
-      const snap = await getDoc(ref);
-
-      if (snap.exists()) {
-        setHistory(snap.data().quizHistory || []);
-      }
-    });
-
-    return () => unsub();
-  }, [navigate]);
+    apiFetch("/quizzes").then(setHistory);
+  }, []);
 
   const startQuiz = () => {
     if (!subject) return alert("Select a subject first!");
@@ -88,13 +72,14 @@ function QuizSetup() {
           </p>
         )}
 
-        {paginatedHistory.map((q, i) => (
+        {paginatedHistory.map((q) => (
           <div
-            key={i}
+            key={q.id}
             className="flex justify-between items-center p-[10px] border-b border-gray-200"
           >
             <div>
-              <strong>{q.subject}</strong> — {q.date}
+              <strong>{q.subject}</strong> —{" "}
+              {new Date(q.created_at).toLocaleString()}
               <p className="text-sm">
                 Score: {q.score}/{q.total}
               </p>

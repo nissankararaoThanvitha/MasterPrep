@@ -1,104 +1,102 @@
 import { useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
-import { auth, db } from "../firebase";
+import { apiFetch } from "../api";
 
-import dbms from "../data/dbms.json";
-import dsa from "../data/dsa.json";
-import os from "../data/os.json";
-import cn from "../data/cn.json";
-import oops from "../data/oops.json";
+const questionKey = (subject, id) => `${subject}-${id}`;
+const PAGE_SIZE = 10;
 
 function Questions() {
-  const allQuestions = [...dbms, ...dsa, ...os, ...cn, ...oops];
-
-  const [user, setUser] = useState(null);
   const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [openAnswer, setOpenAnswer] = useState(null);
 
-  const [bookmarks, setBookmarks] = useState([]);
-  const [viewed, setViewed] = useState([]);
+  // key "SUBJECT-id" -> category
+  const [bookmarks, setBookmarks] = useState({});
+  // key "SUBJECT-id" -> answer text, fetched on first "View"
+  const [answers, setAnswers] = useState({});
 
   const [subjectFilter, setSubjectFilter] = useState("All");
   const [difficultyFilter, setDifficultyFilter] = useState("All");
 
   const [currentPage, setCurrentPage] = useState(1);
-  const questionsPerPage = 10;
+  const [data, setData] = useState({ items: [], total: 0 });
 
-  /* 🔐 Get logged-in user */
+  /* ⏱️ Wait until the user stops typing before searching */
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, async (currentUser) => {
-      if (currentUser) {
-        setUser(currentUser);
+    const t = setTimeout(() => setDebouncedSearch(search.trim()), 300);
+    return () => clearTimeout(t);
+  }, [search]);
 
-        const ref = doc(db, "users", currentUser.uid);
-        const snap = await getDoc(ref);
+  /* 📥 Load one page of questions (filtered on the server) */
+  useEffect(() => {
+    const params = new URLSearchParams({ page: currentPage, page_size: PAGE_SIZE });
+    if (subjectFilter !== "All") params.set("subject", subjectFilter);
+    if (difficultyFilter !== "All") params.set("difficulty", difficultyFilter);
+    if (debouncedSearch) params.set("search", debouncedSearch);
 
-        if (snap.exists()) {
-          setBookmarks(snap.data().bookmarks || []);
-          setViewed(snap.data().viewed || []);
-        } else {
-          await setDoc(ref, { bookmarks: [], viewed: [] });
-        }
-      }
+    let cancelled = false; // ignore responses for outdated filters
+    apiFetch(`/questions?${params}`).then((page) => {
+      if (!cancelled) setData(page);
     });
+    return () => {
+      cancelled = true;
+    };
+  }, [currentPage, subjectFilter, difficultyFilter, debouncedSearch]);
 
-    return () => unsub();
+  /* 📥 Load bookmarks */
+  useEffect(() => {
+    apiFetch("/bookmarks").then((list) =>
+      setBookmarks(
+        Object.fromEntries(
+          list.map((b) => [questionKey(b.subject, b.question_id), b.category])
+        )
+      )
+    );
   }, []);
 
-  /* 👁️ View answer */
-  const toggleAnswer = async (id) => {
-    setOpenAnswer(openAnswer === id ? null : id);
+  /* 👁️ View answer (the server also records it as viewed) */
+  const toggleAnswer = async (q) => {
+    const key = questionKey(q.subject, q.question_id);
+    if (openAnswer === key) {
+      setOpenAnswer(null);
+      return;
+    }
 
-    if (!user || viewed.includes(id)) return;
+    setOpenAnswer(key);
+    if (answers[key]) return;
 
-    const updated = [...viewed, id];
-    setViewed(updated);
-
-    await updateDoc(doc(db, "users", user.uid), {
-      viewed: updated,
-    });
-  };
-
-  /* ⭐ Bookmark */
-  const handleBookmark = async (id, title, category, answer, subject) => {
-    if (!user) return;
-
-    const updated = [
-      ...bookmarks.filter((b) => b.id !== id),
-      { id, title, category, answer, subject },
-    ];
-
-    setBookmarks(updated);
-
-    await updateDoc(doc(db, "users", user.uid), {
-      bookmarks: updated,
-    });
-  };
-
-  /* 🔍 Filtering */
-  const filtered = allQuestions
-    .filter((q) =>
-      ((q.question || q.title || "") + "")
-        .toLowerCase()
-        .includes(search.toLowerCase())
-    )
-    .filter((q) =>
-      subjectFilter === "All" ? true : q.subject === subjectFilter
-    )
-    .filter((q) =>
-      difficultyFilter === "All"
-        ? true
-        : q.difficulty === difficultyFilter
+    const { answer } = await apiFetch(
+      `/questions/${q.subject}/${q.question_id}/view`,
+      { method: "POST" }
     );
+    setAnswers((prev) => ({ ...prev, [key]: answer }));
+  };
 
-  const indexOfLast = currentPage * questionsPerPage;
-  const indexOfFirst = indexOfLast - questionsPerPage;
-  const currentQuestions = filtered.slice(indexOfFirst, indexOfLast);
-  const totalPages = Math.ceil(filtered.length / questionsPerPage);
+  /* ⭐ Bookmark (empty category = remove) */
+  const handleBookmark = async (q, category) => {
+    const key = questionKey(q.subject, q.question_id);
+
+    setBookmarks((prev) => {
+      const next = { ...prev };
+      if (category) next[key] = category;
+      else delete next[key];
+      return next;
+    });
+
+    if (category) {
+      await apiFetch("/bookmarks", {
+        method: "PUT",
+        body: JSON.stringify({ subject: q.subject, question_id: q.question_id, category }),
+      });
+    } else {
+      await apiFetch(`/bookmarks/${q.subject}/${q.question_id}`, { method: "DELETE" });
+    }
+  };
+
+  const currentQuestions = data.items;
+  const totalPages = Math.ceil(data.total / PAGE_SIZE);
 
   return (
-    <div className="px-6 py-5 bg-[#f6f7ff] min-h-screen">
+    <div className="px-4 sm:px-6 py-5 bg-[#f6f7ff] min-h-screen">
       <h2 className="text-[20px] font-semibold mb-3">
         Question Bank 📚
       </h2>
@@ -149,55 +147,55 @@ function Questions() {
       </div>
 
       {/* Questions */}
-      {currentQuestions.map((q) => (
-        <div
-          key={q.id}
-          className="bg-white px-5 py-4 rounded-xl shadow mb-4"
-        >
-          <h4 className="text-[15px] font-semibold mb-1">
-            {q.question || q.title}
-          </h4>
+      {currentQuestions.length === 0 && (
+        <p className="text-gray-500 text-sm">No questions found.</p>
+      )}
 
-          <p className="text-[13px] text-gray-500 mb-3">
-            {q.subject} · {q.difficulty}
-          </p>
+      {currentQuestions.map((q) => {
+        const key = questionKey(q.subject, q.question_id);
 
-          <div className="flex items-center gap-3">
-            <select
-              value={bookmarks.find((b) => b.id === q.id)?.category || ""}
-              onChange={(e) =>
-                handleBookmark(
-                  q.id,
-                  q.question || q.title,
-                  e.target.value,
-                  q.answer,
-                  q.subject
-                )
-              }
-              className="px-3 py-1.5 rounded-full border text-[13px]"
-            >
-              <option value="">⭐ Bookmark</option>
-              <option value="Important">Important</option>
-              <option value="Revise Later">Revise Later</option>
-              <option value="Doubt">Doubt</option>
-            </select>
+        return (
+          <div
+            key={key}
+            className="bg-white px-5 py-4 rounded-xl shadow mb-4"
+          >
+            <h4 className="text-[15px] font-semibold mb-1">
+              {q.title}
+            </h4>
 
-            <button
-              onClick={() => toggleAnswer(q.id)}
-              className="bg-indigo-600 text-white px-4 py-1.5 rounded-full text-[13px]"
-            >
-              {openAnswer === q.id ? "Hide" : "View"}
-            </button>
-          </div>
+            <p className="text-[13px] text-gray-500 mb-3">
+              {q.subject} · {q.difficulty}
+            </p>
 
-          {openAnswer === q.id && (
-            <div className="mt-3 bg-indigo-50 px-4 py-3 rounded-lg text-[14px]">
-              <b>Answer:</b>
-              <p className="mt-1">{q.answer}</p>
+            <div className="flex items-center gap-3">
+              <select
+                value={bookmarks[key] || ""}
+                onChange={(e) => handleBookmark(q, e.target.value)}
+                className="px-3 py-1.5 rounded-full border text-[13px]"
+              >
+                <option value="">⭐ Bookmark</option>
+                <option value="Important">Important</option>
+                <option value="Revise Later">Revise Later</option>
+                <option value="Doubt">Doubt</option>
+              </select>
+
+              <button
+                onClick={() => toggleAnswer(q)}
+                className="bg-indigo-600 text-white px-4 py-1.5 rounded-full text-[13px]"
+              >
+                {openAnswer === key ? "Hide" : "View"}
+              </button>
             </div>
-          )}
-        </div>
-      ))}
+
+            {openAnswer === key && (
+              <div className="mt-3 bg-indigo-50 px-4 py-3 rounded-lg text-[14px]">
+                <b>Answer:</b>
+                <p className="mt-1">{answers[key] ?? "Loading…"}</p>
+              </div>
+            )}
+          </div>
+        );
+      })}
 
       {/* Pagination */}
       {totalPages > 1 && (

@@ -1,8 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
-import { auth, db } from "../firebase";
+import { apiFetch } from "../api";
 
 function DailyReview() {
   const navigate = useNavigate();
@@ -11,8 +9,28 @@ function DailyReview() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const date = state?.date;
+
+  /* 📥 Get the solved challenge for this date */
+  useEffect(() => {
+    if (!date) return;
+
+    apiFetch("/daily").then((list) => {
+      const c = list.find((x) => x.date === date && x.solved);
+      if (c) {
+        const q = c.question;
+        setData({
+          ...q,
+          // show the correct option's text, not its letter
+          answer: q.options[["a", "b", "c", "d"].indexOf(q.answer)],
+        });
+      }
+      setLoading(false);
+    });
+  }, [date]);
+
   /* 🚫 Invalid access */
-  if (!state || !state.date) {
+  if (!date) {
     return (
       <div className="p-[30px]">
         <p>No data found.</p>
@@ -25,28 +43,6 @@ function DailyReview() {
       </div>
     );
   }
-
-  /* 🔐 Get user + daily solved data */
-  useEffect(() => {
-    const unsub = onAuthStateChanged(auth, async (user) => {
-      if (!user) {
-        navigate("/login");
-        return;
-      }
-
-      const ref = doc(db, "users", user.uid);
-      const snap = await getDoc(ref);
-
-      if (snap.exists()) {
-        const solvedMap = snap.data().dailySolvedMap || {};
-        setData(solvedMap[state.date] || null);
-      }
-
-      setLoading(false);
-    });
-
-    return () => unsub();
-  }, [navigate, state.date]);
 
   if (loading) {
     return <div className="p-[30px]">Loading...</div>;

@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { auth, db } from "../firebase";
+import { apiFetch } from "../api";
 
 function Bookmarks() {
-  const [user, setUser] = useState(null);
   const [bookmarks, setBookmarks] = useState([]);
 
   const [search, setSearch] = useState("");
@@ -14,33 +11,18 @@ function Bookmarks() {
   const [currentPage, setCurrentPage] = useState(1);
   const perPage = 5;
 
-  /* 🔐 Get logged-in user + bookmarks */
+  /* 📥 Load bookmarks (the server includes each question's title + answer) */
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, async (currentUser) => {
-      if (currentUser) {
-        setUser(currentUser);
-
-        const ref = doc(db, "users", currentUser.uid);
-        const snap = await getDoc(ref);
-
-        if (snap.exists()) {
-          setBookmarks(snap.data().bookmarks || []);
-        }
-      }
-    });
-
-    return () => unsub();
+    apiFetch("/bookmarks").then((list) =>
+      setBookmarks(list.map((b) => ({ ...b, key: `${b.subject}-${b.question_id}` })))
+    );
   }, []);
 
   /* ❌ Remove bookmark */
-  const removeBookmark = async (id) => {
-    if (!user) return;
-
-    const updated = bookmarks.filter((b) => b.id !== id);
-    setBookmarks(updated);
-
-    await updateDoc(doc(db, "users", user.uid), {
-      bookmarks: updated,
+  const removeBookmark = async (b) => {
+    setBookmarks((prev) => prev.filter((x) => x.key !== b.key));
+    await apiFetch(`/bookmarks/${b.subject}/${b.question_id}`, {
+      method: "DELETE",
     });
   };
 
@@ -66,7 +48,7 @@ function Bookmarks() {
       </h2>
 
       {/* Filters */}
-      <div className="flex gap-[10px] mb-3">
+      <div className="flex flex-col sm:flex-row gap-[10px] mb-3">
         <input
           type="text"
           placeholder="Search bookmarks…"
@@ -100,7 +82,7 @@ function Bookmarks() {
       {/* Cards */}
       {current.map((b) => (
         <div
-          key={b.id}
+          key={b.key}
           className="bg-white p-[14px] rounded-[10px] shadow-[0_5px_18px_rgba(0,0,0,0.08)] mt-[10px]"
         >
           <h4 className="font-semibold">{b.title}</h4>
@@ -109,7 +91,7 @@ function Bookmarks() {
             Subject: <b>{b.subject || "Unknown"}</b>
           </p>
 
-          <div className="flex justify-between items-center mt-[6px]">
+          <div className="flex flex-wrap justify-between items-center gap-2 mt-[6px]">
             <span className="bg-sky-100 px-[10px] py-[4px] rounded-full text-[12px]">
               {b.category}
             </span>
@@ -117,15 +99,15 @@ function Bookmarks() {
             <div className="flex gap-[10px]">
               <button
                 onClick={() =>
-                  setOpenAnswer(openAnswer === b.id ? null : b.id)
+                  setOpenAnswer(openAnswer === b.key ? null : b.key)
                 }
                 className="bg-indigo-600 text-white px-[12px] py-[6px] rounded-lg text-sm"
               >
-                {openAnswer === b.id ? "Hide Answer" : "View Answer"}
+                {openAnswer === b.key ? "Hide Answer" : "View Answer"}
               </button>
 
               <button
-                onClick={() => removeBookmark(b.id)}
+                onClick={() => removeBookmark(b)}
                 className="bg-red-600 text-white px-[12px] py-[6px] rounded-lg text-sm"
               >
                 Remove
@@ -133,7 +115,7 @@ function Bookmarks() {
             </div>
           </div>
 
-          {openAnswer === b.id && (
+          {openAnswer === b.key && (
             <div className="mt-[10px] bg-indigo-50 p-3 rounded-lg">
               <b>Answer:</b>
               <p>{b.answer}</p>

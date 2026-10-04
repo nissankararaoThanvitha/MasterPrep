@@ -1,199 +1,115 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { onAuthStateChanged } from "firebase/auth";
-import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
-import { auth, db } from "../firebase";
+import { apiFetch } from "../api";
+import { dateKey, fromKey } from "../dates";
 import StreakCalendar from "../components/StreakCalendar";
+import WeakestCard from "../components/WeakestCard";
 
 function Dashboard() {
   const navigate = useNavigate();
 
-  const [user, setUser] = useState(null);
-  const [userDoc, setUserDoc] = useState(null);
-
-  const [viewedQuestions, setViewedQuestions] = useState([]);
-  const [bookmarks, setBookmarks] = useState([]);
-  const [quizCount, setQuizCount] = useState(0);
-  const [bestScores, setBestScores] = useState({});
-  const [streak, setStreak] = useState(0);
+  const [viewedCount, setViewedCount] = useState(0);
+  const [bookmarkCount, setBookmarkCount] = useState(0);
+  const [attempts, setAttempts] = useState([]);
+  // "YYYY-MM-DD" -> { date, question, solved }
+  const [challenges, setChallenges] = useState({});
+  const [analytics, setAnalytics] = useState(null);
 
   const [showChallenge, setShowChallenge] = useState(false);
-  const [question, setQuestion] = useState(null);
+  const [activeDate, setActiveDate] = useState(null);
   const [selected, setSelected] = useState(null);
   const [status, setStatus] = useState("");
 
   const [hoverQuestion, setHoverQuestion] = useState(undefined);
-  const [activeDate, setActiveDate] = useState(null);
-  const [calendarRefresh, setCalendarRefresh] = useState(0);
 
-  const quizFiles = [
-    "/cn_quiz.json",
-    "/dbms_quiz.json",
-    "/dsa_quiz.json",
-    "/oops_quiz.json",
-    "/os_quiz.json",
-  ];
-
-  /* 🔐 Load user + Firestore data */
+  /* 📥 Load progress */
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, async (u) => {
-      if (!u) {
-        navigate("/login");
-        return;
-      }
+    apiFetch("/viewed").then((v) => setViewedCount(v.length));
+    apiFetch("/bookmarks").then((b) => setBookmarkCount(b.length));
+    apiFetch("/quizzes").then(setAttempts);
+    apiFetch("/analytics").then(setAnalytics);
+    apiFetch("/daily").then((list) =>
+      setChallenges(Object.fromEntries(list.map((c) => [c.date, c])))
+    );
+  }, []);
 
-      setUser(u);
-      const ref = doc(db, "users", u.uid);
-      const snap = await getDoc(ref);
+  const saveChallenge = (c) =>
+    setChallenges((prev) => ({ ...prev, [c.date]: c }));
 
-      if (!snap.exists()) {
-        await setDoc(ref, {
-          viewed: [],
-          bookmarks: [],
-          quizHistory: [],
-          dailySolved: [],
-          dailySolvedMap: {},
-          dailyQuestionMap: {},
-        });
-        setUserDoc({});
-        return;
-      }
-
-      const data = snap.data();
-      setUserDoc(data);
-
-      setViewedQuestions(data.viewed || []);
-      setBookmarks(data.bookmarks || []);
-      setQuizCount((data.quizHistory || []).length);
-
-      /* 🏆 Best scores */
-      const scores = {};
-      (data.quizHistory || []).forEach((q) => {
-        if (!scores[q.subject] || q.score > scores[q.subject]) {
-          scores[q.subject] = q.score;
-        }
-      });
-      setBestScores(scores);
-
-      /* 🔥 Streak */
-      const solved = data.dailySolved || [];
-      let s = 0;
-      let d = new Date();
-
-      while (solved.includes(d.toDateString())) {
-        s++;
-        d.setDate(d.getDate() - 1);
-      }
-      setStreak(s);
-    });
-
-    return () => unsub();
-  }, [navigate]);
-
-  /* 📅 Load daily question */
-  async function loadDailyQuestion(dateStr) {
-    if (!user || !userDoc) return;
-
-    const map = userDoc.dailyQuestionMap || {};
-    if (map[dateStr]) {
-      setQuestion(map[dateStr]);
-      return;
+  /* 🏆 Best attempt per subject */
+  const bestAttempts = {};
+  attempts.forEach((a) => {
+    if (!bestAttempts[a.subject] || a.score > bestAttempts[a.subject].score) {
+      bestAttempts[a.subject] = a;
     }
+  });
+  const bestScores = Object.fromEntries(
+    Object.entries(bestAttempts).map(([s, a]) => [s, a.score])
+  );
 
-    const file = quizFiles[Math.floor(Math.random() * quizFiles.length)];
-    const res = await fetch(file);
-    const data = await res.json();
-    const q = data[Math.floor(Math.random() * data.length)];
-
-    const updatedMap = { ...map, [dateStr]: q };
-
-    await updateDoc(doc(db, "users", user.uid), {
-      dailyQuestionMap: updatedMap,
-    });
-
-    setUserDoc((p) => ({ ...p, dailyQuestionMap: updatedMap }));
-    setQuestion(q);
+  /* 🔥 Streak: consecutive solved days ending today */
+  const solvedDates = Object.values(challenges)
+    .filter((c) => c.solved)
+    .map((c) => c.date);
+  let streak = 0;
+  for (const d = new Date(); solvedDates.includes(dateKey(d)); d.setDate(d.getDate() - 1)) {
+    streak++;
   }
 
-  /* ✅ Submit daily answer */
+  const question = activeDate ? challenges[activeDate]?.question : null;
+
+  /* 📅 Load (or pick) the question for a date */
+  async function loadDailyQuestion(key) {
+    if (challenges[key]) return;
+
+    // The server picks the question (and keeps it for that date)
+    saveChallenge(await apiFetch(`/daily/${key}`, { method: "PUT" }));
+  }
+
+  /* ✅ Submit daily answer (checked by the server) */
   async function submitAnswer() {
-    if (!user || !question || selected === null) return;
+    if (!question || selected === null) return;
 
-    const ans = ["a", "b", "c", "d"][selected];
-    const today = new Date().toDateString();
+    const result = await apiFetch(`/daily/${activeDate}/answer`, {
+      method: "POST",
+      body: JSON.stringify({ answer: ["a", "b", "c", "d"][selected] }),
+    });
 
-    if (ans === question.answer.toLowerCase()) {
-      setStatus("correct");
-
-      const solved = userDoc.dailySolved || [];
-      const solvedMap = userDoc.dailySolvedMap || {};
-
-      if (!solved.includes(today)) {
-        solved.push(today);
-        solvedMap[today] = {
-          subject: question.subject,
-          question: question.question,
-          options: question.options,
-          answer: question.options[
-            ["a", "b", "c", "d"].indexOf(question.answer)
-          ],
-          explanation: question.explanation,
-        };
-
-        await updateDoc(doc(db, "users", user.uid), {
-          dailySolved: solved,
-          dailySolvedMap: solvedMap,
-        });
-
-        setUserDoc((p) => ({
-          ...p,
-          dailySolved: solved,
-          dailySolvedMap: solvedMap,
-        }));
-
-        setCalendarRefresh((p) => p + 1);
-      }
-    } else {
-      setStatus("wrong");
-    }
+    setStatus(result.correct ? "correct" : "wrong");
+    saveChallenge(result.challenge);
   }
 
   /* 📅 Calendar interactions */
-  function handleDateHover(dateStr) {
-    if (!dateStr || !userDoc) {
+  function handleDateHover(key) {
+    if (!key) {
       setHoverQuestion(undefined);
       return;
     }
 
-    setHoverQuestion(userDoc.dailyQuestionMap?.[dateStr] ?? null);
+    setHoverQuestion(challenges[key]?.question ?? null);
   }
 
-  async function handleDateClick(dateStr) {
-    if (new Date(dateStr) > new Date()) return;
+  async function handleDateClick(key) {
+    if (fromKey(key) > new Date()) return;
 
-    setActiveDate(dateStr);
+    setActiveDate(key);
     setSelected(null);
     setStatus("");
     setShowChallenge(true);
-    await loadDailyQuestion(dateStr);
+    await loadDailyQuestion(key);
   }
 
   /* 🏆 Best review */
   function handleBestReview(subject) {
-    const history = userDoc?.quizHistory || [];
-    const best = history
-      .filter((h) => h.subject === subject)
-      .sort((a, b) => b.score - a.score)[0];
-
-    if (!best) return;
-
-    navigate("/quiz-result", { state: best });
+    const best = bestAttempts[subject];
+    if (best) navigate("/quiz-result", { state: best });
   }
 
   /* ================= UI ================= */
   return (
-    <div className="px-6 py-5 bg-[#f6f7ff] min-h-screen">
-      <div className="grid grid-cols-[3fr_1fr] gap-6">
+    <div className="px-4 sm:px-6 py-5 bg-[#f6f7ff] min-h-screen">
+      {/* one column on phones/tablets, calendar on the right from lg up */}
+      <div className="grid grid-cols-1 lg:grid-cols-[3fr_1fr] gap-6">
         {/* LEFT */}
         <div>
           <h2 className="text-[22px] font-semibold">
@@ -204,7 +120,7 @@ function Dashboard() {
           </p>
 
           {/* DAILY CHALLENGE */}
-          <div className="mt-4 flex items-center justify-between px-8 py-8 rounded-[24px]
+          <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 px-6 sm:px-8 py-6 sm:py-8 rounded-[24px]
                           text-white bg-gradient-to-br from-[#6c63ff] to-[#8f6bff]">
             <div>
               <h3 className="text-[18px] font-semibold">🔥 Daily Challenge</h3>
@@ -212,24 +128,61 @@ function Dashboard() {
             </div>
 
             <button
-              onClick={() => handleDateClick(new Date().toDateString())}
+              onClick={() => handleDateClick(dateKey())}
               className="bg-white text-black px-6 py-2 rounded-full"
             >
               Start Now
             </button>
           </div>
 
+          {/* REVISE TODAY */}
+          {analytics && analytics.totals.revision_due > 0 && (
+            <div className="mt-6 bg-white rounded-[16px] shadow px-5 sm:px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-indigo-600">
+                  📚 Revise today
+                </p>
+                <p className="text-[17px] font-semibold mt-1">
+                  {analytics.totals.revision_due} card
+                  {analytics.totals.revision_due === 1 ? "" : "s"} due
+                </p>
+                <p className="text-sm text-gray-600 mt-0.5">
+                  Questions you missed, scheduled right before you'd forget them
+                  {analytics.totals.revision_mastered > 0 &&
+                    ` · ${analytics.totals.revision_mastered} mastered`}
+                </p>
+              </div>
+              <button
+                onClick={() => navigate("/revise")}
+                className="shrink-0 bg-indigo-600 text-white px-5 py-2 rounded-full text-sm"
+              >
+                Start revision
+              </button>
+            </div>
+          )}
+
+          {/* FOCUS AREA */}
+          <div className="mt-6">
+            <WeakestCard
+              weakest={analytics?.weakest}
+              dueCount={
+                analytics?.subjects.find((s) => s.subject === analytics.weakest?.subject)
+                  ?.revision_due
+              }
+            />
+          </div>
+
           {/* STATS */}
-          <div className="grid grid-cols-4 gap-4 mt-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-6">
             {[
-              ["Viewed", viewedQuestions.length],
-              ["Quizzes", quizCount],
-              ["Bookmarks", bookmarks.length],
+              ["Viewed", viewedCount],
+              ["Quizzes", attempts.length],
+              ["Bookmarks", bookmarkCount],
               ["Streak", `${streak} 🔥`],
             ].map(([label, value]) => (
               <div
                 key={label}
-                className="bg-white px-5 py-4 rounded-[16px] text-center shadow"
+                className="bg-white px-3 sm:px-5 py-4 rounded-[16px] text-center shadow"
               >
                 <div className="text-gray-500 text-sm">{label}</div>
                 <div className="text-[18px] font-semibold mt-1">{value}</div>
@@ -238,7 +191,7 @@ function Dashboard() {
           </div>
 
           {/* BEST SCORES */}
-          <div className="bg-white px-6 py-6 rounded-[18px] mt-7">
+          <div className="bg-white px-5 sm:px-6 py-6 rounded-[18px] mt-7">
             <h3 className="text-[18px] font-semibold mb-4">🏆 Best Scores</h3>
 
             {Object.keys(bestScores).length === 0 && (
@@ -253,7 +206,7 @@ function Dashboard() {
                   <div>
                     <p className="font-medium">{s}</p>
                     <p className="text-sm text-gray-600">
-                      Score: {bestScores[s]} / 20
+                      Score: {bestScores[s]} / {bestAttempts[s].total}
                     </p>
                   </div>
                   <button
@@ -269,9 +222,9 @@ function Dashboard() {
         </div>
 
         {/* RIGHT */}
-        <div className="sticky top-[90px]">
+        <div className="lg:sticky lg:top-[90px]">
           <StreakCalendar
-            refresh={calendarRefresh}
+            solvedDates={solvedDates}
             onDateHover={handleDateHover}
             onDateClick={handleDateClick}
           />
@@ -295,8 +248,8 @@ function Dashboard() {
 
       {/* MODAL */}
       {showChallenge && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-          <div className="relative bg-white px-7 py-6 rounded-[20px] w-[440px]">
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4">
+          <div className="relative bg-white px-6 sm:px-7 py-6 rounded-[20px] w-full max-w-[440px] max-h-full overflow-y-auto">
             <button
               onClick={() => setShowChallenge(false)}
               className="absolute top-4 right-5 text-xl"
@@ -308,6 +261,11 @@ function Dashboard() {
               <>
                 <p className="font-semibold text-lg">{question.subject}</p>
                 <p className="my-3">{question.question}</p>
+                {question.code && (
+                  <pre className="bg-gray-900 text-gray-100 text-sm rounded-lg px-4 py-3 mb-3 overflow-x-auto">
+                    <code>{question.code}</code>
+                  </pre>
+                )}
 
                 {question.options.map((o, i) => (
                   <label key={i} className="flex gap-3 mb-2">

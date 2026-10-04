@@ -1,7 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "./firebase";
+import { useAuth } from "./useAuth";
 
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -14,18 +12,14 @@ import Quiz from "./pages/Quiz";
 import QuizResult from "./pages/QuizResult";
 import DailyReview from "./pages/DailyReview";
 import AIDoubtChat from "./pages/AIDoubtChat";
+import Progress from "./pages/Progress";
+import Revise from "./pages/Revise";
+import InterviewSetup from "./pages/InterviewSetup";
+import Interview from "./pages/Interview";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const unsub = onAuthStateChanged(auth, (user) => {
-      setIsLoggedIn(!!user);
-      setLoading(false);
-    });
-    return () => unsub();
-  }, []);
+  const { user, loading } = useAuth();
+  const isLoggedIn = !!user;
 
   if (loading) return null;
 
@@ -64,6 +58,26 @@ function App() {
         />
 
         <Route
+          path="/interview"
+          element={isLoggedIn ? <InterviewSetup /> : <Navigate to="/login" />}
+        />
+
+        <Route
+          path="/interview/:id"
+          element={isLoggedIn ? <Interview /> : <Navigate to="/login" />}
+        />
+
+        <Route
+          path="/revise"
+          element={isLoggedIn ? <Revise /> : <Navigate to="/login" />}
+        />
+
+        <Route
+          path="/progress"
+          element={isLoggedIn ? <Progress /> : <Navigate to="/login" />}
+        />
+
+        <Route
           path="/bookmarks"
           element={isLoggedIn ? <Bookmarks /> : <Navigate to="/login" />}
         />
@@ -89,7 +103,10 @@ function App() {
           element={isLoggedIn ? <DailyReview /> : <Navigate to="/login" />}
         />
 
-        <Route path="/ai-chat" element={<AIDoubtChat />} />
+        <Route
+          path="/ai-chat"
+          element={isLoggedIn ? <AIDoubtChat /> : <Navigate to="/login" />}
+        />
 
       </Routes>
     </BrowserRouter>

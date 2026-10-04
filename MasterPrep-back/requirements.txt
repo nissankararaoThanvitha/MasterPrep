@@ -1,8 +1,10 @@
 fastapi
 uvicorn
 python-dotenv
-pillow
-pytesseract
-pymupdf
 google-generativeai
-python-multipart
+sqlalchemy
+psycopg[binary]
+pyjwt
+bcrypt
+email-validator
+alembic

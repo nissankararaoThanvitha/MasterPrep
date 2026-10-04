@@ -1,0 +1,21 @@
+# ---- secrets: never commit real keys ----
+.env
+.env.*
+!.env.example
+# frontend dev config: only points at http://localhost:8000, no secrets
+!.env.development
+
+# ---- dependencies / build output ----
+node_modules/
+dist/
+__pycache__/
+*.pyc
+
+# ---- local databases ----
+*.db
+
+# ---- editor / OS ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

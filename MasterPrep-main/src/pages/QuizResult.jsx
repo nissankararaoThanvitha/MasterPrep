@@ -1,22 +1,9 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../firebase";
 
 export default function QuizResult() {
   const navigate = useNavigate();
   const { state } = useLocation();
-
-  /* 🔐 Protect route */
-  useEffect(() => {
-    const unsub = onAuthStateChanged(auth, (user) => {
-      if (!user) {
-        navigate("/login", { replace: true });
-      }
-    });
-
-    return () => unsub();
-  }, [navigate]);
 
   /* 🚫 Prevent back navigation */
   useEffect(() => {

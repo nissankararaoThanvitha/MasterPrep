@@ -1,102 +1,49 @@
-from fastapi import FastAPI, UploadFile, File
-from fastapi.middleware.cors import CORSMiddleware
-from PIL import Image
-import pytesseract
-import fitz
-import io
 import os
+from pathlib import Path
+
+from alembic import command
+from alembic.config import Config
 from dotenv import load_dotenv
-import google.generativeai as genai
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 # ---------------- LOAD ENV ----------------
 load_dotenv()
 
-# ---------------- GEMINI ----------------
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-model = genai.GenerativeModel("gemini-3-flash-preview")
+from auth import router as auth_router
+from routers import analytics, chats, daily, interviews, questions, quizzes, revision
+
+# ---------------- DATABASE ----------------
+# Bring the database schema up to date (runs any pending Alembic migrations).
+command.upgrade(Config(str(Path(__file__).with_name("alembic.ini"))), "head")
 
 # ---------------- FASTAPI ----------------
-app = FastAPI()
+app = FastAPI(title="MasterPrep API")
 
-# ✅ FIXED CORS (IMPORTANT)
+# Comma-separated list of allowed frontend URLs
+FRONTEND_ORIGINS = os.getenv(
+    "FRONTEND_ORIGINS",
+    "https://master-prep-vmkv.vercel.app,http://localhost:5173",
+).split(",")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://master-prep-vmkv.vercel.app"
-    ],  # your frontend URL
-    allow_credentials=True,
+    allow_origins=[o.strip() for o in FRONTEND_ORIGINS],
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# ---------------- TESSERACT FIX ----------------
-if os.name == "nt":
-    pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+app.include_router(auth_router)
+app.include_router(questions.router)
+app.include_router(quizzes.router)
+app.include_router(daily.router)
+app.include_router(chats.router)
+app.include_router(analytics.router)
+app.include_router(revision.router)
+app.include_router(interviews.router)
 
-# ---------------- CONTEXT ----------------
-stored_context = ""
 
-# ---------------- HEALTH CHECK (VERY USEFUL) ----------------
+# ---------------- HEALTH CHECK ----------------
 @app.get("/")
 def home():
     return {"message": "Backend is running"}
-
-# ---------------- UPLOAD ----------------
-@app.post("/upload")
-async def upload_file(file: UploadFile = File(...)):
-    global stored_context
-
-    try:
-        file_bytes = await file.read()
-        extracted_text = ""
-
-        if file.filename.lower().endswith(".pdf"):
-            pdf = fitz.open(stream=file_bytes, filetype="pdf")
-            for page in pdf:
-                extracted_text += page.get_text()
-
-        elif file.filename.lower().endswith((".png", ".jpg", ".jpeg")):
-            image = Image.open(io.BytesIO(file_bytes)).convert("RGB")
-            extracted_text = pytesseract.image_to_string(image)
-
-        else:
-            extracted_text = file_bytes.decode("utf-8", errors="ignore")
-
-        stored_context += "\n" + extracted_text
-
-        return {"message": "Content stored successfully"}
-
-    except Exception as e:
-        return {"error": str(e)}
-
-# ---------------- ASK ----------------
-@app.post("/ask")
-async def ask_question(data: dict):
-    question = data.get("question", "")
-
-    if not question:
-        return {"answer": "Question cannot be empty"}
-
-    prompt = f"""
-Answer in exam notes format.
-
-Context:
-{stored_context}
-
-Question:
-{question}
-"""
-
-    try:
-        response = model.generate_content(prompt)
-        return {"answer": response.text}
-
-    except Exception as e:
-        return {"answer": f"ERROR: {str(e)}"}
-
-# ---------------- CLEAR ----------------
-@app.post("/clear")
-async def clear_context():
-    global stored_context
-    stored_context = ""
-    return {"message": "Cleared"}

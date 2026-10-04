@@ -1,63 +1,39 @@
-import { useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
-import { auth, db } from "../firebase";
+import { useState } from "react";
+import { dateKey } from "../dates";
 
 export default function StreakCalendar({
+  solvedDates = [], // "YYYY-MM-DD" keys
   onDateHover,
   onDateClick,
-  refresh,
 }) {
-  const [days, setDays] = useState([]);
   const [visibleMonth, setVisibleMonth] = useState(new Date());
-  const [solvedDates, setSolvedDates] = useState([]);
-
-  /* 🔐 Get user + solved dates */
-  useEffect(() => {
-    const unsub = onAuthStateChanged(auth, async (user) => {
-      if (!user) return;
-
-      const ref = doc(db, "users", user.uid);
-      const snap = await getDoc(ref);
-
-      if (snap.exists()) {
-        setSolvedDates(snap.data().dailySolved || []);
-      }
-    });
-
-    return () => unsub();
-  }, [refresh]);
 
   /* 📅 Build calendar */
-  useEffect(() => {
-    const year = visibleMonth.getFullYear();
-    const month = visibleMonth.getMonth();
+  const year = visibleMonth.getFullYear();
+  const month = visibleMonth.getMonth();
 
-    const today = new Date();
-    const todayStr = today.toDateString();
+  const today = new Date();
+  const todayKey = dateKey(today);
 
-    const firstDay = new Date(year, month, 1).getDay();
-    const totalDays = new Date(year, month + 1, 0).getDate();
+  const firstDay = new Date(year, month, 1).getDay();
+  const totalDays = new Date(year, month + 1, 0).getDate();
 
-    const temp = [];
+  const days = [];
 
-    for (let i = 0; i < firstDay; i++) temp.push(null);
+  for (let i = 0; i < firstDay; i++) days.push(null);
 
-    for (let d = 1; d <= totalDays; d++) {
-      const dateObj = new Date(year, month, d);
-      const dateString = dateObj.toDateString();
+  for (let d = 1; d <= totalDays; d++) {
+    const dateObj = new Date(year, month, d);
+    const key = dateKey(dateObj);
 
-      temp.push({
-        day: d,
-        dateString,
-        solved: solvedDates.includes(dateString),
-        today: dateString === todayStr,
-        future: dateObj > today,
-      });
-    }
-
-    setDays(temp);
-  }, [visibleMonth, solvedDates]);
+    days.push({
+      day: d,
+      dateString: key,
+      solved: solvedDates.includes(key),
+      today: key === todayKey,
+      future: dateObj > today,
+    });
+  }
 
   const monthName = visibleMonth.toLocaleString("default", {
     month: "long",
