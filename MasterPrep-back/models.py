@@ -145,37 +145,6 @@ class DailyChallenge(Base):
     mcq: Mapped[McqQuestion] = relationship()
 
 
-# ---------------- REVISION QUEUE (spaced repetition) ----------------
-class RevisionCard(Base):
-    """One question a user is revising.
-
-    kind="theory": a question-bank question (row in `questions`)
-    kind="mcq":    a multiple-choice question (row in `mcq_questions`)
-    """
-    __tablename__ = "revision_cards"
-    __table_args__ = (
-        UniqueConstraint("user_id", "kind", "subject", "question_id", name="uq_revision_card"),
-    )
-
-    id: Mapped[int] = mapped_column(primary_key=True)
-    user_id: Mapped[int] = mapped_column(
-        ForeignKey("users.id", ondelete="CASCADE"), index=True
-    )
-    kind: Mapped[str] = mapped_column(String(10))
-    subject: Mapped[str] = mapped_column(String(10))
-    question_id: Mapped[int] = mapped_column(Integer)
-    source: Mapped[str] = mapped_column(String(20))  # quiz / daily / bookmark / interview
-
-    # scheduling state (see srs.py)
-    ease: Mapped[float] = mapped_column(Float, default=2.5)
-    interval_days: Mapped[int] = mapped_column(Integer, default=0)
-    repetitions: Mapped[int] = mapped_column(Integer, default=0)
-    lapses: Mapped[int] = mapped_column(Integer, default=0)
-    due_date: Mapped[date] = mapped_column(Date, index=True)
-    last_reviewed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
-    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
-
-
 # ---------------- AI MOCK INTERVIEW ----------------
 class InterviewSession(Base):
     __tablename__ = "interview_sessions"

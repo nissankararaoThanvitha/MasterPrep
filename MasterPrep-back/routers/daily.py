@@ -9,7 +9,6 @@ from sqlalchemy.orm import Session, selectinload
 from auth import get_current_user
 from database import get_db
 from models import DailyChallenge, McqQuestion, User
-from revision_cards import add_card, get_today
 
 router = APIRouter(prefix="/daily", tags=["daily challenge"])
 
@@ -95,7 +94,6 @@ def get_or_create_challenge(
 def answer_challenge(
     day: date,
     data: AnswerIn,
-    today: date = Depends(get_today),
     user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
@@ -107,11 +105,6 @@ def answer_challenge(
     if correct and not challenge.solved:
         challenge.solved = True
         challenge.solved_at = datetime.now(timezone.utc)
-    elif not correct:
-        add_card(
-            db, user_id=user.id, kind="mcq", subject=challenge.subject,
-            question_id=challenge.question_id, source="daily", today=today, missed=True,
-        )
     db.commit()
     db.refresh(challenge)
 

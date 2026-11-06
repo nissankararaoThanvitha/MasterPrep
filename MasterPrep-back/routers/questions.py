@@ -1,4 +1,4 @@
-from datetime import date, datetime
+from datetime import datetime
 from typing import Literal
 
 from fastapi import APIRouter, Depends, HTTPException, Query, Response
@@ -8,7 +8,6 @@ from sqlalchemy.orm import Session, selectinload
 from auth import get_current_user
 from database import get_db
 from models import Bookmark, Question, User, ViewedQuestion
-from revision_cards import add_card, get_today
 from schemas import BookmarkCategory, Subject
 
 router = APIRouter(tags=["questions"])
@@ -139,7 +138,6 @@ def list_bookmarks(user: User = Depends(get_current_user), db: Session = Depends
 @router.put("/bookmarks", response_model=BookmarkOut)
 def save_bookmark(
     data: BookmarkIn,
-    today: date = Depends(get_today),
     user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
@@ -156,11 +154,6 @@ def save_bookmark(
         db.add(bookmark)
 
     bookmark.category = data.category
-    if data.category == "Revise Later":
-        add_card(
-            db, user_id=user.id, kind="theory", subject=data.subject,
-            question_id=data.question_id, source="bookmark", today=today, missed=False,
-        )
     db.commit()
     db.refresh(bookmark)
     return to_bookmark_out(bookmark)

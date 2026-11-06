@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 /* "Focus area" call-to-action built from /analytics `weakest`. */
-export default function WeakestCard({ weakest, dueCount = 0 }) {
+export default function WeakestCard({ weakest }) {
   const navigate = useNavigate();
   if (!weakest) return null;
 
@@ -27,16 +27,10 @@ export default function WeakestCard({ weakest, dueCount = 0 }) {
       </div>
 
       <button
-        onClick={() =>
-          navigate(dueCount > 0 ? `/revise?subject=${subject}` : `/quiz/${subject}`)
-        }
+        onClick={() => navigate(`/quiz/${subject}`)}
         className="shrink-0 bg-indigo-600 text-white px-5 py-2 rounded-full text-sm"
       >
-        {notStarted
-          ? `Start ${subject} quiz`
-          : dueCount > 0
-            ? `Revise ${subject} (${dueCount} due)`
-            : `Practice ${subject}`}
+        {notStarted ? `Start ${subject} quiz` : `Practice ${subject}`}
       </button>
     </div>
   );

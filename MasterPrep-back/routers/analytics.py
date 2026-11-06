@@ -9,12 +9,10 @@ from sqlalchemy.orm import Session
 from auth import get_current_user
 from database import get_db
 from models import (
-    DailyChallenge, InterviewAnswer, InterviewSession, Question, QuizAttempt, RevisionCard,
-    User, ViewedQuestion,
+    DailyChallenge, InterviewAnswer, InterviewSession, Question, QuizAttempt, User,
+    ViewedQuestion,
 )
-from revision_cards import get_today
 from schemas import Subject
-from srs import MASTERED_DAYS
 
 router = APIRouter(prefix="/analytics", tags=["analytics"])
 
@@ -34,7 +32,6 @@ class SubjectStats(BaseModel):
     best_score: float | None  # best single quiz, 0-100
     viewed: int              # question-bank answers viewed
     bank_total: int          # questions in the bank for this subject
-    revision_due: int        # revision cards due today
     interview_answers: int   # mock interview questions answered
     interview_avg: float | None  # average interview score, 0-10
 
@@ -58,8 +55,6 @@ class Totals(BaseModel):
     bank_total: int
     daily_solved: int
     longest_streak: int
-    revision_due: int
-    revision_mastered: int
     interviews: int              # completed mock interviews
     interview_avg: float | None  # average score over all answered interview questions
 
@@ -101,7 +96,6 @@ def pick_weakest(subjects: list[SubjectStats]) -> Weakest | None:
 
 @router.get("", response_model=AnalyticsOut)
 def get_analytics(
-    today: date = Depends(get_today),
     user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
@@ -128,16 +122,6 @@ def get_analytics(
         .all()
     )
     bank = dict(db.query(Question.subject, func.count()).group_by(Question.subject).all())
-
-    # ---- revision queue ----
-    cards = db.query(RevisionCard).filter(RevisionCard.user_id == user.id)
-    due = dict(
-        cards.filter(RevisionCard.due_date <= today)
-        .with_entities(RevisionCard.subject, func.count())
-        .group_by(RevisionCard.subject)
-        .all()
-    )
-    mastered = cards.filter(RevisionCard.interval_days >= MASTERED_DAYS).count()
 
     # ---- mock interviews: per-subject answer count + average score ----
     my_answers = (
@@ -170,7 +154,6 @@ def get_analytics(
             best_score=round(best, 1) if best is not None else None,
             viewed=viewed.get(s, 0),
             bank_total=bank.get(s, 0),
-            revision_due=due.get(s, 0),
             interview_answers=interview.get(s, (0, None))[0],
             interview_avg=round(float(interview[s][1]), 1) if s in interview else None,
         ))
@@ -215,8 +198,6 @@ def get_analytics(
         bank_total=sum(s.bank_total for s in subjects),
         daily_solved=len(solved_days),
         longest_streak=longest_run(solved_days),
-        revision_due=sum(due.values()),
-        revision_mastered=mastered,
         interviews=interviews_done,
         interview_avg=round(float(overall_avg), 1) if overall_avg is not None else None,
     )

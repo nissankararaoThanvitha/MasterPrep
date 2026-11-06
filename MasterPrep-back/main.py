@@ -11,7 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 load_dotenv()
 
 from auth import router as auth_router
-from routers import analytics, chats, daily, interviews, questions, quizzes, revision
+from routers import analytics, chats, daily, interviews, questions, quizzes
 
 # ---------------- DATABASE ----------------
 # Bring the database schema up to date (runs any pending Alembic migrations).
@@ -39,7 +39,6 @@ app.include_router(quizzes.router)
 app.include_router(daily.router)
 app.include_router(chats.router)
 app.include_router(analytics.router)
-app.include_router(revision.router)
 app.include_router(interviews.router)
 
 

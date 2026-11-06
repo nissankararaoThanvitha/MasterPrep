@@ -1,5 +1,5 @@
 import random
-from datetime import date, datetime, timezone
+from datetime import datetime, timezone
 from typing import Literal
 
 from fastapi import APIRouter, Depends, HTTPException
@@ -10,14 +10,12 @@ import ai
 from auth import get_current_user
 from database import get_db
 from models import InterviewAnswer, InterviewSession, Question, User
-from revision_cards import add_card, get_today
 from schemas import Subject
 
 router = APIRouter(prefix="/interviews", tags=["mock interview"])
 
 Difficulty = Literal["Easy", "Medium", "Hard"]
 RECENT_QUESTIONS = 100  # avoid repeating the user's last 100 interview questions
-REVISE_BELOW = 6        # answers scoring under this go into the revision queue
 
 
 # ---------------- SCHEMAS ----------------
@@ -49,7 +47,6 @@ class QuestionView(BaseModel):
     score: int | None
     feedback: dict | None
     reference_answer: str | None  # only revealed once answered
-    added_to_revision: bool       # scored below REVISE_BELOW
 
 
 class SessionSummary(BaseModel):
@@ -99,7 +96,6 @@ def to_detail(s: InterviewSession) -> SessionDetail:
             question=a.question.title, answered=answered, skipped=a.skipped,
             answer_text=a.answer_text, score=a.score, feedback=a.feedback,
             reference_answer=a.question.answer if answered else None,
-            added_to_revision=answered and a.score < REVISE_BELOW,
         ))
     pending = [q.position for q in questions if not q.answered]
     current = pending[0] if pending and s.status == "active" else None
@@ -185,7 +181,6 @@ def answer_question(
     session_id: int,
     position: int,
     data: AnswerIn,
-    today: date = Depends(get_today),
     user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
@@ -225,13 +220,6 @@ def answer_question(
         answer.feedback = graded
 
     answer.answered_at = datetime.now(timezone.utc)
-
-    # A weak answer is exactly what the revision queue is for
-    if answer.score < REVISE_BELOW:
-        add_card(
-            db, user_id=user.id, kind="theory", subject=answer.subject,
-            question_id=answer.question_id, source="interview", today=today, missed=True,
-        )
 
     if all(a.answered_at is not None for a in session.answers):
         complete(session)

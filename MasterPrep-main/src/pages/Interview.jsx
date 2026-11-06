@@ -52,12 +52,6 @@ function Feedback({ q }) {
         <p className="mt-2 bg-indigo-50 rounded-lg px-4 py-3 leading-relaxed">{q.reference_answer}</p>
       </details>
 
-      {q.added_to_revision && (
-        <p className="text-sm bg-indigo-50 text-indigo-900 rounded-lg px-4 py-2.5">
-          📚 Added to your revision queue. It comes back tomorrow, so you can lock it in.
-        </p>
-      )}
-
       {fb.follow_up && (
         <p className="text-sm text-gray-700 border-l-4 border-indigo-300 pl-3">
           <span className="font-semibold">An interviewer might ask next:</span> {fb.follow_up}
@@ -147,7 +141,6 @@ export default function Interview() {
   /* ---------- summary ---------- */
   if (session.status === "completed") {
     const answered = session.questions.filter((q) => q.answered);
-    const toRevise = session.questions.filter((q) => q.added_to_revision).length;
     return wrap(
       <>
         <div className="bg-white rounded-[18px] shadow px-5 sm:px-7 py-6 text-center">
@@ -161,18 +154,8 @@ export default function Interview() {
           </div>
           <p className="text-sm text-gray-600 mt-3">
             {answered.length} of {total} questions answered
-            {toRevise > 0 &&
-              ` · ${toRevise} added to your revision queue`}
           </p>
           <div className="flex flex-wrap justify-center gap-3 mt-5">
-            {toRevise > 0 && (
-              <button
-                onClick={() => navigate("/revise")}
-                className="bg-white border border-indigo-300 text-indigo-700 px-5 py-2 rounded-full text-sm whitespace-nowrap"
-              >
-                Revise them
-              </button>
-            )}
             <button
               onClick={() => navigate("/interview")}
               className="bg-indigo-600 text-white px-5 py-2 rounded-full text-sm whitespace-nowrap"

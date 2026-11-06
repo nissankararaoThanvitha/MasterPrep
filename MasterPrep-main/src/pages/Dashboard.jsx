@@ -135,41 +135,9 @@ function Dashboard() {
             </button>
           </div>
 
-          {/* REVISE TODAY */}
-          {analytics && analytics.totals.revision_due > 0 && (
-            <div className="mt-6 bg-white rounded-[16px] shadow px-5 sm:px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-wide text-indigo-600">
-                  📚 Revise today
-                </p>
-                <p className="text-[17px] font-semibold mt-1">
-                  {analytics.totals.revision_due} card
-                  {analytics.totals.revision_due === 1 ? "" : "s"} due
-                </p>
-                <p className="text-sm text-gray-600 mt-0.5">
-                  Questions you missed, scheduled right before you'd forget them
-                  {analytics.totals.revision_mastered > 0 &&
-                    ` · ${analytics.totals.revision_mastered} mastered`}
-                </p>
-              </div>
-              <button
-                onClick={() => navigate("/revise")}
-                className="shrink-0 bg-indigo-600 text-white px-5 py-2 rounded-full text-sm"
-              >
-                Start revision
-              </button>
-            </div>
-          )}
-
           {/* FOCUS AREA */}
           <div className="mt-6">
-            <WeakestCard
-              weakest={analytics?.weakest}
-              dueCount={
-                analytics?.subjects.find((s) => s.subject === analytics.weakest?.subject)
-                  ?.revision_due
-              }
-            />
+            <WeakestCard weakest={analytics?.weakest} />
           </div>
 
           {/* STATS */}

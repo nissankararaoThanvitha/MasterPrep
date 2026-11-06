@@ -1,5 +1,5 @@
 import random
-from datetime import date, datetime, timedelta, timezone
+from datetime import datetime, timedelta, timezone
 
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
@@ -8,7 +8,6 @@ from sqlalchemy.orm import Session
 from auth import get_current_user
 from database import get_db
 from models import McqQuestion, QuizAttempt, QuizSession, User
-from revision_cards import add_card, get_today
 from schemas import Subject
 
 router = APIRouter(prefix="/quizzes", tags=["quizzes"])
@@ -112,7 +111,6 @@ def start_quiz(
 @router.post("", response_model=AttemptOut, status_code=201)
 def submit_quiz(
     data: SubmitIn,
-    today: date = Depends(get_today),
     user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
@@ -151,12 +149,6 @@ def submit_quiz(
             selected="Not answered" if picked is None else q.options[picked],
             correct=q.correct_option, isCorrect=is_correct, explanation=q.explanation,
         ))
-        # Every missed (or unanswered) question goes into the revision queue
-        if not is_correct:
-            add_card(
-                db, user_id=user.id, kind="mcq", subject=session.subject, question_id=qid,
-                source="quiz", today=today, missed=True,
-            )
 
     attempt = QuizAttempt(
         user_id=user.id,

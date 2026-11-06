@@ -7,8 +7,6 @@ const LINKS = [
   ["/questions", "Questions"],
   ["/quiz", "Quiz"],
   ["/interview", "Mock Interview"],
-  ["/revise", "Revise"],
-  ["/progress", "Progress"],
   ["/bookmarks", "Bookmarks"],
   ["/ai-chat", "Ask your doubts"],
 ];

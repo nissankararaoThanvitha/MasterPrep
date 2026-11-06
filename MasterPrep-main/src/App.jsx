@@ -12,8 +12,6 @@ import Quiz from "./pages/Quiz";
 import QuizResult from "./pages/QuizResult";
 import DailyReview from "./pages/DailyReview";
 import AIDoubtChat from "./pages/AIDoubtChat";
-import Progress from "./pages/Progress";
-import Revise from "./pages/Revise";
 import InterviewSetup from "./pages/InterviewSetup";
 import Interview from "./pages/Interview";
 
@@ -65,16 +63,6 @@ function App() {
         <Route
           path="/interview/:id"
           element={isLoggedIn ? <Interview /> : <Navigate to="/login" />}
-        />
-
-        <Route
-          path="/revise"
-          element={isLoggedIn ? <Revise /> : <Navigate to="/login" />}
-        />
-
-        <Route
-          path="/progress"
-          element={isLoggedIn ? <Progress /> : <Navigate to="/login" />}
         />
 
         <Route

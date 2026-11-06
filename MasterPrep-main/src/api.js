@@ -1,5 +1,3 @@
-import { dateKey } from "./dates";
-
 export const API_URL =
   import.meta.env.VITE_API_URL || "https://masterprep-5.onrender.com";
 
@@ -11,8 +9,7 @@ export const clearToken = () => localStorage.removeItem(TOKEN_KEY);
 
 /* Fetch wrapper: adds the JWT, parses JSON, throws readable errors */
 export async function apiFetch(path, options = {}) {
-  // The user's local date, so "due today" follows their calendar, not UTC
-  const headers = { "X-Local-Date": dateKey(), ...(options.headers || {}) };
+  const headers = { ...(options.headers || {}) };
   const token = getToken();
   if (token) headers.Authorization = `Bearer ${token}`;
 
